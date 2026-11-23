@@ -1,0 +1,24 @@
+{
+  "experiment": "baseline_yolo11n_all74_coco",
+  "model": "yolo11n-seg.pt",
+  "dataset": "Panoptic Indoor v5 - COCO Rebuilt",
+  "num_classes": 74,
+  "train_images": 397,
+  "validation_images": 166,
+  "test_images_reserved": 359,
+  "configured_epochs": 60,
+  "epochs_recorded": 60,
+  "highest_validation_mask_map_epoch": 45,
+  "image_size": 640,
+  "batch_size": 8,
+  "seed": 42,
+  "ultralytics_version": "8.4.216",
+  "torch_version": "2.11.0+cu130",
+  "validation_metrics": {
+    "mask_map50_95": 0.18474,
+    "mask_map50": 0.27586,
+    "box_map50_95": 0.20845
+  },
+  "test_set_evaluated": false,
+  "run_directory": "/kaggle/working/experiments/baseline_yolo11n_all74_coco"
+}
