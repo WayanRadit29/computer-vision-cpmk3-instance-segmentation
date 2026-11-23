@@ -1,40 +1,37 @@
-# Computer Vision CPMK 3 — Segmentasi Instance
+# Computer Vision CPMK 3: Segmentasi Instance
 
-Proyek ini mengevaluasi segmentasi instance pada dataset Panoptic Indoor Segmentation v5. Hasil yang saat ini terdokumentasi adalah model dasar (baseline) YOLO11n-seg untuk semua kelas; perbandingan model secara keseluruhan belum selesai.
+Proyek ini membandingkan model visi komputer yang mengenali objek di dalam ruangan dan menandai piksel yang membentuk setiap objek. Tugas ini disebut *segmentasi instance*. Jika ada dua kursi dalam satu gambar, model diharapkan menghasilkan mask tersendiri untuk setiap kursi.
 
-## Dataset
+## Data yang digunakan
 
-Dataset model dasar dibangun ulang dari anotasi segmentasi COCO ke format segmentasi instance YOLO. Dataset ini mencakup 74 kelas aktif, dengan 397 gambar pelatihan, 166 gambar validasi, dan 359 gambar uji yang disisihkan. Bagian uji belum dievaluasi.
+Eksperimen memakai Panoptic Indoor Segmentation v5 dengan 74 kelas aktif. Dataset dibagi menjadi 397 gambar untuk melatih model, 166 gambar untuk memantau kinerjanya selama pelatihan, dan 359 gambar uji yang disisihkan untuk evaluasi akhir.
 
-Manifest konversi dan laporan QA ada di [`analysis/dataset_audit/`](analysis/dataset_audit/). QA melaporkan 11.845 instance tervalidasi, tanpa poligon di luar batas dan tanpa ID kelas yang tidak valid. Sembilan kelas tidak memiliki instance pada data pelatihan; rinciannya ada pada `missing_train_classes` di [`qa_report.json`](analysis/dataset_audit/qa_report.json).
+Anotasi objek berbentuk poligon, yaitu rangkaian titik yang mengikuti batas objek pada gambar. Setelah audit awal menemukan sejumlah koordinat di luar batas gambar, label YOLO dibangun ulang dari anotasi COCO. Pemeriksaan terhadap 11.845 anotasi hasil konversi tidak menemukan poligon di luar batas atau ID kelas yang tidak valid. Sembilan kelas tidak memiliki contoh dalam bagian pelatihan. [Catatan konversi](analysis/dataset_audit/conversion_manifest.json) dan [laporan pemeriksaan data](analysis/dataset_audit/qa_report.json)
 
-## Status eksperimen
+## Hasil yang tersedia
 
-| Model / eksperimen | Status |
-| --- | --- |
-| YOLO11n-seg, 74 kelas | Model dasar selesai; validasi dilakukan |
-| YOLOv8n-seg, semua kelas | Direncanakan |
-| Mask R-CNN, semua kelas | Direncanakan |
-| Tiga kelas tersulit | Direncanakan |
-| Evaluasi pada bagian uji asli | Belum dilakukan |
+Kedua model YOLO dilatih selama 60 epoch. Satu epoch adalah satu putaran melalui data latih. Tabel menunjukkan nilai **mask mAP50–95 tertinggi pada data validasi**. Metrik ini merangkum kualitas prediksi mask pada beberapa ambang kecocokan dengan anotasi. Nilai yang lebih tinggi menunjukkan hasil yang lebih baik menurut metrik tersebut.
 
-Konfigurasi model dasar, metrik tiap epoch, ringkasan, berkas model (checkpoint), dan visualisasi tersimpan di [`experiments/yolo11n_all_classes/`](experiments/yolo11n_all_classes/). Ringkasan mencatat mAP50-95 mask validasi tertinggi sebesar 0.18474 pada epoch 45. Ini hasil validasi, bukan hasil pengujian. Metadata checkpoint `best.pt` mencatat epoch `-1`, jadi epoch pemilihan checkpoint belum diketahui dan tidak diasumsikan sebagai epoch 45.
+| Model | Mask mAP50–95 tertinggi | Epoch |
+| --- | ---: | ---: |
+| YOLO11n-seg | 0,18474 | 45 |
+| YOLOv8n-seg | 0,18264 | 48 |
 
-## Reproduksibilitas dan bukti
+Nomor epoch di tabel berasal dari riwayat validasi. Berkas model `best.pt` pada kedua eksperimen menyimpan `epoch: -1` dan `best_fitness: null`, sehingga epoch pemilihan checkpoint belum diketahui.
 
-- Notebook: [`notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb`](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb)
-- Konfigurasi dan metrik pelatihan: [`experiments/yolo11n_all_classes/args.yaml`](experiments/yolo11n_all_classes/args.yaml), [`metrics/results.csv`](experiments/yolo11n_all_classes/metrics/results.csv), dan [`metrics/summary.json`](experiments/yolo11n_all_classes/metrics/summary.json)
-- Konversi dan validasi dataset: [`analysis/dataset_audit/conversion_manifest.json`](analysis/dataset_audit/conversion_manifest.json), [`analysis/dataset_audit/qa_report.json`](analysis/dataset_audit/qa_report.json), dan [`analysis/dataset_audit/rebuilt_yolo_mask_inspection.png`](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png)
-- Verifikasi orientasi: [`evidence/orientation_fixes_verification.png`](evidence/orientation_fixes_verification.png)
-- Keputusan dan kendala eksperimen: [`logbook.md`](logbook.md)
-- Pernyataan penggunaan AI: [`ai_usage.md`](ai_usage.md)
+Hasil Mask R-CNN belum tersedia di proyek. Eksperimen pada tiga kelas tersulit masih direncanakan untuk ketiga model. Evaluasi pada 359 gambar uji asli belum dilakukan, dan hasil evaluasi foto pribadi belum tersedia. Perbandingan akhir masih menunggu tahap tersebut.
 
-Durasi pelatihan dihitung dari nilai kumulatif terakhir pada kolom `time` di `results.csv`: 599.949 detik, sekitar 10 menit. Tangkapan layar antarmuka Kaggle yang diberikan menampilkan waktu eksekusi notebook 15m26s; berkasnya masih perlu dipindahkan ke `evidence/gpu_usage/` secara manual oleh pemilik proyek. Kedua durasi ini mengukur hal yang berbeda. Log pelatihan dan konfigurasi `device=0` menunjukkan satu GPU dipakai untuk pelatihan model, sedangkan label `GPU T4 x2` pada tangkapan layar menunjukkan alokasi sesi Kaggle.
+## Cara menemukan hasil dan bukti
 
-## Batasan yang diketahui
+| Model | Konfigurasi pelatihan | Riwayat per epoch | Ringkasan dan grafik |
+| --- | --- | --- | --- |
+| YOLO11n-seg | [args.yaml](experiments/yolo11n_all_classes/args.yaml) | [results.csv](experiments/yolo11n_all_classes/metrics/results.csv) | [Ringkasan](experiments/yolo11n_all_classes/metrics/summary.json), [grafik](experiments/yolo11n_all_classes/metrics/results.png) |
+| YOLOv8n-seg | [args.yaml](experiments/yolov8n_all_classes/args.yaml) | [results.csv](experiments/yolov8n_all_classes/metrics/results.csv) | [Ringkasan](experiments/yolov8n_all_classes/metrics/summary.json), [grafik](experiments/yolov8n_all_classes/metrics/results.png) |
 
-- Bagian uji asli belum dievaluasi.
-- Eksperimen YOLOv8n-seg, Mask R-CNN, dan tiga kelas tersulit masih direncanakan.
-- Sembilan kelas tidak muncul pada data pelatihan, seperti tercantum dalam laporan QA.
-- Berkas audit anotasi awal dan salinan lokal tangkapan layar waktu eksekusi Kaggle belum ada di repositori.
-- Epoch pemilihan checkpoint tidak dapat dipulihkan dari metadata saat ini (`epoch: -1`, `best_fitness: null`).
+Folder setiap eksperimen memuat visualisasi. Berkas bobot model seperti `best.pt`, `last.pt`, dan checkpoint berkala tersimpan secara lokal di subfolder `weights/`. Notebook Kaggle kedua model memuat langkah penyiapan data, konfigurasi, dan keluaran pelatihan. [Notebook YOLO11n](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb) dan [notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb)
+
+Log kedua notebook mencatat Tesla T4 dengan konfigurasi `device=0`. CSV mencatat durasi pelatihan 599,949 detik untuk YOLO11n dan 571,242 detik untuk YOLOv8n. Untuk durasi eksekusi notebook, tampilan Kaggle mencatat 15 menit 26 detik pada YOLO11n, sedangkan metadata Papermill di notebook YOLOv8n mencatat 723,431 detik atau sekitar 12 menit 3 detik. Tampilan Kaggle YOLO11n juga menunjukkan alokasi sesi `GPU T4 x2`. [Tangkapan layar Kaggle YOLO11n](evidence/gpu_usage/YOLO11n-seg_all_class.png) dan [notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb)
+
+- Lihat contoh mask hasil konversi dan mask setelah gambar dikoreksi. [Inspeksi mask](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png) dan [pemeriksaan orientasi](evidence/orientation_fixes_verification.png)
+- Ikuti urutan eksperimen, temuan, dan keputusan teknis. [Logbook](logbook.md)
+- Lihat bagian yang dibantu AI dan cara keluarannya diperiksa. [Pernyataan penggunaan AI](ai_usage.md)
