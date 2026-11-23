@@ -10,27 +10,25 @@ Anotasi objek berbentuk poligon, yaitu rangkaian titik yang mengikuti batas obje
 
 ## Hasil yang tersedia
 
-Kedua model YOLO dilatih selama 60 epoch. Satu epoch adalah satu putaran melalui data latih. Tabel menunjukkan nilai **mask mAP50–95 tertinggi pada data validasi**. Metrik ini merangkum kualitas prediksi mask pada beberapa ambang kecocokan dengan anotasi. Nilai yang lebih tinggi menunjukkan hasil yang lebih baik menurut metrik tersebut.
+Kedua model YOLO dilatih selama 60 epoch dan Mask R-CNN selama 20 epoch. Satu epoch adalah satu putaran melalui data latih. Tabel menunjukkan nilai **mask mAP50-95 tertinggi pada data validasi**. Metrik ini merangkum kualitas prediksi mask pada beberapa ambang kecocokan dengan anotasi.
 
 | Model | Mask mAP50–95 tertinggi | Epoch |
 | --- | ---: | ---: |
 | YOLO11n-seg | 0,18474 | 45 |
 | YOLOv8n-seg | 0,18264 | 48 |
+| Mask R-CNN ResNet-50 FPN | 0,14838 | 17 |
 
-Nomor epoch di tabel berasal dari riwayat validasi. Berkas model `best.pt` pada kedua eksperimen menyimpan `epoch: -1` dan `best_fitness: null`, sehingga epoch pemilihan checkpoint belum diketahui.
+Ketiga model menggunakan pembagian gambar validasi yang sama. Mask R-CNN dievaluasi dengan COCOeval, sementara kedua model YOLO memakai evaluator Ultralytics. Protokol evaluasi dan konfigurasi pelatihan yang berbeda membatasi kesimpulan tentang pengaruh arsitektur terhadap skor. Evaluasi pada 359 gambar uji, evaluasi foto pribadi, dan eksperimen tiga kelas tersulit belum dilakukan.
 
-Hasil Mask R-CNN belum tersedia di proyek. Eksperimen pada tiga kelas tersulit masih direncanakan untuk ketiga model. Evaluasi pada 359 gambar uji asli belum dilakukan, dan hasil evaluasi foto pribadi belum tersedia. Perbandingan akhir masih menunggu tahap tersebut.
-
-## Cara menemukan hasil dan bukti
+## Hasil lengkap dan notebook
 
 | Model | Konfigurasi pelatihan | Riwayat per epoch | Ringkasan dan grafik |
 | --- | --- | --- | --- |
 | YOLO11n-seg | [args.yaml](experiments/yolo11n_all_classes/args.yaml) | [results.csv](experiments/yolo11n_all_classes/metrics/results.csv) | [Ringkasan](experiments/yolo11n_all_classes/metrics/summary.json), [grafik](experiments/yolo11n_all_classes/metrics/results.png) |
 | YOLOv8n-seg | [args.yaml](experiments/yolov8n_all_classes/args.yaml) | [results.csv](experiments/yolov8n_all_classes/metrics/results.csv) | [Ringkasan](experiments/yolov8n_all_classes/metrics/summary.json), [grafik](experiments/yolov8n_all_classes/metrics/results.png) |
+| Mask R-CNN | [config.json](experiments/maskrcnn_all_classes/config.json) | [results.csv](experiments/maskrcnn_all_classes/metrics/results.csv) | [Ringkasan](experiments/maskrcnn_all_classes/metrics/summary.json), [grafik](experiments/maskrcnn_all_classes/metrics/validation_metrics.png), [AP per kelas](experiments/maskrcnn_all_classes/metrics/per_class_val_ap.csv) |
 
-Folder setiap eksperimen memuat visualisasi. Berkas bobot model seperti `best.pt`, `last.pt`, dan checkpoint berkala tersimpan secara lokal di subfolder `weights/`. Notebook Kaggle kedua model memuat langkah penyiapan data, konfigurasi, dan keluaran pelatihan. [Notebook YOLO11n](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb) dan [notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb)
-
-Log kedua notebook mencatat Tesla T4 dengan konfigurasi `device=0`. CSV mencatat durasi pelatihan 599,949 detik untuk YOLO11n dan 571,242 detik untuk YOLOv8n. Untuk durasi eksekusi notebook, tampilan Kaggle mencatat 15 menit 26 detik pada YOLO11n, sedangkan metadata Papermill di notebook YOLOv8n mencatat 723,431 detik atau sekitar 12 menit 3 detik. Tampilan Kaggle YOLO11n juga menunjukkan alokasi sesi `GPU T4 x2`. [Tangkapan layar Kaggle YOLO11n](evidence/gpu_usage/YOLO11n-seg_all_class.png) dan [notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb)
+Notebook Kaggle memuat penyiapan data, konfigurasi, dan keluaran pelatihan. [Notebook YOLO11n](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb), [notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb), dan [notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb)
 
 - Lihat contoh mask hasil konversi dan mask setelah gambar dikoreksi. [Inspeksi mask](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png) dan [pemeriksaan orientasi](evidence/orientation_fixes_verification.png)
 - Ikuti urutan eksperimen, temuan, dan keputusan teknis. [Logbook](logbook.md)

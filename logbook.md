@@ -1,6 +1,6 @@
 # Logbook Eksperimen CPMK 3
 
-Catatan ini mengikuti proses penyiapan data dan pelatihan model segmentasi instance untuk Panoptic Indoor Segmentation v5. Setiap tahap mencantumkan sumber yang dapat diperiksa dan keterbatasan bukti yang tersedia.
+Catatan ini menjelaskan keputusan penyiapan data, pengaturan pelatihan, dan hasil validasi ketiga model pada Panoptic Indoor Segmentation v5.
 
 ## A. Audit anotasi YOLO awal (20 November 2026)
 
@@ -45,19 +45,13 @@ Kolom `time` mencatat waktu kumulatif. Nilai terakhirnya adalah 599,949 detik at
 
 Setelah 60 epoch selesai, sel ekspor melaporkan `AssertionError: Mask mAP column not found.` Kode yang disusun dengan bantuan AI mencari `metrics/seg(mAP50-95)`. Pemeriksaan CSV menemukan nama kolom yang dipakai, yaitu `metrics/mAP50-95(M)` dan `metrics/mAP50(M)`. Sel ekspor disesuaikan dengan kedua nama itu, dan notebook yang tersimpan memperlihatkan ringkasan validasi setelah koreksi. Pelajarannya adalah memeriksa nama kolom dari hasil eksekusi sebelum menulis kode yang membacanya. [CSV pelatihan](experiments/yolo11n_all_classes/metrics/results.csv) dan [notebook](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb)
 
-## F. Konflik versi notebook Kaggle (21 November 2026)
-
-Saat notebook hendak disimpan kembali, Kaggle melaporkan `ConcurrencyViolation` dengan `ExpectedSequence=49, ActualSequence=48`. Catatan proyek mengaitkan pesan ini dengan sinkronisasi versi notebook. Langkah pemulihan yang dilakukan belum terdokumentasi.
-
 ## Catatan retrospektif (23 November 2026 WIB)
 
-Hipotesis awal belum dicatat sebelum pelatihan pertama (3 model untuk semua kelas). Catatan ini ditulis setelah pelatihan untuk menjelaskan keterbatasan dokumentasi eksperimen pertama.
+Hipotesis untuk perbandingan tiga model pada semua kelas belum dicatat sebelum pelatihan pertama.
 
-## G. Pelatihan dan integrasi YOLOv8n-seg (22–23 November 2026 WIB)
+## F. Pelatihan YOLOv8n-seg untuk semua kelas (22 November 2026)
 
-YOLOv8n-seg dilatih sebagai model kedua dengan pembagian data yang sama. Penanda waktu checkpoint berasal dari 22 November, dan hasilnya ditata di proyek pada 23 November. Konfigurasi memakai `yolov8n-seg.pt`, `epochs=60`, `imgsz=640`, `batch=8`, `seed=42`, `device=0`, `val=true`, dan `split: val`. Metadata checkpoint mencatat Ultralytics 8.4.216. Ringkasan ekspor mencatat Tesla T4 dan PyTorch `2.11.0+cu130`. [Konfigurasi](experiments/yolov8n_all_classes/args.yaml) dan [ringkasan](experiments/yolov8n_all_classes/metrics/summary.json)
-
-Daftar, ukuran, dan nilai pemeriksaan CRC untuk gambar serta label sama di kedua ZIP eksperimen. Saat ZIP YOLOv8n dibandingkan dengan salinan lokal, 1.845 dari 1.849 entri cocok melalui SHA-256. Empat pengecualian terdiri atas dua cache label dengan byte berbeda, `qa_report.json` dengan isi JSON sama meski byte berbeda, dan satu label validasi kosong yang ada di kedua ZIP tetapi tidak ada di salinan lokal (`182169175_jpg.rf.a8d223203fc5bd311086fdf38e40eb0a.txt`).
+YOLOv8n-seg memakai pembagian data, ukuran gambar (`imgsz=640`), ukuran batch (`batch=8`), dan seed (42) yang sama dengan YOLO11n-seg. Pelatihan dimulai dari bobot pralatih `yolov8n-seg.pt` dan menggunakan Ultralytics 8.4.216. [Konfigurasi](experiments/yolov8n_all_classes/args.yaml) dan [ringkasan](experiments/yolov8n_all_classes/metrics/summary.json)
 
 CSV mencatat epoch 1–60. Nilai terakhir pada kolom waktu kumulatif adalah 571,242 detik atau sekitar 9 menit 31 detik pelatihan. Log pelatihan di notebook juga mencatat 60 epoch selesai pada Tesla T4 (`CUDA:0`). Metadata Papermill mencatat 723,431 detik atau sekitar 12 menit 3 detik untuk eksekusi notebook. Semua angka berikut berasal dari epoch 48, saat mask mAP50–95 validasi mencapai puncaknya. [Riwayat pelatihan](experiments/yolov8n_all_classes/metrics/results.csv) dan [notebook Kaggle](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb)
 
@@ -73,6 +67,23 @@ Precision menggambarkan ketepatan prediksi yang dibuat. Recall menggambarkan cak
 
 Mask mAP50–95 validasi naik dari 0,09086 pada epoch 1 ke 0,18264 pada epoch 48, lalu turun ke 0,17153 pada epoch 60. Rata-rata nilai ini turun dari 0,17794 pada epoch 41–50 ke 0,16464 pada epoch 51–60. Dari epoch 1 ke 60, `train/seg_loss` turun dari 3,45219 ke 1,60909 dan `val/seg_loss` turun dari 2,93706 ke 2,09987. Penurunan mAP di akhir belum cukup untuk menyimpulkan overfitting. [Grafik pelatihan](experiments/yolov8n_all_classes/metrics/results.png)
 
-Sebanyak 42 berkas dari `yolov8n_all_class.zip` disalin ke folder `experiments/yolov8n_all_classes/` dan dicocokkan berdasarkan ukuran dan SHA-256, termasuk konfigurasi, tiga berkas metrik, 23 visualisasi, dan 15 berkas bobot. Empat gambar audit dan keluaran sel yang cocok dengan berkas lama digunakan kembali. Notebook Kaggle ditambahkan secara terpisah pada 23 November. Keluaran sel ekspor memuat ringkasan yang sama dengan `summary.json` di folder eksperimen. Salinan notebook tidak memuat keluaran sel bertipe error. [Notebook Kaggle](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb)
+## G. Pelatihan Mask R-CNN untuk semua kelas (23 November 2026 WIB)
 
-Ringkasan mencatat `test_set_evaluated: false`. Hasil evaluasi pada set uji asli dan foto pribadi, hasil Mask R-CNN, serta eksperimen tiga kelas tersulit belum tersedia.
+Eksperimen ketiga memakai Mask R-CNN dengan ResNet-50 FPN dan bobot pralatih COCO dari Torchvision. Model memiliki 74 kelas objek dan satu kelas latar belakang. Pelatihan memakai Tesla T4 (`cuda:0`), `batch_size=2`, SGD dengan laju belajar awal 0,005, dan seed 42. Notebook mencatat PyTorch `2.11.0+cu130` dan Torchvision `0.26.0+cu130`. [Konfigurasi](experiments/maskrcnn_all_classes/config.json) dan [notebook Kaggle](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb)
+
+Mask R-CNN memakai anotasi COCO dengan koreksi orientasi pada empat gambar yang dijelaskan di bagian B. Pembagian gambar tetap mengikuti dataset awal. Kategori kosong ID 0 dikeluarkan dari daftar kelas objek. [Catatan koreksi](experiments/maskrcnn_all_classes/corrected_annotations/repair_manifest.json) dan [pemeriksaan visual](experiments/maskrcnn_all_classes/visualizations/annotation_sanity_check.png)
+
+Pelatihan menyelesaikan 20 epoch. Kolom waktu kumulatif pada CSV berakhir di 2.238,738 detik, sekitar 37 menit 19 detik untuk putaran pelatihan dan validasi. Dari kolom per epoch, total waktu yang diukur di bagian pelatihan sekitar 23 menit 18 detik, dan di bagian validasi sekitar 13 menit 48 detik. Metadata Papermill mencatat 2.342,766 detik atau sekitar 39 menit 3 detik untuk seluruh eksekusi notebook. [Riwayat pelatihan](experiments/maskrcnn_all_classes/metrics/results.csv) dan [notebook Kaggle](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb)
+
+COCOeval menilai kotak dan mask pada 166 gambar validasi. Mask mAP50-95 meningkat dari 0,03887 pada epoch pertama ke puncak 0,14838 pada epoch 17, lalu berakhir di 0,14693. Notebook menyimpan `best.pth` saat mask mAP50-95 validasi meningkat. Tabel berikut berisi nilai pada epoch 17. [Ringkasan hasil](experiments/maskrcnn_all_classes/metrics/summary.json) dan [grafik validasi](experiments/maskrcnn_all_classes/metrics/validation_metrics.png)
+
+| Metrik validasi pada epoch 17 | Nilai |
+| --- | ---: |
+| Mask mAP50-95 | 0,14838 |
+| Mask mAP50 | 0,22246 |
+| Box mAP50-95 | 0,15425 |
+| Box mAP50 | 0,24088 |
+
+Tabel AP per kelas berasal dari checkpoint terbaik. Sebanyak 16 dari 74 kelas tidak punya contoh pada data validasi dan nilai AP-nya kosong. Angka kosong perlu dibedakan dari AP nol saat memilih kelas tersulit. [AP validasi per kelas](experiments/maskrcnn_all_classes/metrics/per_class_val_ap.csv)
+
+Ketiga hasil yang dilaporkan berasal dari data validasi. Evaluasi pada set uji asli dan foto pribadi, serta pelatihan khusus tiga kelas tersulit, belum dilakukan.

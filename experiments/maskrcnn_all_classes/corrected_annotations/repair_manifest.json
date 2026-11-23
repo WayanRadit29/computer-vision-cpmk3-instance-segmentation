@@ -1,0 +1,54 @@
+[
+  {
+    "split": "train",
+    "file_name": "182169107_jpg.rf.c9b1bbecf1474a5b36a6df197c30dfed.jpg",
+    "rotation": "CCW",
+    "original_size": [
+      640,
+      480
+    ],
+    "actual_size": [
+      480,
+      640
+    ]
+  },
+  {
+    "split": "train",
+    "file_name": "182169121_jpg.rf.eb0ccb71d0ea38adf1e38bf9c02a4a15.jpg",
+    "rotation": "CCW",
+    "original_size": [
+      640,
+      480
+    ],
+    "actual_size": [
+      480,
+      640
+    ]
+  },
+  {
+    "split": "valid",
+    "file_name": "182169109_jpg.rf.0531e60eb6e404d9633ed0c23a381fe7.jpg",
+    "rotation": "CW",
+    "original_size": [
+      640,
+      480
+    ],
+    "actual_size": [
+      480,
+      640
+    ]
+  },
+  {
+    "split": "valid",
+    "file_name": "182169108_jpg.rf.205d9f1ed8f888006b8f97fc29eb8790.jpg",
+    "rotation": "CCW",
+    "original_size": [
+      640,
+      480
+    ],
+    "actual_size": [
+      480,
+      640
+    ]
+  }
+]

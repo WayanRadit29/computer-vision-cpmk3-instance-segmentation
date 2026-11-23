@@ -1,0 +1,30 @@
+{
+  "experiment": "maskrcnn_all74_coco",
+  "architecture": "Mask R-CNN ResNet-50 FPN",
+  "pretrained": "Torchvision COCO pretrained",
+  "object_classes": 74,
+  "model_classes_including_background": 75,
+  "train_images": 397,
+  "validation_images": 166,
+  "max_epochs": 20,
+  "max_runtime_minutes": 105,
+  "batch_size": 2,
+  "learning_rate": 0.005,
+  "optimizer": "SGD",
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "scheduler_milestones": [
+    10,
+    15
+  ],
+  "image_min_size": 640,
+  "image_max_size": 960,
+  "seed": 42,
+  "gpu": "Tesla T4",
+  "device": "cuda:0",
+  "amp_enabled": true,
+  "torch_version": "2.11.0+cu130",
+  "torchvision_version": "0.26.0+cu130",
+  "validation_protocol": "COCOeval bbox and segm",
+  "test_set_evaluated": false
+}

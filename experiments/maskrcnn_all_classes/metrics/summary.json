@@ -1,0 +1,23 @@
+{
+  "experiment": "maskrcnn_all74_coco",
+  "architecture": "Mask R-CNN ResNet-50 FPN",
+  "num_object_classes": 74,
+  "background_class": 0,
+  "gpu": "Tesla T4",
+  "gpu_count_used": 1,
+  "configured_max_epochs": 20,
+  "epochs_completed": 20,
+  "best_epoch": 17,
+  "best_validation_metrics": {
+    "box_map50_95": 0.15424673666296695,
+    "box_map50": 0.24088024219741896,
+    "mask_map50_95": 0.14838387915459095,
+    "mask_map50": 0.222464096126127
+  },
+  "recorded_training_and_validation_seconds": 2238.738107909,
+  "recorded_training_and_validation_minutes": 37.31230179848333,
+  "selection_metric": "validation mask mAP50-95",
+  "test_set_evaluated": false,
+  "checkpoint_best": "weights/best.pth",
+  "checkpoint_last": "weights/last.pth"
+}

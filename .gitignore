@@ -17,6 +17,7 @@ venv/
 
 # Dataset, foto pribadi, dan metadata
 /data/
+/experiments/maskrcnn_all_classes/corrected_annotations/*_corrected.json
 /evidence/photo_metadata/
 /evidence/annotation_screenshots/
 *.exif
