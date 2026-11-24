@@ -42,3 +42,7 @@ Mean, standar deviasi, dan urutan kandidat dapat ditelusuri ke AP per kelas keti
 ### Hipotesis sebelum pelatihan Hard-3
 
 AI membantu merumuskan H1, H2, dan H3 sebagai prediksi yang terukur, menelaah dasar empiris dan teknisnya, serta merancang pembandingan pada tiga kategori yang sama. AP baseline digunakan untuk memeriksa dasar H2 dan H3. Penjelasan arsitektur dipakai sebagai dugaan yang perlu diuji. Peneliti menetapkan tiga kelas final dan arah hipotesis. [Hipotesis](logbook.md#hipotesis-hard-3) dan [rancangan pengujian](logbook.md#rancangan-pengujian-hipotesis-hard-3).
+
+### Implementasi notebook Hard-3
+
+AI membantu mengadaptasi notebook baseline menjadi satu alur Kaggle untuk persiapan dataset, pelatihan berurutan, COCOeval pada validation, dan ekspor. Konfigurasi asal, jumlah anotasi target, serta pemetaan kategori diperiksa terhadap artefak penelitian. Pemeriksaan lokal mencakup struktur dan sintaks notebook. Perilaku pelatihan, pemuatan checkpoint hasil run baru, dan COCOeval pada GPU masih memerlukan verifikasi saat notebook dijalankan di Kaggle. [Notebook Hard-3](notebooks/CPMK3_Hard3_All_Models.ipynb).

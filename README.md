@@ -34,6 +34,8 @@ Notebook Kaggle memuat penyiapan data, konfigurasi, dan keluaran pelatihan. [Not
 
 Artefak evaluasi bersama berada di `analysis/all_class_comparison/` dan grafiknya di `analysis/figures/`. Untuk menelusuri protokol, mulai dari konfigurasi yang memuat versi pustaka, identitas checkpoint, dan aturan prediksi. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json), [metrik per model](analysis/all_class_comparison/model_comparison.csv), [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv).
 
+Notebook Hard-3 menyiapkan anotasi, melatih ketiga model secara berurutan, dan membandingkan AP pada tiga kelas yang sama di validation. Untuk menjalankannya di Kaggle, pasang versi dataset COCO yang digunakan pada baseline dan lampirkan `evaluation_config.json` serta `per_class_ap_comparison.csv` dari evaluasi all-class. Pengaturan GPU, direktori hasil, dan prosedur pemulihan tercantum di notebook. [Notebook pelatihan Hard-3](notebooks/CPMK3_Hard3_All_Models.ipynb).
+
 - Lihat contoh mask hasil konversi dan mask setelah gambar dikoreksi. [Inspeksi mask](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png) dan [pemeriksaan orientasi](evidence/orientation_fixes_verification.png)
 - Ikuti urutan eksperimen, temuan, dan keputusan teknis. [Logbook](logbook.md)
 - Baca analisis komparatif baseline dan rencana pemilihan kelas tersulit. [Laporan penelitian](analysis/report.md)
