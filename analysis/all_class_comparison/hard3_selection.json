@@ -1,0 +1,64 @@
+{
+  "dataset_split": "validation",
+  "validation_images": 166,
+  "selection_metric": "mean_mask_ap50_95",
+  "models": [
+    "yolo11n",
+    "yolov8n",
+    "maskrcnn"
+  ],
+  "minimum_train_instances": 10,
+  "minimum_validation_instances": 5,
+  "eligible_classes": 39,
+  "total_classes": 74,
+  "selection_direction": "ascending",
+  "tie_breakers": [
+    "higher_validation_instances",
+    "higher_train_instances",
+    "lower_category_id"
+  ],
+  "selection_status": "provisional_pending_visual_review",
+  "original_test_used": false,
+  "personal_test_used": false,
+  "selected_classes": [
+    {
+      "category_id": 8,
+      "class_name": "cabinet-merged",
+      "train_instances": 47,
+      "val_instances": 19,
+      "yolo11n_mask_ap": 0.014685616,
+      "yolov8n_mask_ap": 0.0268564356,
+      "maskrcnn_mask_ap": 0.0068447461,
+      "mean_mask_ap": 0.0161289326,
+      "std_mask_ap": 0.0082332376,
+      "eligibility": "eligible",
+      "difficulty_rank": 1
+    },
+    {
+      "category_id": 4,
+      "class_name": "book",
+      "train_instances": 105,
+      "val_instances": 15,
+      "yolo11n_mask_ap": 0.0036846454,
+      "yolov8n_mask_ap": 0.0231913485,
+      "maskrcnn_mask_ap": 0.0351737464,
+      "mean_mask_ap": 0.0206832468,
+      "std_mask_ap": 0.0129771286,
+      "eligibility": "eligible",
+      "difficulty_rank": 2
+    },
+    {
+      "category_id": 2,
+      "class_name": "bed",
+      "train_instances": 26,
+      "val_instances": 6,
+      "yolo11n_mask_ap": 0.0126237624,
+      "yolov8n_mask_ap": 0.0601131542,
+      "maskrcnn_mask_ap": 0.0016030174,
+      "mean_mask_ap": 0.024779978,
+      "std_mask_ap": 0.0253862063,
+      "eligibility": "eligible",
+      "difficulty_rank": 3
+    }
+  ]
+}

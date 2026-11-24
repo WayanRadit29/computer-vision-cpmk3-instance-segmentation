@@ -8,17 +8,19 @@ Eksperimen memakai Panoptic Indoor Segmentation v5 dengan 74 kelas aktif. Datase
 
 Anotasi objek berbentuk poligon, yaitu rangkaian titik yang mengikuti batas objek pada gambar. Setelah audit awal menemukan sejumlah koordinat di luar batas gambar, label YOLO dibangun ulang dari anotasi COCO. Pemeriksaan terhadap 11.845 anotasi hasil konversi tidak menemukan poligon di luar batas atau ID kelas yang tidak valid. Sembilan kelas tidak memiliki contoh dalam bagian pelatihan. [Catatan konversi](analysis/dataset_audit/conversion_manifest.json) dan [laporan pemeriksaan data](analysis/dataset_audit/qa_report.json)
 
-## Hasil yang tersedia
+## Hasil validasi
 
-Kedua model YOLO dilatih selama 60 epoch dan Mask R-CNN selama 20 epoch. Satu epoch adalah satu putaran melalui data latih. Tabel menunjukkan nilai **mask mAP50-95 tertinggi pada data validasi**. Metrik ini merangkum kualitas prediksi mask pada beberapa ambang kecocokan dengan anotasi.
+Pelatihan all-class kedua YOLO selesai dalam 60 epoch dan Mask R-CNN dalam 20 epoch. Checkpoint ketiganya kemudian dinilai dengan COCOeval pada 166 gambar validation dan ground truth COCO yang sama. Mask mAP50–95 merangkum ketepatan mask pada beberapa ambang kecocokan dengan anotasi.
 
-| Model | Mask mAP50–95 tertinggi | Epoch |
-| --- | ---: | ---: |
-| YOLO11n-seg | 0,18474 | 45 |
-| YOLOv8n-seg | 0,18264 | 48 |
-| Mask R-CNN ResNet-50 FPN | 0,14838 | 17 |
+| Model | Mask mAP50–95 (%) | Mask mAP50 (%) | Waktu pipeline (detik) |
+| --- | ---: | ---: | ---: |
+| YOLO11n-seg | 17,029 | 24,753 | 31,82 |
+| YOLOv8n-seg | 16,704 | 25,922 | 19,78 |
+| Mask R-CNN ResNet-50 FPN | 15,489 | 23,252 | 40,23 |
 
-Ketiga model menggunakan pembagian gambar validasi yang sama. Mask R-CNN dievaluasi dengan COCOeval, sementara kedua model YOLO memakai evaluator Ultralytics. Protokol evaluasi dan konfigurasi pelatihan yang berbeda membatasi kesimpulan tentang pengaruh arsitektur terhadap skor. Evaluasi pada 359 gambar uji, evaluasi foto pribadi, dan eksperimen tiga kelas tersulit belum dilakukan.
+YOLO11n memperoleh mask mAP50–95 tertinggi pada validasi. YOLOv8n memperoleh mask mAP50 tertinggi dan durasi pipeline terpendek. Evaluasi memakai evaluator yang sama, dengan resize dan NMS sesuai pipeline masing-masing. Waktu yang dilaporkan adalah waktu pipeline untuk 166 gambar. [Analisis evaluasi bersama](analysis/all_class_comparison/analysis.md).
+
+Kandidat Hard-3 sementara adalah `cabinet-merged`, `book`, dan `bed`, berdasarkan mean Mask AP50–95 terendah di antara kelas yang memenuhi syarat. Tinjauan contoh validation dan konfirmasi kelas mendahului eksperimen Hard-3. Original test dan personal test tetap disisihkan untuk evaluasi akhir. [Ranking kandidat](analysis/all_class_comparison/hard3_ranking.csv).
 
 ## Hasil lengkap dan notebook
 
@@ -29,6 +31,8 @@ Ketiga model menggunakan pembagian gambar validasi yang sama. Mask R-CNN dievalu
 | Mask R-CNN | [config.json](experiments/maskrcnn_all_classes/config.json) | [results.csv](experiments/maskrcnn_all_classes/metrics/results.csv) | [Ringkasan](experiments/maskrcnn_all_classes/metrics/summary.json), [grafik](experiments/maskrcnn_all_classes/metrics/validation_metrics.png), [AP per kelas](experiments/maskrcnn_all_classes/metrics/per_class_val_ap.csv) |
 
 Notebook Kaggle memuat penyiapan data, konfigurasi, dan keluaran pelatihan. [Notebook YOLO11n](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb), [notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb), dan [notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb)
+
+Artefak evaluasi bersama berada di `analysis/all_class_comparison/` dan grafiknya di `analysis/figures/`. Untuk menelusuri protokol, mulai dari konfigurasi yang memuat versi pustaka, identitas checkpoint, dan aturan prediksi. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json), [metrik per model](analysis/all_class_comparison/model_comparison.csv), [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv).
 
 - Lihat contoh mask hasil konversi dan mask setelah gambar dikoreksi. [Inspeksi mask](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png) dan [pemeriksaan orientasi](evidence/orientation_fixes_verification.png)
 - Ikuti urutan eksperimen, temuan, dan keputusan teknis. [Logbook](logbook.md)

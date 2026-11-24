@@ -1,0 +1,50 @@
+{
+  "device": "cuda:0",
+  "gpu": "Tesla T4",
+  "seed": 42,
+  "torch_version": "2.11.0+cu130",
+  "torchvision_version": "0.26.0+cu130",
+  "ultralytics_version": "8.4.216",
+  "dataset_root": "/kaggle/input/datasets/wayanradityaputra/panoptic-indoor-segmentation-v5-coco-format",
+  "dataset_split": "validation",
+  "num_images": 166,
+  "num_classes": 74,
+  "confidence_threshold": 0.001,
+  "max_detections": 100,
+  "mask_threshold": 0.5,
+  "yolo_image_size": 640,
+  "yolo_nms_iou": 0.7,
+  "maskrcnn_min_size": 640,
+  "maskrcnn_max_size": 960,
+  "maskrcnn_nms_iou": 0.5,
+  "minimum_train_instances": 10,
+  "minimum_val_instances": 5,
+  "orientation_fixes": [
+    {
+      "image_id": 8,
+      "file_name": "182169109_jpg.rf.0531e60eb6e404d9633ed0c23a381fe7.jpg",
+      "rotation": "CW"
+    },
+    {
+      "image_id": 27,
+      "file_name": "182169108_jpg.rf.205d9f1ed8f888006b8f97fc29eb8790.jpg",
+      "rotation": "CCW"
+    }
+  ],
+  "checkpoints": {
+    "yolo11n": {
+      "path": "/kaggle/input/models/wayanradityaputra/cpmk3-yolo11n-seg/pytorch/all-classes/1/best.pt",
+      "sha256": "bcfc5e73096871f15394987a6683531b9a9baabb3e14026c575bd2a94a14defc"
+    },
+    "yolov8n": {
+      "path": "/kaggle/input/models/wayanradityaputra/cpmk3-yolov8n-seg/pytorch/all-classes/1/best.pt",
+      "sha256": "4e19c04c344e0849cbf1d1154db89233ab9be5f0ffb817513e7ad611e28b19f6"
+    },
+    "maskrcnn": {
+      "path": "/kaggle/input/models/wayanradityaputra/cpmk3-mask-rcnn/pytorch/all-classes/1/best.pth",
+      "sha256": "32165bb4e2d822300237ce64f5a969423cd4dbd6f32b559bf5a4cd8ade31cafe"
+    }
+  },
+  "retraining_performed": false,
+  "test_set_evaluated": false
+}

@@ -10,6 +10,7 @@ ChatGPT membantu menyiapkan data, menyusun kode eksperimen YOLO, dan mendokument
 | YOLO11n-seg | Menyusun dan menjelaskan konfigurasi notebook serta membantu memperbaiki kode pengambilan metrik setelah pelatihan. |
 | YOLOv8n-seg | Membantu menyusun notebook, menyelaraskan konfigurasi dengan YOLO11n-seg, serta menyusun kode pelatihan dan ekspor metrik. [Notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb) |
 | Mask R-CNN | Membantu membaca dan mendokumentasikan hasil. Penggunaan AI saat penyusunan notebook pelatihan belum terdokumentasi. [Notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb) |
+| Evaluasi bersama dan Hard-3 | Membantu menelaah rancangan evaluasi, koreksi ground truth, pemetaan COCO–YOLO, serta aturan pemeringkatan. Bantuan pada tahap analisis mencakup penataan artefak untuk reproduksi, penghitungan ulang mean dan SD AP, dan penjelasan keterbatasan. Riwayat bantuan AI untuk penyusunan notebook evaluasi dan rekonstruksi ground truth belum dapat dirinci dari artefak yang ada. [Analisis evaluasi](analysis/all_class_comparison/analysis.md) |
 | Dokumentasi | Membantu merangkum metode, metrik, dan keterbatasan eksperimen berdasarkan konfigurasi dan hasil pelatihan. [Logbook](logbook.md) |
 
 ## Kesalahan kode yang ditemukan dan cara memperbaikinya
@@ -27,3 +28,13 @@ Daftar berikut merangkum permintaan kepada AI selama eksperimen.
 3. Susun pelatihan YOLO11n-seg dengan pembagian data dan konfigurasi yang dapat ditelusuri.
 4. Ambil metrik validasi dari hasil pelatihan dan jelaskan maknanya.
 5. Susun dokumentasi CPMK 3 berdasarkan bukti, termasuk status eksperimen dan penggunaan AI.
+
+### Cuplikan prompt evaluasi bersama
+
+> Hitung ulang mean AP dan ranking dari data aktual sebagai pemeriksaan konsistensi.
+>
+> Jangan menggunakan original test atau personal test untuk menentukan Hard-3.
+>
+> Laporkan tiga kandidat Hard-3 untuk mendapatkan konfirmasi pengguna sebelum menetapkannya sebagai keputusan final.
+
+Mean, standar deviasi, dan urutan kandidat dapat ditelusuri ke AP per kelas ketiga model. Keputusan akhir Hard-3 memerlukan konfirmasi peneliti setelah meninjau bukti validation. [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv) dan [aturan seleksi](analysis/all_class_comparison/hard3_selection.json).

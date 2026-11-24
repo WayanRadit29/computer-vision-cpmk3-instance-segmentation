@@ -87,3 +87,11 @@ COCOeval menilai kotak dan mask pada 166 gambar validasi. Mask mAP50-95 meningka
 Tabel AP per kelas berasal dari checkpoint terbaik. Sebanyak 16 dari 74 kelas tidak punya contoh pada data validasi dan nilai AP-nya kosong. Angka kosong perlu dibedakan dari AP nol saat memilih kelas tersulit. [AP validasi per kelas](experiments/maskrcnn_all_classes/metrics/per_class_val_ap.csv)
 
 Ketiga hasil yang dilaporkan berasal dari data validasi. Evaluasi pada set uji asli dan foto pribadi, serta pelatihan khusus tiga kelas tersulit, belum dilakukan.
+
+## H. Evaluasi bersama dan pemeringkatan kandidat Hard-3 (24 November 2026)
+
+Tanggal mengikuti penanda file hasil evaluasi. Ketiga checkpoint `best` dinilai pada 166 gambar validation dengan ground truth COCO yang sama. Ground truth mempertahankan dua koreksi orientasi validation dari audit awal. COCOeval digunakan untuk box dan mask. Konfigurasi menetapkan confidence minimum 0,001, maksimum 100 deteksi per gambar, dan mask threshold 0,50. Resize dan NMS mengikuti pengaturan tiap keluarga model. Penilaian ini memakai bobot yang sudah dilatih. [Konfigurasi](analysis/all_class_comparison/evaluation_config.json).
+
+Mask mAP50–95 tercatat 17,029% untuk YOLO11n, 16,704% untuk YOLOv8n, dan 15,489% untuk Mask R-CNN. YOLOv8n memiliki mask mAP50 tertinggi dan pipeline terpendek. Perbedaan pengaturan inference dan pemilihan checkpoint membatasi penafsiran selisih dari skor puncak pada log pelatihan. [Perbandingan model](analysis/all_class_comparison/model_comparison.csv).
+
+Untuk menghindari pemeringkatan pada kelas yang terlalu jarang atau tidak bisa dinilai, kelas harus memiliki sedikitnya 10 instance train, 5 instance validation, dan AP dari semua model. Sebanyak 39 kelas memenuhi syarat. Mean mask AP50–95 terendah tercatat pada `cabinet-merged`, `book`, dan `bed`. Ketiganya masih kandidat. Tinjauan prediksi validation per kelas dan konfirmasi pilihan dilakukan sebelum pelatihan khusus. Original test dan personal test tidak digunakan untuk seleksi. [Metode dan interpretasi](analysis/all_class_comparison/analysis.md), [aturan seleksi](analysis/all_class_comparison/hard3_selection.json).

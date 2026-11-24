@@ -148,27 +148,7 @@ Ketiga baseline melihat pembagian gambar yang sama. Namun, tiap keluarga model d
 
 ## 7. Pemilihan Tiga Kelas Tersulit
 
-**Menunggu eksperimen lanjutan**. Hard-3 adalah tiga kelas yang akan dipilih karena konsisten sulit bagi ketiga model. Sebelum memilih, kelas perlu memiliki minimal 10 instance train dan 5 instance validation agar penilaian tidak bertumpu pada terlalu sedikit objek. Ambang tersebut ditetapkan untuk penelitian ini dan belum menjamin AP yang stabil.
-
-Sebagai penelusuran awal, Mask R-CNN menyediakan AP untuk 58 dari 74 kelas pada checkpoint terbaik. Sembilan kelas tidak memiliki contoh train dan 16 tidak memiliki contoh validation. Kelas tanpa contoh validation memiliki AP kosong karena tidak bisa dinilai. Berdasarkan ambang tadi, 39 kelas dengan AP Mask R-CNN tersedia dapat diperingkat. [AP per kelas Mask R-CNN](../experiments/maskrcnn_all_classes/metrics/per_class_val_ap.csv).
-
-| Peringkat sementara | Kelas (ID COCO) | Instance train | Instance validation | Mask AP50–95 Mask R-CNN |
-| ---: | --- | ---: | ---: | ---: |
-| 1 | bed (2) | 26 | 6 | 0,160% |
-| 2 | cabinet-merged (8) | 47 | 19 | 0,684% |
-| 3 | wall-wood (71) | 14 | 7 | 0,743% |
-| 4 | bottle (5) | 62 | 10 | 1,120% |
-| 5 | blanket (3) | 19 | 6 | 1,313% |
-| 6 | rug-merged (46) | 35 | 13 | 1,756% |
-
-Tabel menunjukkan kelas yang sulit bagi Mask R-CNN menurut hasil yang tersedia. AP per kelas kedua YOLO dengan evaluator bersama masih dibutuhkan sebelum memilih tiga kelas. Pemilihan final mengikuti langkah berikut.
-
-1. Tetapkan aturan pemilihan checkpoint sebelum evaluasi. Muat checkpoint ketiga model dan pakai 166 gambar validation yang sama dengan *corrected COCO ground truth*.
-2. Selaraskan ID gambar, ID kategori, dan koordinat prediksi pada resolusi asli. Terapkan COCOeval `segm` dengan ambang IoU, area, dan batas deteksi yang sama. Catat pengaturan prapemrosesan dan pascapemrosesan tiap model.
-3. Untuk kelas yang lolos batas jumlah contoh dan memiliki AP pada ketiga model, hitung rata-rata mask AP50–95 dengan bobot sama. Urutkan dari skor terendah.
-4. Periksa contoh prediksi dan ground truth pada kandidat, termasuk ukuran objek, oklusi, objek terlewat, salah kelas, serta mask yang kurang tepat. Dokumentasikan aturan penanganan kelas dengan skor seri sebelum menetapkan pilihan.
-
-Original test set dan personal test set disisihkan dari proses pemilihan.
+**Kandidat sementara**. Setelah baseline, ketiga checkpoint dinilai bersama dengan COCOeval pada 166 gambar validation. Dari 39 kelas yang memenuhi batas jumlah contoh dan memiliki AP untuk ketiga model, `cabinet-merged`, `book`, dan `bed` memiliki mean mask AP50–95 terendah. Ketiganya masih perlu ditinjau pada contoh validation sebelum keputusan akhir. Original test dan personal test tetap disisihkan dari seleksi. Untuk perbandingan antarmodel dengan evaluator yang sama dan ranking lengkap, lihat [analisis evaluasi bersama](all_class_comparison/analysis.md).
 
 ## 8. Eksperimen All-Class vs Hard-3
 
@@ -200,7 +180,7 @@ Dua dugaan dapat diperiksa lebih lanjut. Pertama, uji apakah jadwal penghentian 
 
 **Kesimpulan sementara**. Ketiga model meningkatkan mask mAP50–95 paling cepat pada fase awal, lalu perbaikannya melambat. Di data validasi, YOLO11n memperoleh skor tertinggi (18,474%), dekat dengan YOLOv8n (18,264%). YOLOv8n mencatat waktu pelatihan kumulatif paling singkat. Mask R-CNN mencapai 14,838% dengan konfigurasi dan evaluator yang berbeda.
 
-Hasil ini menjadi acuan untuk tahap berikutnya. Ketiga checkpoint perlu dinilai per kelas dengan evaluator yang sama pada validation set sebelum tiga kelas tersulit ditetapkan. Performa akhir baru dapat dinilai setelah evaluasi pada data uji.
+Hasil ini menjadi acuan untuk tahap berikutnya. Evaluasi per kelas dengan COCOeval bersama sudah menghasilkan tiga kandidat Hard-3. Tinjauan prediksi validation dan konfirmasi pilihan masih diperlukan sebelum eksperimen khusus tiga kelas. Performa akhir baru dapat dinilai setelah evaluasi pada data uji.
 
 ## 14. Referensi dan Artefak Pendukung
 
