@@ -46,3 +46,7 @@ AI membantu merumuskan H1, H2, dan H3 sebagai prediksi yang terukur, menelaah da
 ### Implementasi notebook Hard-3
 
 AI membantu mengadaptasi notebook baseline menjadi satu alur Kaggle untuk persiapan dataset, pelatihan berurutan, COCOeval pada validation, dan ekspor. Konfigurasi asal, jumlah anotasi target, serta pemetaan kategori diperiksa terhadap artefak penelitian. Pemeriksaan lokal mencakup struktur dan sintaks notebook. Perilaku pelatihan, pemuatan checkpoint hasil run baru, dan COCOeval pada GPU masih memerlukan verifikasi saat notebook dijalankan di Kaggle. [Notebook Hard-3](notebooks/CPMK3_Hard3_All_Models.ipynb).
+
+### Diagnosis numerik dan recovery Hard-3
+
+Berdasarkan traceback run Kaggle, AI membantu merancang percobaan Mask R-CNN dalam FP32 dan menambahkan pemeriksaan input serta diagnostik komponen loss. AI juga membantu memeriksa hubungan antara hash spesifikasi historis, checkpoint, dan metrik validation untuk pemulihan YOLO, serta menyesuaikan pencarian referensi all-class agar salinan identik tidak menimbulkan ambiguitas. Fase diagnosis belum menetapkan penyebab loss nonfinite. Efek FP32 dinilai setelah run recovery di Kaggle. [Logbook](logbook.md) dan [notebook recovery](notebooks/CPMK3_Hard3_Recovery.ipynb).
