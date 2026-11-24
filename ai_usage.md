@@ -11,6 +11,7 @@ ChatGPT membantu menyiapkan data, menyusun kode eksperimen YOLO, dan mendokument
 | YOLOv8n-seg | Membantu menyusun notebook, menyelaraskan konfigurasi dengan YOLO11n-seg, serta menyusun kode pelatihan dan ekspor metrik. [Notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb) |
 | Mask R-CNN | Membantu membaca dan mendokumentasikan hasil. Penggunaan AI saat penyusunan notebook pelatihan belum terdokumentasi. [Notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb) |
 | Evaluasi bersama dan Hard-3 | Membantu menelaah rancangan evaluasi, koreksi ground truth, pemetaan COCO–YOLO, serta aturan pemeringkatan. Bantuan pada tahap analisis mencakup penataan artefak untuk reproduksi, penghitungan ulang mean dan SD AP, dan penjelasan keterbatasan. Riwayat bantuan AI untuk penyusunan notebook evaluasi dan rekonstruksi ground truth belum dapat dirinci dari artefak yang ada. [Analisis evaluasi](analysis/all_class_comparison/analysis.md) |
+| Pedoman personal test set | Membantu mencocokkan nama dan ID kategori COCO dan YOLO, memeriksa overlay poligon baseline, mengenali label ambigu, serta menyusun usulan aturan label dan mask. [Pedoman anotasi](data/custom_test/annotation_guidelines.md) |
 | Dokumentasi | Membantu merangkum metode, metrik, dan keterbatasan eksperimen berdasarkan konfigurasi dan hasil pelatihan. [Logbook](logbook.md) |
 
 ## Kesalahan kode yang ditemukan dan cara memperbaikinya
@@ -50,3 +51,88 @@ AI membantu mengadaptasi notebook baseline menjadi satu alur Kaggle untuk persia
 ### Diagnosis numerik dan recovery Hard-3
 
 Berdasarkan traceback run Kaggle, AI membantu merancang percobaan Mask R-CNN dalam FP32 dan menambahkan pemeriksaan input serta diagnostik komponen loss. AI juga membantu memeriksa hubungan antara hash spesifikasi historis, checkpoint, dan metrik validation untuk pemulihan YOLO, serta menyesuaikan pencarian referensi all-class agar salinan identik tidak menimbulkan ambiguitas. Fase diagnosis belum menetapkan penyebab loss nonfinite. Efek FP32 dinilai setelah run recovery di Kaggle. [Logbook](logbook.md) dan [notebook recovery](notebooks/CPMK3_Hard3_Recovery.ipynb).
+
+### Audit konvensi anotasi personal test set
+
+AI membandingkan nama dan ID seluruh 74 kelas antara YAML dan COCO lokal. Inspeksi visual terbatas pada sampel dari 25 kelas. Overlay dapat dipakai mahasiswa untuk memeriksa contoh yang mendasari rekomendasi. Konvensi untuk kelas langka atau batas yang tidak konsisten, seperti `wall` dan pemisahan perlengkapan tidur, memiliki keyakinan terbatas. Mahasiswa memeriksa rekomendasi terhadap contoh baseline saat menemui kasus ambigu dan menggambar sendiri seluruh mask personal test set di Roboflow.
+
+<details>
+<summary>Prompt asli audit konvensi anotasi</summary>
+
+```text
+# CPMK 3: Baseline Annotation Convention Audit
+
+Act as a Senior Computer Vision Dataset Engineer and Annotation Quality Auditor.
+
+## Context
+
+I am manually annotating a personal test set of 40 indoor photographs in Roboflow for CPMK 3.
+
+My baseline is Panoptic Indoor Segmentation v5, containing 74 classes.
+
+Original dataset reference:
+[https://universe.roboflow.com/panopticindoor/panoptic-indoor-segmentation](https://universe.roboflow.com/panopticindoor/panoptic-indoor-segmentation)
+
+The public Roboflow page may contain a different dataset version and class taxonomy. Therefore, prioritize the actual local dataset used for model training.
+
+## Objective
+
+Perform a focused, read-only audit of the baseline annotations to establish consistent class mapping and masking conventions for my personal test set.
+
+## Tasks
+
+1. Locate the actual baseline dataset and its `data.yaml` within the connected repository or accessible local dataset folders.
+2. Verify the 74-class taxonomy and class IDs.
+3. Inspect actual annotated images and segmentation polygons, prioritizing:
+
+- paper vs paper-merged
+- wall vs wall-other-merged
+- wall-wood, wall-brick, wall-tile, wall-stone
+- table-merged vs dining table
+- box vs cardboard
+- cabinet-merged vs shelf
+- bottle vs cosmetic tubes and containers
+- bed vs blanket vs pillow
+- door-stuff
+- window-other
+- floor-other-merged vs floor-wood
+- book
+- keyboard vs laptop
+
+4. For each ambiguous class, inspect approximately 3–5 representative annotated examples where available. Increase the sample only when evidence is inconsistent.
+5. Determine observed conventions for:
+
+- Class definitions
+- Visible versus occluded regions
+- Instance separation
+- Merged regions
+- Background and structural surfaces
+- Small or partially visible objects
+- Object components
+
+6. Distinguish confirmed observations from assumptions. If annotations are inconsistent, explicitly report the inconsistency rather than inventing a rule.
+
+## Deliverables
+
+Produce a concise annotation reference table containing:
+
+| Class | When to use | When not to use | Masking convention | Evidence | Confidence |
+
+Include representative baseline image filenames and annotation overlays where useful.
+
+Provide a compact decision guide that I can immediately apply while annotating in Roboflow.
+
+Prioritize speed and practical usefulness.
+
+## Constraints
+
+- Do not train or run inference using any model.
+- Do not modify baseline data or annotations.
+- Do not automatically annotate my personal test set.
+- Do not invent class definitions.
+- Do not commit or push changes.
+- If baseline data is unavailable, report the blocker immediately.
+- Return results in chat.
+```
+
+</details>

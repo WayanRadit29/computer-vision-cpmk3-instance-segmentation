@@ -16,7 +16,10 @@ venv/
 .coverage
 
 # Dataset, foto pribadi, dan metadata
-/data/
+/data/*
+!/data/custom_test/
+/data/custom_test/*
+!/data/custom_test/annotation_guidelines.md
 /experiments/maskrcnn_all_classes/corrected_annotations/*_corrected.json
 /analysis/all_class_comparison/corrected_validation.coco.json
 /analysis/all_class_comparison/predictions/

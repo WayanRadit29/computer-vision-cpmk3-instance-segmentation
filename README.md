@@ -8,6 +8,12 @@ Eksperimen memakai Panoptic Indoor Segmentation v5 dengan 74 kelas aktif. Datase
 
 Anotasi objek berbentuk poligon, yaitu rangkaian titik yang mengikuti batas objek pada gambar. Setelah audit awal menemukan sejumlah koordinat di luar batas gambar, label YOLO dibangun ulang dari anotasi COCO. Pemeriksaan terhadap 11.845 anotasi hasil konversi tidak menemukan poligon di luar batas atau ID kelas yang tidak valid. Sembilan kelas tidak memiliki contoh dalam bagian pelatihan. [Catatan konversi](analysis/dataset_audit/conversion_manifest.json) dan [laporan pemeriksaan data](analysis/dataset_audit/qa_report.json)
 
+### Personal test set
+
+Set uji pribadi digunakan untuk menilai model pada foto indoor yang diambil sendiri oleh mahasiswa. Ketentuan pengumpulan mencakup minimal 40 foto asli, dengan sedikitnya 10 foto kondisi sulit. Sebanyak 40 foto tercatat pada `evidence/photo_metadata/photo_manifest.csv`. Jumlah foto yang memenuhi kategori kondisi sulit belum terverifikasi. Ekspor anotasi final dari Roboflow belum tersedia di repositori.
+
+Mahasiswa menggambar poligon secara manual di Roboflow dengan taksonomi 74 kelas baseline. Pedoman berbasis audit contoh baseline menyelaraskan pemilihan label, pemisahan instance, dan batas mask yang terlihat. Tangkapan layar proses anotasi dan metadata foto digunakan sebagai bukti proses dan keaslian. Metadata disimpan secara lokal di `evidence/photo_metadata/`, dengan tangkapan layar di `evidence/annotation_screenshots/` saat tersedia. [Pedoman anotasi dan contoh baseline](data/custom_test/annotation_guidelines.md)
+
 ## Hasil validasi
 
 Pelatihan all-class kedua YOLO selesai dalam 60 epoch dan Mask R-CNN dalam 20 epoch. Checkpoint ketiganya kemudian dinilai dengan COCOeval pada 166 gambar validation dan ground truth COCO yang sama. Mask mAP50–95 merangkum ketepatan mask pada beberapa ambang kecocokan dengan anotasi.
