@@ -37,4 +37,8 @@ Daftar berikut merangkum permintaan kepada AI selama eksperimen.
 >
 > Laporkan tiga kandidat Hard-3 untuk mendapatkan konfirmasi pengguna sebelum menetapkannya sebagai keputusan final.
 
-Mean, standar deviasi, dan urutan kandidat dapat ditelusuri ke AP per kelas ketiga model. Keputusan akhir Hard-3 memerlukan konfirmasi peneliti setelah meninjau bukti validation. [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv) dan [aturan seleksi](analysis/all_class_comparison/hard3_selection.json).
+Mean, standar deviasi, dan urutan kandidat dapat ditelusuri ke AP per kelas ketiga model. Peneliti menetapkan keputusan akhir berdasarkan hasil COCOeval pada validation set. [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv) dan [keputusan final](analysis/all_class_comparison/hard3_decision.json).
+
+### Hipotesis sebelum pelatihan Hard-3
+
+AI membantu merumuskan H1, H2, dan H3 sebagai prediksi yang terukur, menelaah dasar empiris dan teknisnya, serta merancang pembandingan pada tiga kategori yang sama. AP baseline digunakan untuk memeriksa dasar H2 dan H3. Penjelasan arsitektur dipakai sebagai dugaan yang perlu diuji. Peneliti menetapkan tiga kelas final dan arah hipotesis. [Hipotesis](logbook.md#hipotesis-hard-3) dan [rancangan pengujian](logbook.md#rancangan-pengujian-hipotesis-hard-3).

@@ -95,3 +95,31 @@ Tanggal mengikuti penanda file hasil evaluasi. Ketiga checkpoint `best` dinilai 
 Mask mAP50–95 tercatat 17,029% untuk YOLO11n, 16,704% untuk YOLOv8n, dan 15,489% untuk Mask R-CNN. YOLOv8n memiliki mask mAP50 tertinggi dan pipeline terpendek. Perbedaan pengaturan inference dan pemilihan checkpoint membatasi penafsiran selisih dari skor puncak pada log pelatihan. [Perbandingan model](analysis/all_class_comparison/model_comparison.csv).
 
 Untuk menghindari pemeringkatan pada kelas yang terlalu jarang atau tidak bisa dinilai, kelas harus memiliki sedikitnya 10 instance train, 5 instance validation, dan AP dari semua model. Sebanyak 39 kelas memenuhi syarat. Mean mask AP50–95 terendah tercatat pada `cabinet-merged`, `book`, dan `bed`. Ketiganya masih kandidat. Tinjauan prediksi validation per kelas dan konfirmasi pilihan dilakukan sebelum pelatihan khusus. Original test dan personal test tidak digunakan untuk seleksi. [Metode dan interpretasi](analysis/all_class_comparison/analysis.md), [aturan seleksi](analysis/all_class_comparison/hard3_selection.json).
+
+## I. Finalisasi kelas dan hipotesis Hard-3 (24 November 2026 WIB)
+
+Hipotesis berikut dirumuskan setelah evaluasi baseline all-class dengan COCOeval dan sebelum pelatihan Hard-3. Hipotesis ini bersifat prospektif untuk eksperimen Hard-3. Catatan retrospektif tentang pelatihan baseline pertama tetap berlaku.
+
+Peneliti menetapkan `cabinet-merged`, `book`, dan `bed` sebagai Hard-3. Ketiganya memiliki rata-rata Mask AP50–95 terendah di antara 39 kelas dengan minimal 10 instance train, 5 instance validation, dan AP yang tersedia dari ketiga model. Pemilihan hanya memakai data validation. Enam instance validation pada `bed` memenuhi ambang, tetapi membuat AP kelas tersebut peka terhadap perubahan beberapa prediksi. [Ranking COCOeval](analysis/all_class_comparison/hard3_ranking.csv) dan [keputusan final](analysis/all_class_comparison/hard3_decision.json).
+
+### Hipotesis Hard-3
+
+**H1. Pelatihan Hard-3 meningkatkan rata-rata Mask AP50–95 pada tiga kelas target untuk setiap arsitektur.** Dengan cakupan kelas yang lebih sempit, kompetisi antarkelas dalam klasifikasi dapat berkurang dan pembelajaran dapat lebih berfokus pada ciri kelas target. Jumlah contoh positif, distribusi data, dan kualitas anotasi tetap dapat membatasi peningkatan.
+
+**H2. YOLOv8n-seg memperoleh rata-rata Mask AP50–95 Hard-3 tertinggi di antara tiga model.** Dasar empirisnya adalah rata-rata **3,672%** pada tiga kelas target dalam evaluasi all-class, dibandingkan **1,033%** untuk YOLO11n dan **1,454%** untuk Mask R-CNN. YOLOv8n juga mencatat AP tertinggi pada `cabinet-merged` dan `bed`. Prediksi satu tahap, fitur multiskala, dan mask berbasis prototipe dapat mendukung pembelajaran yang efisien. Karakteristik ini juga dimiliki YOLO11n dan belum menunjukkan keunggulan arsitektural YOLOv8n. [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv).
+
+**H3. Mask R-CNN memperoleh Mask AP50–95 tertinggi pada kelas `book` setelah pelatihan Hard-3.** Pada baseline all-class, Mask R-CNN memperoleh **3,517%** pada `book`, dibandingkan **2,319%** untuk YOLOv8n dan **0,368%** untuk YOLO11n. Region proposal dan RoIAlign membantu model mengambil fitur dari wilayah kandidat objek. Mekanisme itu mungkin membantu ketika buku kecil, tipis, bertumpuk, atau tertutup sebagian. Hipotesis ini belum menunjukkan bahwa kondisi tersebut menjelaskan skor baseline. Resolusi mask dan kualitas proposal juga dapat membatasi hasil. [AP kelas `book`](analysis/all_class_comparison/per_class_ap_comparison.csv).
+
+### Rancangan pengujian hipotesis Hard-3
+
+Perubahan utama yang diuji adalah cakupan kelas pelatihan, dari 74 kelas menjadi tiga. Versi Hard-3 setiap arsitektur dimulai dari bobot pralatih yang sama dengan baseline pasangannya. Pertahankan pembagian gambar train, validation, dan test, konfigurasi serta anggaran pelatihan, dan protokol evaluasi sejauh memungkinkan. Pada pelatihan Hard-3, gunakan anotasi tiga kelas target dan pertahankan gambar tanpa instance target sebagai sampel negatif. Catat penyimpangan dari rancangan ini beserta alasannya.
+
+Gunakan validation set untuk memantau pelatihan dan memilih checkpoint dengan aturan yang ditetapkan sebelum run. Setelah checkpoint dan pengaturan evaluasi dikunci, nilai seluruh model pada original test set dan personal test set dengan COCOeval, pemetaan kategori konsisten, dan pengaturan evaluasi yang sama. Untuk H1, hitung AP model all-class pada tiga kategori target dari prediksinya di set uji yang sama. mAP agregat seluruh 74 kelas memiliki cakupan berbeda dan tidak dipakai untuk menghitung perubahan.
+
+| Hipotesis | Pembandingan pada setiap set uji | Kriteria dukungan |
+| --- | --- | --- |
+| H1 | Selisih rata-rata Mask AP50–95 tiga kelas antara versi Hard-3 dan versi all-class untuk setiap arsitektur. | Selisih Hard-3 dikurangi all-class positif pada setiap arsitektur. Laporkan hasil per arsitektur. |
+| H2 | Rata-rata Mask AP50–95 tiga kelas dari ketiga model hasil pelatihan Hard-3. | Rata-rata YOLOv8n lebih tinggi daripada kedua model lain. |
+| H3 | Mask AP50–95 khusus `book` dari ketiga model hasil pelatihan Hard-3. | AP Mask R-CNN lebih tinggi daripada kedua model YOLO. |
+
+Laporkan nilai AP per kelas dan selisih dalam poin persentase untuk original test dan personal test secara terpisah. Jika suatu kelas tidak memiliki anotasi uji, tandai AP sebagai N/A. Bila AP tiga kelas tidak lengkap, laporkan keterbatasannya dan tunda penilaian H1 atau H2 pada set tersebut. Nilai seri tidak mendukung prediksi keunggulan. Kriteria ini membandingkan hasil secara deskriptif. Klaim keunggulan yang stabil memerlukan pengukuran lintas pengulangan dan perhatian pada jumlah contoh yang terbatas.

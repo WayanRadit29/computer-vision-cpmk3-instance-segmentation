@@ -148,11 +148,11 @@ Ketiga baseline melihat pembagian gambar yang sama. Namun, tiap keluarga model d
 
 ## 7. Pemilihan Tiga Kelas Tersulit
 
-**Kandidat sementara**. Setelah baseline, ketiga checkpoint dinilai bersama dengan COCOeval pada 166 gambar validation. Dari 39 kelas yang memenuhi batas jumlah contoh dan memiliki AP untuk ketiga model, `cabinet-merged`, `book`, dan `bed` memiliki mean mask AP50–95 terendah. Ketiganya masih perlu ditinjau pada contoh validation sebelum keputusan akhir. Original test dan personal test tetap disisihkan dari seleksi. Untuk perbandingan antarmodel dengan evaluator yang sama dan ranking lengkap, lihat [analisis evaluasi bersama](all_class_comparison/analysis.md).
+**Kelas ditetapkan**. Hasil unified COCOeval pada 166 gambar validation menempatkan `cabinet-merged`, `book`, dan `bed` pada tiga peringkat terbawah dari 39 kelas yang memenuhi syarat. Ketiganya ditetapkan sebagai Hard-3 pada 24 November 2026. Original test dan personal test disisihkan dari seleksi. [Analisis evaluasi bersama](all_class_comparison/analysis.md#pemilihan-tiga-kelas-tersulit).
 
 ## 8. Eksperimen All-Class vs Hard-3
 
-**Menunggu eksperimen lanjutan**. Bagian ini akan menguji apakah pelatihan yang difokuskan pada tiga kelas membuat model lebih baik mengenali ketiganya. Bandingkan versi all-class dan versi Hard-3 pada gambar, kategori, serta aturan evaluasi yang sama. Laporkan AP per kelas dan rata-rata ketiganya. Jelaskan juga bagaimana anotasi kategori lain diperlakukan, karena keputusan itu berpengaruh pada pelatihan dan penilaian.
+**Menunggu eksperimen lanjutan**. Bandingkan model all-class dan Hard-3 pada tiga kelas yang sama dengan pembagian gambar dan protokol evaluasi yang konsisten. Gambar tanpa instance target tetap digunakan sebagai sampel negatif saat pelatihan Hard-3. [Hipotesis dan kriteria pengujian](../logbook.md#rancangan-pengujian-hipotesis-hard-3).
 
 ## 9. Evaluasi Original Test Set dan Personal Test Set
 
@@ -173,14 +173,14 @@ Dua dugaan dapat diperiksa lebih lanjut. Pertama, uji apakah jadwal penghentian 
 - Dataset relatif kecil untuk 74 kelas. Distribusinya timpang dan sebagian kelas absen dari train atau validation. Peringkat AP kelas dengan sedikit contoh sensitif terhadap beberapa prediksi.
 - Baseline memakai konfigurasi dan evaluator yang berbeda dengan satu seed (42). Ketidakpastian antar-run belum terukur.
 - Validation loss Mask R-CNN tidak tercatat. Sumber waktu tiap eksperimen juga tidak memisahkan tahapan dengan cara yang seragam.
-- Hasil original test dan personal test belum tersedia. Tiga kelas tersulit lintas model belum ditetapkan.
+- Hasil original test dan personal test belum tersedia. Uji Hard-3 juga belum dilakukan. Kelas `bed` hanya memiliki enam instance validation, sehingga estimasi AP-nya peka terhadap beberapa prediksi.
 - Hipotesis awal perbandingan tiga model belum dicatat sebelum pelatihan pertama. Pertanyaan penelitian pada laporan ini merangkum arah analisis saat ini. [Catatan retrospektif](../logbook.md).
 
 ## 13. Kesimpulan
 
 **Kesimpulan sementara**. Ketiga model meningkatkan mask mAP50–95 paling cepat pada fase awal, lalu perbaikannya melambat. Di data validasi, YOLO11n memperoleh skor tertinggi (18,474%), dekat dengan YOLOv8n (18,264%). YOLOv8n mencatat waktu pelatihan kumulatif paling singkat. Mask R-CNN mencapai 14,838% dengan konfigurasi dan evaluator yang berbeda.
 
-Hasil ini menjadi acuan untuk tahap berikutnya. Evaluasi per kelas dengan COCOeval bersama sudah menghasilkan tiga kandidat Hard-3. Tinjauan prediksi validation dan konfirmasi pilihan masih diperlukan sebelum eksperimen khusus tiga kelas. Performa akhir baru dapat dinilai setelah evaluasi pada data uji.
+Hasil ini menjadi acuan untuk pelatihan Hard-3 pada `cabinet-merged`, `book`, dan `bed`. Performa akhir baru dapat dinilai setelah evaluasi pada data uji.
 
 ## 14. Referensi dan Artefak Pendukung
 

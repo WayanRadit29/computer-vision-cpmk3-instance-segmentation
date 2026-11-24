@@ -1,4 +1,4 @@
-# Evaluasi bersama model all-class dan kandidat Hard-3
+# Evaluasi bersama model all-class dan pemilihan Hard-3
 
 ## Pertanyaan penelitian
 
@@ -46,7 +46,7 @@ Baris baseline adalah puncak kurva validasi selama pelatihan. Baris COCOeval ber
 
 YOLOv8n mencatat pipeline tercepat, sekitar 12,04 detik lebih singkat daripada YOLO11n untuk 166 gambar. Mask R-CNN memerlukan 40,23 detik untuk pipeline evaluasi. Durasi ini berlaku untuk seluruh proses yang dicatat dan dapat mencakup penyiapan input, pemrosesan keluaran, akses berkas, atau penyandian mask. Pengukuran tidak menyediakan latensi murni model maupun variasi antar-run. Waktu kumulatif pelatihan pada tabel berasal dari log yang berbeda dan dipengaruhi jumlah epoch, batch size, dan jadwal pelatihan. [Waktu pipeline evaluasi](inference_times.json).
 
-## Kandidat tiga kelas tersulit
+## Pemilihan tiga kelas tersulit
 
 Kelas masuk pemeringkatan jika memiliki minimal 10 instance train, minimal 5 instance validation, dan mask AP50–95 untuk ketiga model. AP kosong menunjukkan hasil tidak tersedia. AP nol merupakan hasil yang sah dan ikut dihitung. Mean memakai bobot yang sama untuk ketiga model. Standar deviasi (SD) dihitung sebagai standar deviasi populasi dari tiga skor, sehingga menunjukkan perbedaan antarmodel, tanpa mengukur ketidakpastian statistik.
 
@@ -67,14 +67,16 @@ Kandidat diurutkan dari mean AP terendah. Bila seri, prioritas diberikan pada ju
 
 ![Kelas eligible dengan mean mask AP terendah](../figures/hardest_classes_ranking.png)
 
-**`cabinet-merged`, `book`, dan `bed` merupakan kandidat sementara.** Di antara ketiganya, `cabinet-merged` paling konsisten sulit, dengan mean dan SD terendah. Untuk `book`, YOLO11n memberi skor terendah di antara tiga model. Untuk `bed`, skor YOLOv8n lebih tinggi dibanding dua model lain. Dengan enam instance validation dan SD 2,539 poin, peringkat `bed` lebih peka terhadap beberapa prediksi. Tidak semua kelas sulit menunjukkan pola yang sama. Sebagai contoh, kedua YOLO mencatat AP nol untuk `knife` sementara Mask R-CNN mencapai 11,077%.
+**`cabinet-merged`, `book`, dan `bed` ditetapkan sebagai Hard-3 pada 24 November 2026.** Ketiganya menempati tiga peringkat terbawah menurut rata-rata Mask AP50–95 dari ketiga model, dengan syarat minimum jumlah instance dan ketersediaan AP. Di antara ketiganya, `cabinet-merged` memiliki mean dan SD terendah. Untuk `book`, Mask R-CNN memperoleh skor tertinggi. Untuk `bed`, skor YOLOv8n lebih tinggi daripada kedua model lain. Enam instance validation dan SD 2,539 poin membuat hasil untuk `bed` peka terhadap perubahan beberapa prediksi. [Keputusan final](hard3_decision.json) dan [seleksi awal dari notebook](hard3_selection.json).
 
 Penelusuran ilustratif memakai satu gambar validation beranotasi per kandidat, dipilih dengan ID gambar terendah. Pada gambar 9 (`cabinet-merged`), mask dengan skor tertinggi dari masing-masing model tidak bertumpang tindih dengan gabungan anotasi kelas tersebut. Pada gambar 7 (`book`), kedua YOLO tidak mengekspor prediksi kelas tersebut dan mask Mask R-CNN dengan skor tertinggi tidak bertumpang tindih. Pada gambar 61 (`bed`), mask dengan skor tertinggi hanya sedikit bertumpang tindih. Pemeriksaan ini memakai prediksi tersimpan dan tidak mewakili seluruh contoh atau pencocokan COCOeval. Pengaruh oklusi, ukuran, dan batas objek masih perlu ditinjau pada beberapa gambar per kelas.
 
-![Skor tiap model untuk tiga kandidat Hard-3](../figures/hard3_selection.png)
+![Skor baseline ketiga model untuk kelas Hard-3 terpilih](../figures/hard3_selection.png)
 
 ## Reproduksi dan langkah penelitian berikutnya
 
 Gunakan checkpoint dengan hash yang tercatat, gambar validation, ground truth COCO terkoreksi, serta versi pustaka pada konfigurasi. Ground truth evaluasi berada di `analysis/all_class_comparison/corrected_validation.coco.json` dan keenam keluaran prediksi berada di `analysis/all_class_comparison/predictions/`. Artefak tersebut berasal dari arsip evaluasi. Notebook evaluasi asli diperlukan untuk menelusuri urutan prapemrosesan dan ekspor secara utuh. [Konfigurasi](evaluation_config.json).
 
-Tinjau contoh benar dan salah dari ketiga model pada beberapa gambar per kandidat sebelum menetapkan Hard-3. Original test dan personal test tetap disisihkan untuk penilaian akhir. Eksperimen pelatihan khusus tiga kelas belum dilakukan.
+### Implikasi untuk eksperimen Hard-3
+
+Baseline untuk H1 adalah AP model all-class pada tiga kelas terpilih. Rata-rata validation pada kelas tersebut adalah 1,033% untuk YOLO11n, 3,672% untuk YOLOv8n, dan 1,454% untuk Mask R-CNN. Angka ini menjadi dasar empiris H2, sementara keunggulan AP Mask R-CNN pada `book` menjadi dasar H3. Keduanya merupakan prediksi untuk pelatihan berikutnya. Untuk evaluasi akhir, hitung kembali skor all-class dan Hard-3 pada tiga kategori yang sama di masing-masing set uji. Pada pelatihan Hard-3, gambar tanpa instance target tetap dipakai sebagai sampel negatif. [Hipotesis](../../logbook.md#hipotesis-hard-3) dan [rancangan pengujian](../../logbook.md#rancangan-pengujian-hipotesis-hard-3).

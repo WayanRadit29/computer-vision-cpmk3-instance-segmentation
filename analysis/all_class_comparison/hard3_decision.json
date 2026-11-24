@@ -1,0 +1,16 @@
+{
+  "decision_status": "final",
+  "decision_date": "2026-11-24",
+  "time_zone": "Asia/Jakarta",
+  "decision_by": "researcher",
+  "experiment_stage": "after_all_class_evaluation_before_hard3_training",
+  "selection_source": "hard3_selection.json",
+  "ranking_source": "hard3_ranking.csv",
+  "per_class_source": "per_class_ap_comparison.csv",
+  "dataset_split": "validation",
+  "selected_classes": [
+    {"rank": 1, "coco_category_id": 8, "yolo_class_id": 7, "class_name": "cabinet-merged"},
+    {"rank": 2, "coco_category_id": 4, "yolo_class_id": 3, "class_name": "book"},
+    {"rank": 3, "coco_category_id": 2, "yolo_class_id": 1, "class_name": "bed"}
+  ]
+}

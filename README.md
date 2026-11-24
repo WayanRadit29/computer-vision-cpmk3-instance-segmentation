@@ -20,7 +20,7 @@ Pelatihan all-class kedua YOLO selesai dalam 60 epoch dan Mask R-CNN dalam 20 ep
 
 YOLO11n memperoleh mask mAP50–95 tertinggi pada validasi. YOLOv8n memperoleh mask mAP50 tertinggi dan durasi pipeline terpendek. Evaluasi memakai evaluator yang sama, dengan resize dan NMS sesuai pipeline masing-masing. Waktu yang dilaporkan adalah waktu pipeline untuk 166 gambar. [Analisis evaluasi bersama](analysis/all_class_comparison/analysis.md).
 
-Kandidat Hard-3 sementara adalah `cabinet-merged`, `book`, dan `bed`, berdasarkan mean Mask AP50–95 terendah di antara kelas yang memenuhi syarat. Tinjauan contoh validation dan konfirmasi kelas mendahului eksperimen Hard-3. Original test dan personal test tetap disisihkan untuk evaluasi akhir. [Ranking kandidat](analysis/all_class_comparison/hard3_ranking.csv).
+Hard-3 mencakup `cabinet-merged`, `book`, dan `bed`, tiga kelas dengan rata-rata Mask AP50–95 terendah di antara 39 kelas yang memenuhi syarat. Eksperimen membandingkan pelatihan all-class dan Hard-3 pada tiga kelas yang sama dalam setiap arsitektur. Validation set dipakai untuk pemantauan, sementara original test dan personal test disisihkan untuk penilaian akhir. [Analisis pemilihan](analysis/all_class_comparison/analysis.md#pemilihan-tiga-kelas-tersulit), [hipotesis](logbook.md#hipotesis-hard-3), dan [rancangan pengujian](logbook.md#rancangan-pengujian-hipotesis-hard-3).
 
 ## Hasil lengkap dan notebook
 
