@@ -32,4 +32,5 @@ Notebook Kaggle memuat penyiapan data, konfigurasi, dan keluaran pelatihan. [Not
 
 - Lihat contoh mask hasil konversi dan mask setelah gambar dikoreksi. [Inspeksi mask](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png) dan [pemeriksaan orientasi](evidence/orientation_fixes_verification.png)
 - Ikuti urutan eksperimen, temuan, dan keputusan teknis. [Logbook](logbook.md)
+- Baca analisis komparatif baseline dan rencana pemilihan kelas tersulit. [Laporan penelitian](analysis/report.md)
 - Lihat bagian yang dibantu AI dan cara keluarannya diperiksa. [Pernyataan penggunaan AI](ai_usage.md)
