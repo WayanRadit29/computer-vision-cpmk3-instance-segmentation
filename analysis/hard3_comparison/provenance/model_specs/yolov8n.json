@@ -1,0 +1,81 @@
+{
+  "yolo": {
+    "epochs": 60,
+    "patience": 60,
+    "imgsz": 640,
+    "batch": 8,
+    "device": 0,
+    "workers": 2,
+    "amp": true,
+    "cache": false,
+    "seed": 42,
+    "deterministic": true,
+    "val": true,
+    "plots": true,
+    "save": true,
+    "save_period": 5,
+    "exist_ok": false,
+    "verbose": true,
+    "optimizer": "AdamW",
+    "lr0": 0.000128,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "nbs": 64,
+    "lrf": 0.01,
+    "cos_lr": false,
+    "warmup_epochs": 3.0,
+    "warmup_momentum": 0.8,
+    "warmup_bias_lr": 0.0,
+    "mosaic": 1.0,
+    "close_mosaic": 10
+  },
+  "maskrcnn": {
+    "epochs": 20,
+    "batch": 2,
+    "workers": 2,
+    "lr": 0.005,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "milestones": [
+      10,
+      15
+    ],
+    "gamma": 0.1,
+    "min_size": 640,
+    "max_size": 960,
+    "amp": true,
+    "save_period": 5,
+    "max_minutes": 105
+  },
+  "classes": {
+    "2": [
+      1,
+      "bed"
+    ],
+    "4": [
+      2,
+      "book"
+    ],
+    "8": [
+      3,
+      "cabinet-merged"
+    ]
+  },
+  "source_hashes": {
+    "train": "6426839e66216ad207e3f51f9521520256ec5aa33effe57a06a5d3c766b49117",
+    "valid": "e0ca4ae5d12ce52a16445e9395a244424520c0b8c0c635201deb68257e474274",
+    "test": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f"
+  },
+  "protocol": {
+    "dataset_split": "validation",
+    "num_images": 166,
+    "confidence_threshold": 0.001,
+    "max_detections": 100,
+    "mask_threshold": 0.5,
+    "yolo_image_size": 640,
+    "yolo_nms_iou": 0.7,
+    "maskrcnn_min_size": 640,
+    "maskrcnn_max_size": 960,
+    "maskrcnn_nms_iou": 0.5
+  }
+}

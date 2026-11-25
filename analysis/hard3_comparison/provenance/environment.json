@@ -1,0 +1,8 @@
+{
+  "torch": "2.11.0+cu130",
+  "torchvision": "0.26.0+cu130",
+  "ultralytics": "8.4.216",
+  "gpu": "Tesla T4",
+  "cuda": "13.0",
+  "seed": 42
+}

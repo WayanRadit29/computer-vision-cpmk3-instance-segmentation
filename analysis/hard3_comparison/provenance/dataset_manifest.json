@@ -1,0 +1,125 @@
+{
+  "source": "/kaggle/input/datasets/wayanradityaputra/panoptic-indoor-segmentation-v5-coco-format",
+  "source_sha256": {
+    "train": "6426839e66216ad207e3f51f9521520256ec5aa33effe57a06a5d3c766b49117",
+    "valid": "e0ca4ae5d12ce52a16445e9395a244424520c0b8c0c635201deb68257e474274",
+    "test": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f"
+  },
+  "splits": {
+    "train": {
+      "images": 397,
+      "instances": 178,
+      "positive_images": 60,
+      "negative_images": 337,
+      "instances_by_class": {
+        "3": 47,
+        "2": 105,
+        "1": 26
+      }
+    },
+    "valid": {
+      "images": 166,
+      "instances": 40,
+      "positive_images": 19,
+      "negative_images": 147,
+      "instances_by_class": {
+        "2": 15,
+        "3": 19,
+        "1": 6
+      }
+    },
+    "test": {
+      "images": 359,
+      "instances": 530,
+      "positive_images": 137,
+      "negative_images": 222,
+      "instances_by_class": {
+        "1": 71,
+        "3": 110,
+        "2": 349
+      }
+    }
+  },
+  "orientation_repairs": [
+    {
+      "split": "train",
+      "image_id": 181,
+      "file_name": "182169107_jpg.rf.c9b1bbecf1474a5b36a6df197c30dfed.jpg",
+      "rotation": "CCW",
+      "coco_size": [
+        640,
+        480
+      ],
+      "image_size": [
+        480,
+        640
+      ]
+    },
+    {
+      "split": "train",
+      "image_id": 233,
+      "file_name": "182169121_jpg.rf.eb0ccb71d0ea38adf1e38bf9c02a4a15.jpg",
+      "rotation": "CCW",
+      "coco_size": [
+        640,
+        480
+      ],
+      "image_size": [
+        480,
+        640
+      ]
+    },
+    {
+      "split": "valid",
+      "image_id": 8,
+      "file_name": "182169109_jpg.rf.0531e60eb6e404d9633ed0c23a381fe7.jpg",
+      "rotation": "CW",
+      "coco_size": [
+        640,
+        480
+      ],
+      "image_size": [
+        480,
+        640
+      ]
+    },
+    {
+      "split": "valid",
+      "image_id": 27,
+      "file_name": "182169108_jpg.rf.205d9f1ed8f888006b8f97fc29eb8790.jpg",
+      "rotation": "CCW",
+      "coco_size": [
+        640,
+        480
+      ],
+      "image_size": [
+        480,
+        640
+      ]
+    }
+  ],
+  "test_used_for_training_or_evaluation": false,
+  "class_mapping": [
+    {
+      "original_coco": 2,
+      "original_yolo": 1,
+      "hard3_coco": 1,
+      "hard3_yolo": 0,
+      "name": "bed"
+    },
+    {
+      "original_coco": 4,
+      "original_yolo": 3,
+      "hard3_coco": 2,
+      "hard3_yolo": 1,
+      "name": "book"
+    },
+    {
+      "original_coco": 8,
+      "original_yolo": 7,
+      "hard3_coco": 3,
+      "hard3_yolo": 2,
+      "name": "cabinet-merged"
+    }
+  ]
+}

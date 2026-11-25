@@ -1,0 +1,4 @@
+hard3_coco_id,class_name,mask_ap50_95
+1,bed,0.03408415841584159
+2,book,0.10707071318502179
+3,cabinet-merged,0.03099767649282787

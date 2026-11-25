@@ -15,18 +15,22 @@ venv/
 /dist/
 .coverage
 
-# Dataset, foto pribadi, dan metadata
+# Dataset training dan bukti personal test set
 /data/*
 !/data/custom_test/
 /data/custom_test/*
 !/data/custom_test/annotation_guidelines.md
+!/data/custom_test/images/
+!/data/custom_test/annotations/
 /experiments/maskrcnn_all_classes/corrected_annotations/*_corrected.json
 /analysis/all_class_comparison/corrected_validation.coco.json
 /analysis/all_class_comparison/predictions/
-/evidence/photo_metadata/
-/evidence/annotation_screenshots/
 *.exif
 *.xmp
+!/data/custom_test/**/*.exif
+!/data/custom_test/**/*.xmp
+!/evidence/photo_metadata/**/*.exif
+!/evidence/photo_metadata/**/*.xmp
 
 # Bobot model dan keluaran pelatihan lokal
 weights/
@@ -48,6 +52,9 @@ checkpoints/
 /experiments/**/visualizations/kaggle_outputs/
 
 # Arsip, berkas sementara, dan pengaturan lokal
+/demo_outputs/*
+!/demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png
+!/demo_outputs/yolo11n_all_classes__053_jpg.rf.002f0adcbefe28f38a23d14e639c1865.png
 *.zip
 *.7z
 *.rar

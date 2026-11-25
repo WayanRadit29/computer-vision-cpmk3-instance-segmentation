@@ -1,0 +1,34 @@
+{
+  "state": "completed",
+  "models": {
+    "yolo11n": {
+      "training": "completed",
+      "evaluation": "completed",
+      "run": "/kaggle/working/cpmk3_hard3/20261125T021827548702Z/experiments/yolo11n/attempt_01",
+      "recovered_from": "/kaggle/working/recovery_input/CPMK3_Hard3_All_Models.zip",
+      "source_spec_sha256": "11ffa87293a8820d322d0de5a372e7bae9c0a0ef5fe8c294104121e2e2444151",
+      "validation_dir": "/kaggle/working/cpmk3_hard3/20261125T021827548702Z/experiments/yolo11n/attempt_01/unified_validation_01",
+      "evaluation_origin": "recovered"
+    },
+    "yolov8n": {
+      "training": "completed",
+      "evaluation": "completed",
+      "run": "/kaggle/working/cpmk3_hard3/20261125T021827548702Z/experiments/yolov8n/attempt_01",
+      "recovered_from": "/kaggle/working/recovery_input/CPMK3_Hard3_All_Models.zip",
+      "source_spec_sha256": "11ffa87293a8820d322d0de5a372e7bae9c0a0ef5fe8c294104121e2e2444151",
+      "validation_dir": "/kaggle/working/cpmk3_hard3/20261125T021827548702Z/experiments/yolov8n/attempt_01/unified_validation_01",
+      "evaluation_origin": "recovered"
+    },
+    "maskrcnn": {
+      "training": "completed",
+      "evaluation": "completed",
+      "run": "/kaggle/working/cpmk3_hard3/20261125T021827548702Z/experiments/maskrcnn/attempt_01",
+      "training_zip": "/kaggle/working/cpmk3_hard3/20261125T021827548702Z/exports/maskrcnn_attempt_01.zip",
+      "validation_dir": "/kaggle/working/cpmk3_hard3/20261125T021827548702Z/experiments/maskrcnn/attempt_01/unified_validation_01",
+      "evaluation_origin": "current_run"
+    }
+  },
+  "comparison": "complete",
+  "original_test_evaluated": false,
+  "personal_test_evaluated": false
+}

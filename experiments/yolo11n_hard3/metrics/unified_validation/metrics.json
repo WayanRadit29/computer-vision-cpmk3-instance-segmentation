@@ -1,0 +1,21 @@
+{
+  "box_map50_95": 0.05796684859128605,
+  "box_map50": 0.07835887840336447,
+  "mask_map50_95": 0.048534270423199584,
+  "mask_map50": 0.06837844235467112,
+  "mask_map75": 0.0513024242332699,
+  "mask_ar100": 0.18245614035087723,
+  "model": "yolo11n",
+  "inference_pipeline_seconds": 5.9066502740000715,
+  "checkpoint_sha256": "6e17a8d8b2a4291da424d8ecaddb080744e5c83f17ce375aeaa550b8cae1f775",
+  "dataset_split": "validation",
+  "num_images": 166,
+  "confidence_threshold": 0.001,
+  "max_detections": 100,
+  "mask_threshold": 0.5,
+  "yolo_image_size": 640,
+  "yolo_nms_iou": 0.7,
+  "maskrcnn_min_size": 640,
+  "maskrcnn_max_size": 960,
+  "maskrcnn_nms_iou": 0.5
+}

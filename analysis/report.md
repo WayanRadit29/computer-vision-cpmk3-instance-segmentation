@@ -152,7 +152,7 @@ Ketiga baseline melihat pembagian gambar yang sama. Namun, tiap keluarga model d
 
 ## 8. Eksperimen All-Class vs Hard-3
 
-**Menunggu eksperimen lanjutan**. Bandingkan model all-class dan Hard-3 pada tiga kelas yang sama dengan pembagian gambar dan protokol evaluasi yang konsisten. Gambar tanpa instance target tetap digunakan sebagai sampel negatif saat pelatihan Hard-3. [Hipotesis dan kriteria pengujian](../logbook.md#rancangan-pengujian-hipotesis-hard-3).
+**Selesai pada validation**. Rata-rata Mask AP50–95 untuk tiga kategori yang sama meningkat sebesar 3,820 poin pada YOLO11n, 1,909 pada YOLOv8n, dan 4,284 pada Mask R-CNN. Gambar tanpa instance target tetap digunakan sebagai sampel negatif saat pelatihan Hard-3. Perubahan precision, laju belajar, dan clipping membatasi atribusi kenaikan pada Mask R-CNN. [Perbandingan Hard-3 dan evaluasi hipotesis](hard3_comparison/analysis.md).
 
 ## 9. Evaluasi Original Test Set dan Personal Test Set
 
@@ -173,14 +173,14 @@ Dua dugaan dapat diperiksa lebih lanjut. Pertama, uji apakah jadwal penghentian 
 - Dataset relatif kecil untuk 74 kelas. Distribusinya timpang dan sebagian kelas absen dari train atau validation. Peringkat AP kelas dengan sedikit contoh sensitif terhadap beberapa prediksi.
 - Baseline memakai konfigurasi dan evaluator yang berbeda dengan satu seed (42). Ketidakpastian antar-run belum terukur.
 - Validation loss Mask R-CNN tidak tercatat. Sumber waktu tiap eksperimen juga tidak memisahkan tahapan dengan cara yang seragam.
-- Hasil original test dan personal test belum tersedia. Uji Hard-3 juga belum dilakukan. Kelas `bed` hanya memiliki enam instance validation, sehingga estimasi AP-nya peka terhadap beberapa prediksi.
+- Eksperimen Hard-3 telah dinilai pada validation. Original test dan personal test belum dievaluasi. Kelas `bed` hanya memiliki enam instance validation, sehingga estimasi AP-nya peka terhadap beberapa prediksi.
 - Hipotesis awal perbandingan tiga model belum dicatat sebelum pelatihan pertama. Pertanyaan penelitian pada laporan ini merangkum arah analisis saat ini. [Catatan retrospektif](../logbook.md).
 
 ## 13. Kesimpulan
 
 **Kesimpulan sementara**. Ketiga model meningkatkan mask mAP50–95 paling cepat pada fase awal, lalu perbaikannya melambat. Di data validasi, YOLO11n memperoleh skor tertinggi (18,474%), dekat dengan YOLOv8n (18,264%). YOLOv8n mencatat waktu pelatihan kumulatif paling singkat. Mask R-CNN mencapai 14,838% dengan konfigurasi dan evaluator yang berbeda.
 
-Hasil ini menjadi acuan untuk pelatihan Hard-3 pada `cabinet-merged`, `book`, dan `bed`. Performa akhir baru dapat dinilai setelah evaluasi pada data uji.
+Hasil baseline menjadi acuan untuk perbandingan tiga kategori Hard-3. Analisis lanjutan pada validation mencatat kenaikan rata-rata pada ketiga model. Performa akhir baru dapat dinilai setelah evaluasi pada data uji. [Analisis Hard-3](hard3_comparison/analysis.md).
 
 ## 14. Referensi dan Artefak Pendukung
 

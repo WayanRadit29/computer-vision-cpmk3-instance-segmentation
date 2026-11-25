@@ -1,0 +1,29 @@
+{
+  "epochs": 20,
+  "batch": 2,
+  "workers": 2,
+  "lr": 0.0005,
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "milestones": [
+    10,
+    15
+  ],
+  "gamma": 0.1,
+  "min_size": 640,
+  "max_size": 960,
+  "amp": false,
+  "save_period": 5,
+  "max_minutes": 105,
+  "gradient_clip_max_norm": 5.0,
+  "pretrained": "Torchvision COCO DEFAULT",
+  "classes": [
+    "bed",
+    "book",
+    "cabinet-merged"
+  ],
+  "foreground_classes": 3,
+  "classes_with_background": 4,
+  "precision": "float32",
+  "train_validation_score_threshold": 0.05
+}

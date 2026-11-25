@@ -1,0 +1,18 @@
+{
+  "epochs_completed": 20,
+  "training_seconds": 2437.471114191,
+  "training_time_scope": "Mask R-CNN epoch loop including validation",
+  "best_epoch": 5,
+  "highest_validation_mask_map": 0.05634237652207399,
+  "precision": "float32",
+  "amp": false,
+  "learning_rate_initial": 0.0005,
+  "gradient_clip_max_norm": 5.0,
+  "checkpoint_selection": "validation mask mAP50–95",
+  "model": "maskrcnn",
+  "spec_sha256": "2911b7adf79c74428e73433ac745626d988f02fe558571bb061e1690e5f050f4",
+  "checkpoint_sha256": {
+    "weights/best.pth": "8337a3a93c6dcbbc68fcb0b8534d7660461109be03facff22910ecb5d87939d6",
+    "weights/last.pth": "432d546684d3a2682fc510baf242394def456868c21955fb1efbdfeb9b87a130"
+  }
+}

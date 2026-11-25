@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/tmp/ipykernel_23/2188523945.py", line 186, in run_training
+    trainer(key, run)
+    ~~~~~~~^^^^^^^^^^
+  File "/tmp/ipykernel_23/2261837234.py", line 200, in train_maskrcnn
+    raise FloatingPointError(
+        f"Loss Mask R-CNN nonfinite: epoch {epoch}, batch {batch}. Diagnostik: {path}"
+    )
+FloatingPointError: Loss Mask R-CNN nonfinite: epoch 1, batch 43. Diagnostik: /kaggle/working/cpmk3_hard3/20261124T141339505575Z/experiments/maskrcnn/attempt_01/batch_diagnostic.json

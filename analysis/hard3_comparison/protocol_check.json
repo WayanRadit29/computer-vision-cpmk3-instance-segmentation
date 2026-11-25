@@ -1,0 +1,16 @@
+{
+  "baseline_source": "/kaggle/input/datasets/wayanradityaputra/cpmk3-all-class-evaluation-reference/all_class_evaluation",
+  "config_matches": true,
+  "foreground_ground_truth_matches": true,
+  "includes_test_metrics": false,
+  "limitation": "Kesetaraan kode evaluator all-class tidak dapat diaudit tanpa notebook asli.",
+  "baseline_training_time_scope": "Waktu kumulatif dari CSV baseline",
+  "baseline_training_source": "experiments/<model>_all_classes/metrics/results.csv",
+  "maskrcnn_training_difference": {
+    "baseline_amp": true,
+    "baseline_lr": 0.005,
+    "hard3_v2_amp": false,
+    "hard3_v2_lr": 0.0005,
+    "hard3_v2_gradient_clip_max_norm": 5.0
+  }
+}

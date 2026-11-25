@@ -1,0 +1,14 @@
+{
+  "epochs_completed": 60,
+  "training_seconds": 338.73,
+  "training_time_scope": "Ultralytics cumulative epoch log",
+  "highest_validation_mask_map_epoch": 39,
+  "highest_validation_mask_map": 0.07322,
+  "checkpoint_selection": "Ultralytics validation fitness",
+  "model": "yolov8n",
+  "spec_sha256": "11ffa87293a8820d322d0de5a372e7bae9c0a0ef5fe8c294104121e2e2444151",
+  "checkpoint_sha256": {
+    "weights/best.pt": "87f5775efe1cc799e805f9808161c15adae8e7ab7e1ff496dacbd722a815af03",
+    "weights/last.pt": "a88034bcd5b31bcf192e42ef7119e1b545439563057fffdf915722c604b3600d"
+  }
+}

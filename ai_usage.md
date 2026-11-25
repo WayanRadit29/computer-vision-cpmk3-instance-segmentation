@@ -136,3 +136,13 @@ Prioritize speed and practical usefulness.
 ```
 
 </details>
+
+### Stabilisasi numerik Mask R-CNN pada recovery V2
+
+AI membantu menelaah diagnostik Kaggle dari percobaan dengan AMP dan FP32, memeriksa jalur loss RPN dan RoI, serta menerapkan konfigurasi stabilisasi yang ditetapkan peneliti. Bantuan mencakup probe batch tanpa instance dan batch positif, pencatatan gradien serta proposal, dan pemulihan artefak YOLO dari ZIP atau folder ekstraksi. Diagnostik yang tersedia menunjukkan lokasi munculnya loss NaN. Penetapan penyebab dan verifikasi kestabilan memerlukan hasil probe dan run Kaggle. [Catatan penelitian](logbook.md#l-kegagalan-recovery-fp32-dan-rancangan-stabilisasi-v2-24-november-2026-wib)
+
+### Verifikasi runtime dan analisis Hard-3
+
+Instruksi recovery awal dari AI mengasumsikan ZIP dapat dibaca langsung sebagai berkas dan belum mengantisipasi ekstraksi otomatis oleh Kaggle. Peneliti mempertahankan cell rebuild ZIP untuk input yang sudah terpasang. Rekomendasi FP32 pertama masih berakhir dengan NaN pada batch 43. Setelah memeriksa diagnostik, AI membantu menyusun dua cell pengganti yang memisahkan fingerprint kedua YOLO dari fingerprint Mask R-CNN V2 serta menambahkan probe, penurunan laju belajar, clipping, dan pencatatan diagnostik. Peneliti memilih penggantian dua cell dan menjalankan notebook di Kaggle. Pemeriksaan sintaks dan kompatibilitas recovery memberi bukti sebelum eksekusi, sedangkan kestabilan didukung oleh log Kaggle dan penyelesaian 20 epoch. Penyebab NaN tetap belum terisolasi. [Catatan eksperimen](logbook.md#m-recovery-v2-dan-hasil-validation-hard-3-25-november-2026-wib) dan [status Kaggle](analysis/hard3_comparison/provenance/run_summary.json).
+
+AI membantu mencocokkan metadata evaluasi dan ground truth, memeriksa konsistensi angka, menyajikan grafik, dan menilai hasil terhadap hipotesis yang sudah dirumuskan. Kesimpulan didasarkan pada artefak validation dan dibatasi oleh jumlah instance, satu seed, serta perubahan konfigurasi Mask R-CNN. [Analisis hasil dan batas interpretasi](analysis/hard3_comparison/analysis.md).

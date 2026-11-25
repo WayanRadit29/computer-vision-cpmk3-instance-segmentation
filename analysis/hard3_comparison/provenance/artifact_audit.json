@@ -1,0 +1,175 @@
+{
+  "archive": "CPMK3_Hard3_Recovery_V2_Complete.zip",
+  "archive_members": 1981,
+  "archive_run_prefix": "cpmk3_hard3/20261125T021827548702Z",
+  "audited_split": "validation",
+  "matched_image_records": 166,
+  "matched_ground_truth_instances": 40,
+  "compared_ground_truth_fields": [
+    "id",
+    "image_id",
+    "category_id",
+    "bbox",
+    "area",
+    "segmentation",
+    "iscrowd"
+  ],
+  "baseline_config_sha256": "0abc3a8e61ad4d3fc6362b42075cea66748fc67938491cfa839b79a1ca8bac59",
+  "baseline_per_class_csv_sha256": "6ddbb98cfbf98c43818eb17eff2cc6fde6a2deafa9bc3a7de33a534956a07b91",
+  "hard3_validation_coco_sha256": "c8b402d9d8c0e2b2aae6097dbec88bdcb3b4344367de8a7832410257a7847df6",
+  "historical_recovery_archive": "CPMK3_Hard3_All_Models.zip",
+  "models": {
+    "yolo11n": {
+      "checkpoint_sha256": {
+        "weights/best.pt": "6e17a8d8b2a4291da424d8ecaddb080744e5c83f17ce375aeaa550b8cae1f775",
+        "weights/last.pt": "050320d3304d6858b4cf62f65c4067b30443ccf29645e045e23bdeafa2e7f12f"
+      },
+      "training_origin": "recovered",
+      "spec_sha256": "11ffa87293a8820d322d0de5a372e7bae9c0a0ef5fe8c294104121e2e2444151",
+      "predictions": {
+        "all_class_bbox": {
+          "records": 15770,
+          "sha256": "8f9e965b9096bb9ae161f4edac5eec2b1e825e179a8172afe1b82bd7cf975380"
+        },
+        "hard3_bbox": {
+          "records": 3205,
+          "sha256": "732a09d91352776c6a63082b27374fba6659575b20b7c68d26042cb30310db4e"
+        },
+        "all_class_segm": {
+          "records": 15770,
+          "sha256": "9fb5a81e5b810f9e7719fc35575d0cd3e73969babd5493ca7cd0105f7bd09761"
+        },
+        "hard3_segm": {
+          "records": 3205,
+          "sha256": "24589c5d1a7b63aa0c6465bbcefd9780d179d1ab14b82b684dbc98333ee7478e"
+        }
+      }
+    },
+    "yolov8n": {
+      "checkpoint_sha256": {
+        "weights/best.pt": "87f5775efe1cc799e805f9808161c15adae8e7ab7e1ff496dacbd722a815af03",
+        "weights/last.pt": "a88034bcd5b31bcf192e42ef7119e1b545439563057fffdf915722c604b3600d"
+      },
+      "training_origin": "recovered",
+      "spec_sha256": "11ffa87293a8820d322d0de5a372e7bae9c0a0ef5fe8c294104121e2e2444151",
+      "predictions": {
+        "all_class_bbox": {
+          "records": 16079,
+          "sha256": "95de57dc1078a2152c9b801db7415051dec01a40cb1e3fbcced378fba263e59f"
+        },
+        "hard3_bbox": {
+          "records": 1975,
+          "sha256": "ee6b492bdf03be89ed681247dee751ec4f9212eb566afd2e6977eea39669ba2f"
+        },
+        "all_class_segm": {
+          "records": 16079,
+          "sha256": "65461a6c1343268f7e23687addad85a1f915f96983ffac4d71c8ab15e60c12e5"
+        },
+        "hard3_segm": {
+          "records": 1975,
+          "sha256": "d5429c33acbed10ae9dcf7ca13ae8f7fac7ac3ac46d841e057b4aee92e26a60f"
+        }
+      }
+    },
+    "maskrcnn": {
+      "checkpoint_sha256": {
+        "weights/best.pth": "8337a3a93c6dcbbc68fcb0b8534d7660461109be03facff22910ecb5d87939d6",
+        "weights/last.pth": "432d546684d3a2682fc510baf242394def456868c21955fb1efbdfeb9b87a130"
+      },
+      "training_origin": "current_run",
+      "spec_sha256": "2911b7adf79c74428e73433ac745626d988f02fe558571bb061e1690e5f050f4",
+      "predictions": {
+        "all_class_bbox": {
+          "records": 16241,
+          "sha256": "e4720b85ba0140bfed97f10f691c7671ee3aabc162bf1fb0db5dcd2fc0e701dd"
+        },
+        "hard3_bbox": {
+          "records": 14624,
+          "sha256": "0dbf2f43f1f685711dce1bc3bfeb3c2cad82dd6a9dc38b32878d62c94332af00"
+        },
+        "all_class_segm": {
+          "records": 16088,
+          "sha256": "7e487de9f6e7839f6ad91b95a2783d2aed1b57ce309e38eb05c5de9eba71da0b"
+        },
+        "hard3_segm": {
+          "records": 14054,
+          "sha256": "67c5db759335b8c88a51dfaf8ebcb75406e4259d5fe328d2c494fd75fffc2671"
+        }
+      }
+    }
+  },
+  "numerical_stability": {
+    "preflight_passes": 2,
+    "first_batches_checked": 100,
+    "first_batches_clipped": 40,
+    "batch43": {
+      "epoch": 1,
+      "batch": 43,
+      "step": 43,
+      "probe": null,
+      "images": [
+        {
+          "image_id": 153,
+          "instances": 0
+        },
+        {
+          "image_id": 205,
+          "instances": 0
+        }
+      ],
+      "batch_without_positive_instances": true,
+      "precision": "float32",
+      "amp": false,
+      "loss_components": {
+        "loss_classifier": 0.005742707289755344,
+        "loss_box_reg": 0.0,
+        "loss_mask": 0.0,
+        "loss_objectness": 0.022983498871326447,
+        "loss_rpn_box_reg": 0.0
+      },
+      "total_loss": 0.028726205229759216,
+      "gradient_norm_before_clip": 1.1412068605422974,
+      "max_gradient_norm": 5.0,
+      "rpn_proposals_per_image": [
+        2000,
+        2000
+      ],
+      "roi_samples_per_image": [
+        512,
+        512
+      ],
+      "activations": {
+        "checked_tensors": 12,
+        "nonfinite": [],
+        "max_abs": 44.31787109375
+      },
+      "gradient_clipped": false,
+      "model_state": {
+        "parameters": {
+          "checked_tensors": 95,
+          "nonfinite": [],
+          "max_abs": 2.244112014770508
+        },
+        "floating_buffers": {
+          "checked_tensors": 212,
+          "nonfinite": [],
+          "max_abs": 14.234044075012207
+        }
+      },
+      "status": "passed"
+    }
+  },
+  "notebook": {
+    "reconstruction": true,
+    "reference_run": "cpmk3_hard3/20261125T021827548702Z",
+    "source_notebook": "cpmk-3-recovery-hard-3.ipynb",
+    "source_notebook_sha256": "dbfae1652bfbb5355cd432c071e3972abb155282639a2dec858571f96191db10",
+    "patch_document": "CPMK3_Hard3_Recovery_V2_Cell_Patches.md",
+    "patch_document_sha256": "26fd5d2f163018ecb35fd696e663984e56346c1a82df03bc2da70c25d63fb80d",
+    "replaced_cells": [
+      17,
+      23
+    ],
+    "runtime_outputs_in": "CPMK3_Hard3_Recovery_V2_Complete.zip"
+  }
+}
