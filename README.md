@@ -2,6 +2,36 @@
 
 Proyek ini membandingkan model visi komputer yang mengenali objek di dalam ruangan dan menandai piksel yang membentuk setiap objek. Tugas ini disebut *segmentasi instance*. Jika ada dua kursi dalam satu gambar, model diharapkan menghasilkan mask tersendiri untuk setiap kursi.
 
+## Mulai di sini
+
+Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN dalam dua skenario. **All-Class** melatih model untuk 74 kelas. **Hard-3** melatih model khusus untuk `bed`, `book`, dan `cabinet-merged`, kemudian membandingkannya dengan All-Class pada tiga kelas yang sama.
+
+1. **Periksa hasil utama.** Buka [evaluasi All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan Hard-3](analysis/hard3_comparison/analysis.md). Keduanya memakai 166 gambar validation.
+2. **Telusuri keputusan riset.** Buka [laporan sementara](analysis/report.md) untuk metodologi dan kurva pelatihan, serta [hipotesis sebelum Hard-3](logbook.md#hipotesis-hard-3) untuk melihat rencana yang diuji.
+3. **Periksa bukti penilaian.** Buka [manifest 40 foto](evidence/photo_metadata/photo_manifest.csv), [bukti anotasi Roboflow](evidence/annotation_screenshots/dataset_overview.png), atau [contoh hasil demo](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).
+
+## Progres penelitian
+
+- **Selesai** — pelatihan dan unified validation tiga model pada All-Class dan Hard-3, pemilihan kelas Hard-3, perbandingan hasil, evaluasi hipotesis pada validation, demo inference kepada dosen, pengumpulan 40 foto asli, pedoman anotasi, dan anotasi manual seluruh foto di Roboflow.
+- **Menunggu** — ekspor dan validasi personal test set, evaluasi original test dan personal test, analisis pergeseran domain, analisis kegagalan pada lima foto, eksperimen tambahan untuk menguji penjelasan kegagalan, serta laporan penelitian final.
+
+## Struktur repositori
+
+| Lokasi | Isi dan fungsi |
+| --- | --- |
+| `analysis/dataset_audit/` | Audit dan koreksi dataset baseline. [Manifest konversi](analysis/dataset_audit/conversion_manifest.json), [QA anotasi](analysis/dataset_audit/qa_report.json), dan [contoh overlay](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png). |
+| `analysis/all_class_comparison/` | Protokol unified validation, skor semua model, AP per kelas, dan dasar pemilihan Hard-3. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json) dan [keputusan Hard-3](analysis/all_class_comparison/hard3_decision.json). |
+| `analysis/hard3_comparison/` | Perbandingan pada tiga kelas yang sama, hasil uji hipotesis pada validation, grafik, dan provenance run. [Tabel per kelas](analysis/hard3_comparison/per_class_comparison_with_relative.csv) dan [audit artefak](analysis/hard3_comparison/provenance/artifact_audit.json). |
+| `analysis/figures/` dan `analysis/report.md` | Grafik baseline serta laporan sementara yang menghubungkan data, metode, hasil, dan pekerjaan tersisa. [Kurva validasi baseline](analysis/figures/all_class_validation_mask_map.png) dan [laporan](analysis/report.md). |
+| `experiments/` | Enam folder model per skenario. Konfigurasi berada di tingkat folder model, `metrics/` memuat log atau ringkasan, dan grafik berada di `metrics/` atau `visualizations/`. Lihat [indeks artefak per model](#artefak-per-model-dan-notebook). |
+| `notebooks/` | Notebook pelatihan baseline, eksperimen awal Hard-3, dan recovery Mask R-CNN. [Notebook Hard-3 awal](notebooks/CPMK3_Hard3_All_Models.ipynb) dan [rekonstruksi run final](notebooks/CPMK3_Hard3_Final_Reconstructed.ipynb). |
+| `data/custom_test/` | Foto asli personal test set dan pedoman anotasi. [Pedoman](data/custom_test/annotation_guidelines.md) dan [contoh foto asli](data/custom_test/images/CPMK3_Personal_Test_Set/P026.jpg). Ekspor anotasi masih menunggu. |
+| `evidence/` | Bukti pendukung dataset dan eksperimen. [Screenshot proses anotasi](evidence/annotation_screenshots/annotation_process.png), [metadata EXIF](evidence/photo_metadata/exif_metadata.csv), [bukti GPU](evidence/gpu_usage/YOLO11n-seg_all_class.png), dan [diagnostik recovery](evidence/training_logs/hard3_maskrcnn/fp32_batch43_diagnostic.json). |
+| `demo_inference.py` dan `demo_outputs/` | Script inference satu gambar dan dua hasil contoh dengan mask, kotak, dan confidence. [Script](demo_inference.py) dan [contoh 053](demo_outputs/yolo11n_all_classes__053_jpg.rf.002f0adcbefe28f38a23d14e639c1865.png). |
+| `logbook.md` dan `ai_usage.md` | Riwayat eksperimen, hipotesis, serta jenis bantuan AI dan cara hasilnya diperiksa. [Logbook](logbook.md) dan [pernyataan penggunaan AI](ai_usage.md). |
+
+Dataset Panoptic asli dan hasil konversi berada di `data/original_v5/` dan `data/processed/` pada instalasi lokal. Bobot model dan arsip run juga disimpan di luar Git. Sumber data dan checksum bobot tersedia pada bagian [reproduksi checkpoint dan demo](#reproduksi-checkpoint-dan-demo).
+
 ## Data yang digunakan
 
 Eksperimen memakai Panoptic Indoor Segmentation v5 dengan 74 kelas aktif. Dataset dibagi menjadi 397 gambar untuk melatih model, 166 gambar untuk memantau kinerjanya selama pelatihan, dan 359 gambar uji yang disisihkan untuk evaluasi akhir.
@@ -16,14 +46,11 @@ Anotasi manual seluruh 40 foto selesai di Roboflow berdasarkan konfirmasi peneli
 
 Contoh kondisi sulit meliputi pencahayaan rendah pada foto buku dan tempat tidur, serta tempat tidur yang sebagian tertutup lemari. [P026](data/custom_test/images/CPMK3_Personal_Test_Set/P026.jpg), [P027](data/custom_test/images/CPMK3_Personal_Test_Set/P027.jpg), dan [P031](data/custom_test/images/CPMK3_Personal_Test_Set/P031.jpg).
 
-## Progres penelitian
-
-- **Selesai** — pelatihan dan unified validation tiga model pada All-Class dan Hard-3, pemilihan kelas Hard-3, perbandingan hasil, evaluasi hipotesis pada validation, demo inference kepada dosen, pengumpulan 40 foto asli, pedoman anotasi, dan anotasi manual seluruh foto di Roboflow.
-- **Menunggu** — ekspor dan validasi personal test set, evaluasi original test dan personal test, analisis pergeseran domain, analisis kegagalan pada lima foto, eksperimen tambahan untuk menguji penjelasan kegagalan, serta laporan penelitian final.
-
 ## Hasil validasi All-Class
 
 Pelatihan all-class kedua YOLO selesai dalam 60 epoch dan Mask R-CNN dalam 20 epoch. Checkpoint ketiganya kemudian dinilai dengan COCOeval pada 166 gambar validation dan ground truth COCO yang sama. Mask mAP50–95 merangkum ketepatan mask pada beberapa ambang kecocokan dengan anotasi.
+
+Tabel di bawah mengambil skor dari evaluasi bersama dengan confidence minimum 0,001 dan maksimum 100 deteksi per gambar. CSV pelatihan per epoch mencatat metrik dari masing-masing run, sehingga angkanya dapat berbeda. [Protokol dan skor sumber](analysis/all_class_comparison/analysis.md#protokol-evaluasi).
 
 | Model | Mask mAP50–95 (%) | Mask mAP50 (%) | Waktu pipeline (detik) |
 | --- | ---: | ---: | ---: |
@@ -47,17 +74,17 @@ Ketiga model menyelesaikan pelatihan dan unified COCOeval pada 166 gambar valida
 
 Rata-rata ketiga model meningkat. Mask R-CNN berada 0,157 poin persentase di atas YOLOv8n dan memperoleh AP `book` tertinggi, 10,707%. Kelas `bed` hanya memiliki enam instance validation. Perbandingan Mask R-CNN juga mencakup perubahan precision, laju belajar, dan gradient clipping. Original test dan personal test belum dievaluasi. [Tabel per kelas](analysis/hard3_comparison/per_class_comparison_with_relative.csv), [grafik perbandingan](analysis/hard3_comparison/per_class_comparison.png), dan [analisis Hard-3](analysis/hard3_comparison/analysis.md).
 
-## Hasil lengkap dan notebook
+## Artefak per model dan notebook
 
-| Model | Konfigurasi pelatihan | Riwayat per epoch | Ringkasan dan grafik |
+| Model | Konfigurasi All-Class | Riwayat All-Class | Bukti Hard-3 |
 | --- | --- | --- | --- |
-| YOLO11n-seg | [args.yaml](experiments/yolo11n_all_classes/args.yaml) | [results.csv](experiments/yolo11n_all_classes/metrics/results.csv) | [Ringkasan](experiments/yolo11n_all_classes/metrics/summary.json), [grafik](experiments/yolo11n_all_classes/metrics/results.png) |
-| YOLOv8n-seg | [args.yaml](experiments/yolov8n_all_classes/args.yaml) | [results.csv](experiments/yolov8n_all_classes/metrics/results.csv) | [Ringkasan](experiments/yolov8n_all_classes/metrics/summary.json), [grafik](experiments/yolov8n_all_classes/metrics/results.png) |
-| Mask R-CNN | [config.json](experiments/maskrcnn_all_classes/config.json) | [results.csv](experiments/maskrcnn_all_classes/metrics/results.csv) | [Ringkasan](experiments/maskrcnn_all_classes/metrics/summary.json), [grafik](experiments/maskrcnn_all_classes/metrics/validation_metrics.png), [AP per kelas](experiments/maskrcnn_all_classes/metrics/per_class_val_ap.csv) |
+| YOLO11n-seg | [args.yaml](experiments/yolo11n_all_classes/args.yaml) | [CSV](experiments/yolo11n_all_classes/metrics/results.csv), [ringkasan](experiments/yolo11n_all_classes/metrics/summary.json), [grafik](experiments/yolo11n_all_classes/metrics/results.png) | [Konfigurasi](experiments/yolo11n_hard3/config.json), [log](experiments/yolo11n_hard3/metrics/training_log.txt), [AP per kelas](experiments/yolo11n_hard3/metrics/unified_validation/per_class_ap.csv) |
+| YOLOv8n-seg | [args.yaml](experiments/yolov8n_all_classes/args.yaml) | [CSV](experiments/yolov8n_all_classes/metrics/results.csv), [ringkasan](experiments/yolov8n_all_classes/metrics/summary.json), [grafik](experiments/yolov8n_all_classes/metrics/results.png) | [Konfigurasi](experiments/yolov8n_hard3/config.json), [log](experiments/yolov8n_hard3/metrics/training_log.txt), [AP per kelas](experiments/yolov8n_hard3/metrics/unified_validation/per_class_ap.csv) |
+| Mask R-CNN | [config.json](experiments/maskrcnn_all_classes/config.json) | [CSV](experiments/maskrcnn_all_classes/metrics/results.csv), [ringkasan](experiments/maskrcnn_all_classes/metrics/summary.json), [grafik](experiments/maskrcnn_all_classes/metrics/validation_metrics.png) | [Konfigurasi](experiments/maskrcnn_hard3/config.json), [log](experiments/maskrcnn_hard3/metrics/training_log.txt), [AP per kelas](experiments/maskrcnn_hard3/metrics/unified_validation/per_class_ap.csv) |
 
 Notebook Kaggle memuat penyiapan data, konfigurasi, dan keluaran pelatihan. [Notebook YOLO11n](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb), [notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb), dan [notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb)
 
-Artefak evaluasi bersama berada di `analysis/all_class_comparison/` dan grafiknya di `analysis/figures/`. Untuk menelusuri protokol, mulai dari konfigurasi yang memuat versi pustaka, identitas checkpoint, dan aturan prediksi. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json), [metrik per model](analysis/all_class_comparison/model_comparison.csv), [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv).
+Bukti evaluasi All-Class tersedia sebagai konfigurasi dan hasil ekspor. Notebook evaluasi All-Class yang dieksekusi tidak tersedia di repo. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json), [metrik per model](analysis/all_class_comparison/model_comparison.csv), dan [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv).
 
 Notebook Hard-3 menyiapkan anotasi, melatih ketiga model secara berurutan, dan membandingkan AP pada tiga kelas yang sama di validation. Untuk menjalankannya di Kaggle, pasang versi dataset COCO yang digunakan pada baseline dan lampirkan `evaluation_config.json` serta `per_class_ap_comparison.csv` dari evaluasi all-class. Pengaturan GPU, direktori hasil, dan prosedur pemulihan tercantum di notebook. [Notebook pelatihan Hard-3](notebooks/CPMK3_Hard3_All_Models.ipynb).
 
@@ -65,11 +92,9 @@ Recovery V2 menyelesaikan pelatihan Mask R-CNN dalam FP32 dengan laju belajar 0,
 
 ### Reproduksi checkpoint dan demo
 
+Sumber data baseline yang dipakai notebook adalah dataset Kaggle `wayanradityaputra/panoptic-indoor-segmentation-v5-coco-format`. Cara membangun ulang label dan koreksi orientasi tercatat di [manifest konversi](analysis/dataset_audit/conversion_manifest.json) dan [laporan metodologi](analysis/report.md#3-dataset-dan-persiapan-data).
+
 Checkpoint disimpan terpisah dari Git. Tempatkan `best.pt` untuk YOLO atau `best.pth` untuk Mask R-CNN di subfolder `weights/` dalam direktori model terkait di `experiments/`. Referensi Kaggle dan SHA-256 untuk ketiga model All-Class tercatat di konfigurasi evaluasi. Bobot Hard-3 berasal dari arsip `CPMK3_Hard3_All_Models.zip` dan `CPMK3_Hard3_Recovery_V2_Complete.zip`. Hash `best` dan `last` Hard-3 tercatat di audit artefak. Akses evaluator ke aset Kaggle dan arsip tersebut belum diverifikasi. [Konfigurasi All-Class](analysis/all_class_comparison/evaluation_config.json) dan [audit Hard-3](analysis/hard3_comparison/provenance/artifact_audit.json).
 
 Demo diuji dengan Python 3.12.4, PyTorch 2.11.0 CPU, Torchvision 0.26.0 CPU, Ultralytics 8.4.216, dan OpenCV 4.13.0.92. PyYAML membaca taksonomi dan Matplotlib menampilkan hasil. Siapkan checkpoint di `experiments/yolo11n_all_classes/weights/best.pt` dan taksonomi hasil konversi di `data/processed/all_classes/data.yaml`. Jalankan `python demo_inference.py <path-gambar>` dari root repositori. Demo menampilkan mask, kotak, dan confidence pada satu gambar dan menyimpan PNG di `demo_outputs/`. [Script inference](demo_inference.py), [contoh 005](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png), dan [contoh 053](demo_outputs/yolo11n_all_classes__053_jpg.rf.002f0adcbefe28f38a23d14e639c1865.png).
 
-- Lihat contoh mask hasil konversi dan mask setelah gambar dikoreksi. [Inspeksi mask](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png) dan [pemeriksaan orientasi](evidence/orientation_fixes_verification.png)
-- Ikuti urutan eksperimen, temuan, dan keputusan teknis. [Logbook](logbook.md)
-- Baca hasil baseline, pemilihan kelas, dan penelitian lanjutan. [Laporan penelitian](analysis/report.md)
-- Lihat bagian yang dibantu AI dan cara keluarannya diperiksa. [Pernyataan penggunaan AI](ai_usage.md)

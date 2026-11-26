@@ -1,5 +1,7 @@
 # Analisis Komparatif Model Instance Segmentation pada Lingkungan Indoor Nyata
 
+**Status laporan sementara.** Laporan ini membahas persiapan dataset dan perilaku model selama pelatihan. Untuk memeriksa peringkat dari evaluator yang sama, gunakan [hasil unified validation All-Class](all_class_comparison/analysis.md) dan [perbandingan Hard-3](hard3_comparison/analysis.md). Original test dan personal test belum dievaluasi.
+
 ## 1. Pendahuluan
 
 Bayangkan satu foto ruangan berisi dua kursi yang saling menutupi. Model perlu mengenali keduanya sebagai kursi dan menandai piksel milik masing-masing kursi secara terpisah. Wilayah piksel itu disebut *mask*, dan tugas untuk menghasilkan satu mask per objek disebut *instance segmentation*. Di dalam ruangan, ukuran objek yang beragam, bagian yang tertutup, dan batas objek yang samar membuat tugas ini lebih sulit.
@@ -13,13 +15,13 @@ Penelitian ini membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN pada Panop
 3. Kelas mana yang konsisten sulit bagi ketiga model ketika diukur dengan evaluator yang sama dan memiliki cukup contoh untuk dianalisis?
 4. Bagaimana pelatihan khusus tiga kelas tersulit memengaruhi hasil pada kelas tersebut, dan bagaimana hasilnya berubah pada set uji asli serta foto pribadi?
 
-Hasil baseline menjawab dua pertanyaan pertama. Dua pertanyaan berikutnya menuntun tahap selanjutnya: mengidentifikasi kelas yang sulit bagi semua model, lalu menguji apakah pelatihan khusus membantu.
+Hasil baseline menjawab dua pertanyaan pertama. Evaluasi bersama menentukan tiga kelas tersulit, dan eksperimen Hard-3 mengukur dampak pelatihan khusus pada validation. Perbandingan pada kedua set uji masih menunggu.
 
 ## 3. Dataset dan Persiapan Data
 
 Ketiga model memakai versi Kaggle yang sama dari Panoptic Indoor Segmentation v5 (ID versi `22504534`). Ekspor COCO menyimpan ukuran gambar, kategori, dan poligon yang mengikuti batas tiap objek. Anotasi ini menjadi sumber untuk dua format pelatihan. YOLO menggunakan titik poligon yang dinyatakan relatif terhadap ukuran gambar, sedangkan Mask R-CNN menggunakan anotasi COCO yang geometrinya sudah dikoreksi.
 
-Kategori induk `indoor-objects` (ID 0) tidak memiliki anotasi objek, sehingga tersisa 74 kelas. ID pada label YOLO mengikuti `yolo_id = coco_category_id - 1`. Mask R-CNN memakai indeks 0 untuk latar belakang (*background*). [Manifest konversi](dataset_audit/conversion_manifest.json), [pemetaan YOLO](../data/processed/all_classes/data.yaml), dan [manifest koreksi COCO](../experiments/maskrcnn_all_classes/corrected_annotations/repair_manifest.json).
+Kategori induk `indoor-objects` (ID 0) tidak memiliki anotasi objek, sehingga tersisa 74 kelas. ID pada label YOLO mengikuti `yolo_id = coco_category_id - 1`. Mask R-CNN memakai indeks 0 untuk latar belakang (*background*). Pemetaan nama kelas tersedia di `data/processed/all_classes/data.yaml` setelah dataset dibangun ulang secara lokal. [Manifest konversi](dataset_audit/conversion_manifest.json), [daftar kelas dan instance](dataset_audit/qa_report.json), dan [manifest koreksi COCO](../experiments/maskrcnn_all_classes/corrected_annotations/repair_manifest.json).
 
 Tabel berikut menunjukkan jumlah gambar dan jumlah objek beranotasi (*instance*) pada setiap bagian data. Satu gambar dapat memuat beberapa objek.
 
@@ -156,7 +158,7 @@ Ketiga baseline melihat pembagian gambar yang sama. Namun, tiap keluarga model d
 
 ## 9. Evaluasi Original Test Set dan Personal Test Set
 
-**Belum dievaluasi**. Original test set berisi 359 gambar yang disisihkan untuk menilai kemampuan model pada contoh baru. Jalankan evaluasi setelah pemilihan kelas, checkpoint, dan pengaturan evaluasi dikunci. Untuk personal test set, persiapkan anotasi dan pemetaan kategori yang konsisten, lalu catat kondisi pengambilan fotonya.
+**Belum dievaluasi**. Original test set berisi 359 gambar yang disisihkan untuk menilai kemampuan model pada contoh baru. Anotasi manual 40 foto personal test set selesai di Roboflow berdasarkan konfirmasi peneliti. Ekspor anotasi dan validasi pemetaan kategori masih menunggu. Evaluasi kedua set dilakukan setelah checkpoint dan pengaturan evaluasi dikunci. [Status dan bukti personal test set](../README.md#personal-test-set).
 
 ## 10. Analisis Domain Shift
 

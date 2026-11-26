@@ -12,6 +12,7 @@ ChatGPT membantu menyiapkan data, menyusun kode eksperimen YOLO, dan mendokument
 | Mask R-CNN | Membantu membaca dan mendokumentasikan hasil. Penggunaan AI saat penyusunan notebook pelatihan belum terdokumentasi. [Notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb) |
 | Evaluasi bersama dan Hard-3 | Membantu menelaah rancangan evaluasi, koreksi ground truth, pemetaan COCO–YOLO, serta aturan pemeringkatan. Bantuan pada tahap analisis mencakup penataan artefak untuk reproduksi, penghitungan ulang mean dan SD AP, dan penjelasan keterbatasan. Riwayat bantuan AI untuk penyusunan notebook evaluasi dan rekonstruksi ground truth belum dapat dirinci dari artefak yang ada. [Analisis evaluasi](analysis/all_class_comparison/analysis.md) |
 | Pedoman personal test set | Membantu mencocokkan nama dan ID kategori COCO dan YOLO, memeriksa overlay poligon baseline, mengenali label ambigu, serta menyusun usulan aturan label dan mask. [Pedoman anotasi](data/custom_test/annotation_guidelines.md) |
+| Demo inference | Membantu menyusun script, memeriksa kecocokan checkpoint dengan hasil unified validation, serta menjalankan uji lokal pada contoh original test. Peneliti mendemonstrasikan hasil kepada dosen. [Script demo](demo_inference.py) dan [contoh visual](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png). |
 | Dokumentasi | Membantu merangkum metode, metrik, dan keterbatasan eksperimen berdasarkan konfigurasi dan hasil pelatihan. [Logbook](logbook.md) |
 
 ## Kesalahan kode yang ditemukan dan cara memperbaikinya
