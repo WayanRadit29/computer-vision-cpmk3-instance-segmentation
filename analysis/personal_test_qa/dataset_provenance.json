@@ -1,0 +1,64 @@
+{
+  "status": "REVIEW REQUIRED",
+  "zip_name": "CPMK3 Personal Indoor Test Set.v1-personal-test-set-v1.coco-segmentation.zip",
+  "zip_sha256": "d69e558c492d0fef79309f2b116d6c940cf2b30f98676f1b18757092713d4f29",
+  "raw_root": "data/custom_test/roboflow_raw",
+  "raw_files_sha256": {
+    "test/P010_jpg.rf.200d0ac7266cfdc9722f58b63e0358f7.jpg": "b3623b9544cf7644c8d4d090e79c0298ecc5972b5d5bc4ff2a134bc0fa145ae2",
+    "test/P016_jpg.rf.ac406bbf554acea74d4c846965c9258c.jpg": "00072183abdc1dd5bef05e5a06c3147976f8fc906a0306b3c4f440a9b3bed3a8",
+    "test/P038_jpg.rf.80dda60873b08d586cfc4dd0a37b3f9d.jpg": "e7e08f433521bc62bd26d0df4cdcdf8ad13c547e1e85067d6dc5ed5f0825f8e8",
+    "test/P004_jpg.rf.cf53746555abaab3a66a982b71ecbd27.jpg": "b5e06980608e6b738a5abfa057f23eca941dab1d4982b9cc5be04317e9ff062a",
+    "test/P006_jpg.rf.856ca8c9788b12eff0f7555380d2ce90.jpg": "8a4b17f56182a1b9e4c47c77e8aa2bc4f1ea23211d341062d1f59769dea9835f",
+    "test/P008_jpg.rf.eb835e9dcfdf30f8befe6d11cde146fc.jpg": "5bc7cc47a94f11c6affd09dec75b1db63591db780a50d7e99ec1ee37145847f8",
+    "test/P003_jpg.rf.23423c03fcb67cb407b3c8e8904e8062.jpg": "80b7821d6b6d2e318100289d85f86cb986504c5932caf3ac90c2a9ed5d1a9c55",
+    "test/P007_jpg.rf.e54add7614912be2a743e2aaa6385489.jpg": "b67ff0fddd4a492e62c1840a4bff04c91895c9b8f4e8e01f805a7bbf72bf8798",
+    "test/P026_jpg.rf.8febd6cf9a95eb6201e71007fb6b8258.jpg": "dad3c0b25d8c06a595e9afc995d8a0461513d9646ad1cdf8f327e223361899a8",
+    "test/P001_jpg.rf.a27fff9eabe86eecf317923a7ef41e47.jpg": "132ce9feb1ce8960e02d279b43d9fbb1dee8aebf5f909bf3e690a6717e0f85af",
+    "test/P031_jpg.rf.9f77e192cccd07a34470439b66aa7478.jpg": "20c6b35eca9328b16dc9a33f609f449c92590fb07220c786aeb780286564f5cc",
+    "test/P015_jpg.rf.d7b5ef7f14cd0daa5e708b882204c3a2.jpg": "5448eb27fd55e78e497fc95d171e88ad2b743437b99a5a19d7def520296355fa",
+    "test/P011_jpg.rf.baa9c9d356b6ab48aa8d577a1b92c041.jpg": "eafa8990d1c64b3b876c982c0d96c6b2562b6bee3f837f11f0867d2511e67c16",
+    "test/P027_jpg.rf.48e56afc96832880827f9829c4c4e548.jpg": "8a4c00f4618006537dbc1b0287158e444c2ccfd7c73098a494837691761f78cc",
+    "test/P023_jpg.rf.626fff340cd9c1d066b36cda9217e026.jpg": "9c730cf4b696166d535062c39868e49674064931598c75909c4efc1fcebbf3e4",
+    "test/P024_jpg.rf.ddee7dfea29ba7eb54ff71242127e760.jpg": "7e725d4a1e07b018c1ca934903bd9f8be402f0ad0a5541e42b9830210aaeb5b2",
+    "test/P040_jpg.rf.56a4d8128f99bfcf1139cc1b46ba15b9.jpg": "f4920a137e9551a7cc29ba0285ac2224dedc59b744d3e774cdc96d8408536c7b",
+    "test/P012_jpg.rf.35a7d8c804936f45b40cf5799594a711.jpg": "f6d9c47f9e73552c58eff699c646553205efd8a9cf4d1032d6642ff07ea363aa",
+    "test/P014_jpg.rf.244ae94dced6c753f86cae19836db1c8.jpg": "ea240ee1d710d54a7258fd7c329879eeefa28e563aca725b44c1799c97723398",
+    "test/P028_jpg.rf.4ddb811fb104f6f426aaaba46a90a2f8.jpg": "e0a71d14614f095e5b20f89c34cacd4158ee45feeea345c067a82fea6cefb0eb",
+    "test/P021_jpg.rf.102c811d200e66d723638749f817098f.jpg": "b0b564d1977a0aa96cb92c4370a25f16ade36fe59df1af23ce8d62a977b75db8",
+    "test/P017_jpg.rf.95038e5350578fe15367ff5f6481892a.jpg": "388273f3a732e589ae9ade4a3eaa5f3191840eed88076f4e135e230eb9dce00a",
+    "test/P018_jpg.rf.170198f77d2e2fe4d6fc831ab7b57e81.jpg": "a1c1feea66e03a0b17e9f9dcfcd29e23aa2cb03bc0979b0680fd84a28d28cf01",
+    "test/P037_jpg.rf.ebcef20efe77f07fd0fa3bfe127c1c13.jpg": "6151f2feadce41006407a29e2c3adfeb13fad172abe04c733ccd6cea344b1741",
+    "test/P025_jpg.rf.0777945b1017aea036cfeb34e089a66c.jpg": "8637711ba226f95590e24cb2617c7b8c4cbe58fffbbfc7ab1058de25da2404db",
+    "test/P013_jpg.rf.ba9b8945714d5c83606accc3707ae835.jpg": "5ac385db2a504c7fcfbe6852bf0233c0489f1079665f6b62c06c04e64bfb3676",
+    "test/P035_jpg.rf.86807732bb53116d99396c1b8621382e.jpg": "2efcd4c546a6fa562b9e279a3acea85e132da996c0e5744cf581d2800467b4a1",
+    "test/P039_jpg.rf.64046e4a55d14bb5d57dda682bed6490.jpg": "4474e96f2b9be12d7604924db3245351b5f62974d52f149bf9fda28e7561c658",
+    "test/P022_jpg.rf.b03ad5f4a46f144d1db20b150f9d3c60.jpg": "4ea5bd2f6909969844b308792e75b0b2ce6cb97f27e2eab9a0e0500876fb30fd",
+    "test/P033_jpg.rf.070b42fc916a28dbcf1faf844c51db4b.jpg": "57569ac90d277cb9369b37d53c81486c5bcc4faff44df1714e05b97b15d27781",
+    "test/P030_jpg.rf.f005e145dc5b33779a80883b2997cbf6.jpg": "ed86b45fa77bbbddd633acf648db497a95023df1fe6af0e9ba922ebd193a2562",
+    "test/P036_jpg.rf.e69ed7c56d88d4178042566886fc64f3.jpg": "b56718fca4719b78902e2056175a2c5ce5137f07bedde98da857ec4dc8f3c530",
+    "test/P029_jpg.rf.a728e270c1e3705de4b3a9176dcb478f.jpg": "afabe31edb1a26251dde511d189b54991d498ccbded8e25d30e4bea8d9191bf1",
+    "test/P020_jpg.rf.f63e968e2db38fd7d5d4dce8e931950e.jpg": "ee03356fd1a7a67b69276525ee55236495af1b628d12c477a9dd4201bc042fcd",
+    "test/P002_jpg.rf.9f7ef107060bde893c085661b4d3db11.jpg": "9c71eb39cee4e14081a53cc9ae457b356f66a1614bf9a5aefd287a6aa17a4444",
+    "test/P034_jpg.rf.ab6bf1191cc004a2440085595d58fc15.jpg": "2568c4f19502c8b022e795abf3cbb5b01a6028449a7c772f989720bd7330acb1",
+    "test/P009_jpg.rf.b8add004862d420964f62ff0e8b4e15e.jpg": "7531060ab5d2896f589440b3105af5de7b63229df575ded299b398f704fb5190",
+    "test/P005_jpg.rf.6608068fa6e1abdc77bcec4c94b131bd.jpg": "72e27969d4e4953fe0d4c01431c5ac639b57f4b6ee01a07899a6e9fafa9824f1",
+    "test/P019_jpg.rf.4d385f3708fc3ba9429d375449900100.jpg": "37880a0358c3b816fbada3ff64f592078035906f82cab34c12b941c5a5b60b8d",
+    "test/P032_jpg.rf.7785c57d80a7a632977592c962b6d6aa.jpg": "aad94cbc07c386b549d2bf6696692a1d84732a552a9e3f1ac6a10ac810f94e1a",
+    "test/_annotations.coco.json": "e4fac79d3fe447c47772e948d01800d1d38b98cdeba54ae5b690fdc922ee9789",
+    "README.roboflow.txt": "972ddd16126c5ecb83323c368fe5b2b988d44091ce6a6be1fdcc145d011e0121"
+  },
+  "configs": {
+    "all_class_master": {
+      "annotation": "data/custom_test/annotations/all_class_master_candidate.coco.json",
+      "image_root": "data/custom_test/roboflow_raw"
+    },
+    "hard3": {
+      "annotation": "data/custom_test/annotations/hard3_candidate.coco.json",
+      "image_root": "data/custom_test/roboflow_raw"
+    }
+  },
+  "candidate_sha256": {
+    "all_class_master_candidate.coco.json": "846d91cdeaa27f3aa0441132824042b8213db3ac4e695831c7d9447810f3ad9d",
+    "hard3_candidate.coco.json": "42c4296189764a66b1bbc76e61f6b4481f7b01c3911facdceeb9791632ec8b35"
+  }
+}

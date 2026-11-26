@@ -1,0 +1,5 @@
+photo_id,image_id,target_annotation_id,target_class,target_category_id,occluding_annotation_id,occluding_class,occluding_category_id,area_before_px,removed_overlap_px,area_after_px,area_reduction_percent,remaining_intersection_px
+P003,3,33,bed,2,32,pillow,40,2738023,329546,2408477,12.035911,0
+P005,5,191,wall-other-merged,68,193,laptop,30,3486209,1356283,2129926,38.904237,0
+P005,5,196,paper,37,195,mouse,34,1009724,174085,835639,17.24085,0
+P008,8,29,window-other,74,27,cup,16,4351551,342444,4009107,7.86947,0

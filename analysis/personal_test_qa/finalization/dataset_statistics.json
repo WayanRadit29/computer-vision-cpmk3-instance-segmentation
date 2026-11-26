@@ -1,0 +1,36 @@
+{
+  "before": {
+    "images": 40,
+    "all_class_instances": 213,
+    "represented_classes": 38,
+    "hard3_instances": 33,
+    "hard3_class_counts": {
+      "bed": 10,
+      "book": 11,
+      "cabinet-merged": 12
+    },
+    "hard3_positive_images": 25,
+    "hard3_negative_images": 15,
+    "invalid_annotations": 0,
+    "annotations_using_unknown_categories": 0
+  },
+  "after": {
+    "images": 40,
+    "all_class_instances": 213,
+    "represented_classes": 38,
+    "hard3_instances": 33,
+    "hard3_class_counts": {
+      "bed": 10,
+      "book": 11,
+      "cabinet-merged": 12
+    },
+    "hard3_positive_images": 25,
+    "hard3_negative_images": 15,
+    "invalid_annotations": 0,
+    "annotations_using_unknown_categories": 0
+  },
+  "corrected_masks_all_class": 4,
+  "corrected_masks_hard3": 1,
+  "occluding_masks_unchanged": 4,
+  "total_removed_pixels": 2202358
+}

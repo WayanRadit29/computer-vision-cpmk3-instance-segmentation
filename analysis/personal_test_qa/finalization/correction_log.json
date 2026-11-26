@@ -1,0 +1,117 @@
+{
+  "review_date_wib": "2026-11-26",
+  "approval_source": "keputusan eksplisit annotator",
+  "operation": "target AND NOT occluding",
+  "corrections": [
+    {
+      "photo_id": "P003",
+      "image_id": 3,
+      "target_annotation_id": 33,
+      "target_class": "bed",
+      "target_category_id": 2,
+      "occluding_annotation_id": 32,
+      "occluding_class": "pillow",
+      "occluding_category_id": 40,
+      "area_before_px": 2738023,
+      "removed_overlap_px": 329546,
+      "area_after_px": 2408477,
+      "area_reduction_percent": 12.035911,
+      "remaining_intersection_px": 0,
+      "bbox_before": [
+        1847.0,
+        683.0,
+        2232.0,
+        2250.0
+      ],
+      "bbox_after": [
+        1847.0,
+        683.0,
+        2232.0,
+        2250.0
+      ]
+    },
+    {
+      "photo_id": "P005",
+      "image_id": 5,
+      "target_annotation_id": 191,
+      "target_class": "wall-other-merged",
+      "target_category_id": 68,
+      "occluding_annotation_id": 193,
+      "occluding_class": "laptop",
+      "occluding_category_id": 30,
+      "area_before_px": 3486209,
+      "removed_overlap_px": 1356283,
+      "area_after_px": 2129926,
+      "area_reduction_percent": 38.904237,
+      "remaining_intersection_px": 0,
+      "bbox_before": [
+        1032.0,
+        0.0,
+        3047.0,
+        2047.0
+      ],
+      "bbox_after": [
+        1032.0,
+        0.0,
+        3047.0,
+        2047.0
+      ]
+    },
+    {
+      "photo_id": "P005",
+      "image_id": 5,
+      "target_annotation_id": 196,
+      "target_class": "paper",
+      "target_category_id": 37,
+      "occluding_annotation_id": 195,
+      "occluding_class": "mouse",
+      "occluding_category_id": 34,
+      "area_before_px": 1009724,
+      "removed_overlap_px": 174085,
+      "area_after_px": 835639,
+      "area_reduction_percent": 17.24085,
+      "remaining_intersection_px": 0,
+      "bbox_before": [
+        2147.0,
+        2256.0,
+        1932.0,
+        803.0
+      ],
+      "bbox_after": [
+        2147.0,
+        2256.0,
+        1932.0,
+        803.0
+      ]
+    },
+    {
+      "photo_id": "P008",
+      "image_id": 8,
+      "target_annotation_id": 29,
+      "target_class": "window-other",
+      "target_category_id": 74,
+      "occluding_annotation_id": 27,
+      "occluding_class": "cup",
+      "occluding_category_id": 16,
+      "area_before_px": 4351551,
+      "removed_overlap_px": 342444,
+      "area_after_px": 4009107,
+      "area_reduction_percent": 7.86947,
+      "remaining_intersection_px": 0,
+      "bbox_before": [
+        1810.0,
+        0.0,
+        1763.0,
+        3059.0
+      ],
+      "bbox_after": [
+        1810.0,
+        0.0,
+        1763.0,
+        3059.0
+      ]
+    }
+  ],
+  "P001_unchanged_annotation_id": 48,
+  "P005_paper_label_confirmed": true
+}

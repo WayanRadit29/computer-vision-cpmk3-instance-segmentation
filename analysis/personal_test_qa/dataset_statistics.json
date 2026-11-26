@@ -1,0 +1,76 @@
+{
+  "images": 40,
+  "raw_annotations": 213,
+  "annotations": 213,
+  "represented_classes": 38,
+  "invalid_annotations": [],
+  "unknown_categories": [
+    {
+      "split": "test",
+      "id": 0,
+      "name": "CPMK3-Personal-Indoor-Test-Set",
+      "annotations": 0,
+      "type": "project_placeholder"
+    }
+  ],
+  "hard3_counts": {
+    "bed": 10,
+    "book": 11,
+    "cabinet-merged": 12
+  },
+  "hard3_positive_images": 25,
+  "hard3_negative_images": 15,
+  "zero_annotation_images": [],
+  "personal_classes_without_train": [
+    "mouse",
+    "keyboard",
+    "toothbrush"
+  ],
+  "absent_baseline_classes": [
+    "blanket",
+    "bowl",
+    "cardboard",
+    "clock",
+    "couch",
+    "counter",
+    "fire-extinguisher",
+    "floor-wood",
+    "flower",
+    "food-other-merged",
+    "hair drier",
+    "microwave",
+    "oven",
+    "pan",
+    "person",
+    "potted plant",
+    "refrigerator",
+    "remote",
+    "scissor",
+    "scissors",
+    "sink",
+    "st-",
+    "stairs",
+    "stove-merged",
+    "teddy bear",
+    "toaster",
+    "toy",
+    "tree-merged",
+    "tv",
+    "vase",
+    "wall",
+    "wall-brick",
+    "wall-stone",
+    "wall-wood",
+    "wallet",
+    "window-blind"
+  ],
+  "correction_counts": {
+    "image_id": 206,
+    "category_id": 199,
+    "area": 213,
+    "bbox": 4
+  },
+  "max_polygon_outside_px": 0.0,
+  "possible_same_class_duplicates": [],
+  "thumbnail_mae_max": 0.40849
+}

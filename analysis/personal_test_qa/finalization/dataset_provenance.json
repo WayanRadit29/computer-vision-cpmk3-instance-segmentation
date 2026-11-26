@@ -1,0 +1,42 @@
+{
+  "review_date_wib": "2026-11-26",
+  "status": "READY FOR FINAL APPROVAL",
+  "ground_truth_frozen": false,
+  "source_candidate_provenance": "analysis/personal_test_qa/dataset_provenance.json",
+  "source_provenance_sha256": "41eaa6299820003406b408ed5860a124a826cd82ebaeb3d47090bb63d99c5731",
+  "source_candidate_sha256": {
+    "all_class_master_candidate.coco.json": "846d91cdeaa27f3aa0441132824042b8213db3ac4e695831c7d9447810f3ad9d",
+    "hard3_candidate.coco.json": "42c4296189764a66b1bbc76e61f6b4481f7b01c3911facdceeb9791632ec8b35"
+  },
+  "category_mapping_sha256": "dcf63b6daad2dbb5145b203e86d3e01047161537b67de8215726ca584949fa24",
+  "review_flags_sha256": "ef1c0ec22b9c462914aa8bdd5f5c58b22c030169a1956ecab327e0d609fc410d",
+  "source_zip_sha256": "d69e558c492d0fef79309f2b116d6c940cf2b30f98676f1b18757092713d4f29",
+  "raw_annotation_sha256": "e4fac79d3fe447c47772e948d01800d1d38b98cdeba54ae5b690fdc922ee9789",
+  "verified_image_hashes": {
+    "original": 40,
+    "exported": 40
+  },
+  "evidence_sha256": {
+    "evidence/photo_metadata/exif_metadata.csv": "8bc71f97c7756f82eb00835030ee23b8ad5040433181e31bb376fb1e22829c56",
+    "evidence/photo_metadata/photo_manifest.csv": "2c3aae7401fcb665c5db9ecaee8eb206f5f4e4d6f9617fdbe71b4c24d4144a5e",
+    "evidence/annotation_screenshots/annotation_process.png": "2f91c8e02021c3a566e6fb06578e899bb2ddba24e57c35ba8bd11e61127d8dc9",
+    "evidence/annotation_screenshots/dataset_overview.png": "c44a12b9bb2ee016f74ca2f7a0288311f84a899ed66500cb3a34bbd2d76c95bc"
+  },
+  "evaluation_configs": {
+    "all_class_master": "data/custom_test/annotations/all_class_master_corrected.coco.json",
+    "hard3": "data/custom_test/annotations/hard3_corrected.coco.json",
+    "shared_image_root": "data/custom_test/roboflow_raw"
+  },
+  "reproduction_script_sha256": "6f4d504b91e4e60fa7fc2db79b350792d6fd0025e3809f83c0d0c4d4185514d8",
+  "pycocotools_version": "2.0.10",
+  "artifacts_sha256": {
+    "data/custom_test/annotations/all_class_master_corrected.coco.json": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23",
+    "data/custom_test/annotations/hard3_corrected.coco.json": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447",
+    "analysis/personal_test_qa/finalization/correction_log.json": "1800775251a7d73d760cdc5b25298759c53709fd45806536c63313abe4120531",
+    "analysis/personal_test_qa/finalization/correction_summary.csv": "fb0cd9eb5e810404c099c3b49798a4f58062224a9ff1fd7c68c3a8d39e148dd3",
+    "analysis/personal_test_qa/finalization/dataset_statistics.json": "0d99a55384e546ead263576dc0fde67e24d33cb588dcca3637632a71ba309b80",
+    "analysis/personal_test_qa/finalization/overlays/P003_before_after.png": "0cda30e650cd94a0d6e4477857ae8a7709b194f6945833e4f011827b10d7b10d",
+    "analysis/personal_test_qa/finalization/overlays/P005_before_after.png": "72bcea5fa5464e1584815c651373a70459ba3fd9ea8e4c91891597fb9c9f9465",
+    "analysis/personal_test_qa/finalization/overlays/P008_before_after.png": "277447d54310ec2125eba6ddd75d6c5ef5d28123f707b2959f15ab35bd21c479"
+  }
+}

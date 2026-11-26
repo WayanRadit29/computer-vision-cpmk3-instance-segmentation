@@ -1,0 +1,904 @@
+{
+  "classes": [
+    {
+      "name": "backpack",
+      "roboflow_ids": {
+        "test": 1
+      },
+      "all_class_coco": 1,
+      "all_class_yolo": 0,
+      "all_class_maskrcnn": 1,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 3
+    },
+    {
+      "name": "bed",
+      "roboflow_ids": {
+        "test": 2
+      },
+      "all_class_coco": 2,
+      "all_class_yolo": 1,
+      "all_class_maskrcnn": 2,
+      "hard3_coco": 1,
+      "hard3_yolo": 0,
+      "hard3_maskrcnn": 1,
+      "baseline_train_instances": 26
+    },
+    {
+      "name": "blanket",
+      "roboflow_ids": {},
+      "all_class_coco": 3,
+      "all_class_yolo": 2,
+      "all_class_maskrcnn": 3,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 19
+    },
+    {
+      "name": "book",
+      "roboflow_ids": {
+        "test": 3
+      },
+      "all_class_coco": 4,
+      "all_class_yolo": 3,
+      "all_class_maskrcnn": 4,
+      "hard3_coco": 2,
+      "hard3_yolo": 1,
+      "hard3_maskrcnn": 2,
+      "baseline_train_instances": 105
+    },
+    {
+      "name": "bottle",
+      "roboflow_ids": {
+        "test": 4
+      },
+      "all_class_coco": 5,
+      "all_class_yolo": 4,
+      "all_class_maskrcnn": 5,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 62
+    },
+    {
+      "name": "bowl",
+      "roboflow_ids": {},
+      "all_class_coco": 6,
+      "all_class_yolo": 5,
+      "all_class_maskrcnn": 6,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 65
+    },
+    {
+      "name": "box",
+      "roboflow_ids": {
+        "test": 5
+      },
+      "all_class_coco": 7,
+      "all_class_yolo": 6,
+      "all_class_maskrcnn": 7,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 95
+    },
+    {
+      "name": "cabinet-merged",
+      "roboflow_ids": {
+        "test": 6
+      },
+      "all_class_coco": 8,
+      "all_class_yolo": 7,
+      "all_class_maskrcnn": 8,
+      "hard3_coco": 3,
+      "hard3_yolo": 2,
+      "hard3_maskrcnn": 3,
+      "baseline_train_instances": 47
+    },
+    {
+      "name": "cardboard",
+      "roboflow_ids": {},
+      "all_class_coco": 9,
+      "all_class_yolo": 8,
+      "all_class_maskrcnn": 9,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 2
+    },
+    {
+      "name": "ceiling-merged",
+      "roboflow_ids": {
+        "test": 7
+      },
+      "all_class_coco": 10,
+      "all_class_yolo": 9,
+      "all_class_maskrcnn": 10,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 77
+    },
+    {
+      "name": "cell phone",
+      "roboflow_ids": {
+        "test": 8
+      },
+      "all_class_coco": 11,
+      "all_class_yolo": 10,
+      "all_class_maskrcnn": 11,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 8
+    },
+    {
+      "name": "chair",
+      "roboflow_ids": {
+        "test": 9
+      },
+      "all_class_coco": 12,
+      "all_class_yolo": 11,
+      "all_class_maskrcnn": 12,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 217
+    },
+    {
+      "name": "clock",
+      "roboflow_ids": {},
+      "all_class_coco": 13,
+      "all_class_yolo": 12,
+      "all_class_maskrcnn": 13,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 3
+    },
+    {
+      "name": "couch",
+      "roboflow_ids": {},
+      "all_class_coco": 14,
+      "all_class_yolo": 13,
+      "all_class_maskrcnn": 14,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 18
+    },
+    {
+      "name": "counter",
+      "roboflow_ids": {},
+      "all_class_coco": 15,
+      "all_class_yolo": 14,
+      "all_class_maskrcnn": 15,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 102
+    },
+    {
+      "name": "cup",
+      "roboflow_ids": {
+        "test": 10
+      },
+      "all_class_coco": 16,
+      "all_class_yolo": 15,
+      "all_class_maskrcnn": 16,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 25
+    },
+    {
+      "name": "curtain",
+      "roboflow_ids": {
+        "test": 11
+      },
+      "all_class_coco": 17,
+      "all_class_yolo": 16,
+      "all_class_maskrcnn": 17,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 3
+    },
+    {
+      "name": "dining table",
+      "roboflow_ids": {
+        "test": 12
+      },
+      "all_class_coco": 18,
+      "all_class_yolo": 17,
+      "all_class_maskrcnn": 18,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 4
+    },
+    {
+      "name": "door-stuff",
+      "roboflow_ids": {
+        "test": 13
+      },
+      "all_class_coco": 19,
+      "all_class_yolo": 18,
+      "all_class_maskrcnn": 19,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 64
+    },
+    {
+      "name": "fire-extinguisher",
+      "roboflow_ids": {},
+      "all_class_coco": 20,
+      "all_class_yolo": 19,
+      "all_class_maskrcnn": 20,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 29
+    },
+    {
+      "name": "floor-other-merged",
+      "roboflow_ids": {
+        "test": 14
+      },
+      "all_class_coco": 21,
+      "all_class_yolo": 20,
+      "all_class_maskrcnn": 21,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 261
+    },
+    {
+      "name": "floor-wood",
+      "roboflow_ids": {},
+      "all_class_coco": 22,
+      "all_class_yolo": 21,
+      "all_class_maskrcnn": 22,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 99
+    },
+    {
+      "name": "flower",
+      "roboflow_ids": {},
+      "all_class_coco": 23,
+      "all_class_yolo": 22,
+      "all_class_maskrcnn": 23,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "food-other-merged",
+      "roboflow_ids": {},
+      "all_class_coco": 24,
+      "all_class_yolo": 23,
+      "all_class_maskrcnn": 24,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 127
+    },
+    {
+      "name": "fork",
+      "roboflow_ids": {
+        "test": 15
+      },
+      "all_class_coco": 25,
+      "all_class_yolo": 24,
+      "all_class_maskrcnn": 25,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 4
+    },
+    {
+      "name": "hair drier",
+      "roboflow_ids": {},
+      "all_class_coco": 26,
+      "all_class_yolo": 25,
+      "all_class_maskrcnn": 26,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "handbag",
+      "roboflow_ids": {
+        "test": 16
+      },
+      "all_class_coco": 27,
+      "all_class_yolo": 26,
+      "all_class_maskrcnn": 27,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 5
+    },
+    {
+      "name": "keyboard",
+      "roboflow_ids": {
+        "test": 17
+      },
+      "all_class_coco": 28,
+      "all_class_yolo": 27,
+      "all_class_maskrcnn": 28,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "knife",
+      "roboflow_ids": {
+        "test": 18
+      },
+      "all_class_coco": 29,
+      "all_class_yolo": 28,
+      "all_class_maskrcnn": 29,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 12
+    },
+    {
+      "name": "laptop",
+      "roboflow_ids": {
+        "test": 19
+      },
+      "all_class_coco": 30,
+      "all_class_yolo": 29,
+      "all_class_maskrcnn": 30,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 8
+    },
+    {
+      "name": "light",
+      "roboflow_ids": {
+        "test": 20
+      },
+      "all_class_coco": 31,
+      "all_class_yolo": 30,
+      "all_class_maskrcnn": 31,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 41
+    },
+    {
+      "name": "microwave",
+      "roboflow_ids": {},
+      "all_class_coco": 32,
+      "all_class_yolo": 31,
+      "all_class_maskrcnn": 32,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 3
+    },
+    {
+      "name": "mirror-stuff",
+      "roboflow_ids": {
+        "test": 21
+      },
+      "all_class_coco": 33,
+      "all_class_yolo": 32,
+      "all_class_maskrcnn": 33,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 8
+    },
+    {
+      "name": "mouse",
+      "roboflow_ids": {
+        "test": 22
+      },
+      "all_class_coco": 34,
+      "all_class_yolo": 33,
+      "all_class_maskrcnn": 34,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "oven",
+      "roboflow_ids": {},
+      "all_class_coco": 35,
+      "all_class_yolo": 34,
+      "all_class_maskrcnn": 35,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 3
+    },
+    {
+      "name": "pan",
+      "roboflow_ids": {},
+      "all_class_coco": 36,
+      "all_class_yolo": 35,
+      "all_class_maskrcnn": 36,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 225
+    },
+    {
+      "name": "paper",
+      "roboflow_ids": {
+        "test": 23
+      },
+      "all_class_coco": 37,
+      "all_class_yolo": 36,
+      "all_class_maskrcnn": 37,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 28
+    },
+    {
+      "name": "paper-merged",
+      "roboflow_ids": {
+        "test": 24
+      },
+      "all_class_coco": 38,
+      "all_class_yolo": 37,
+      "all_class_maskrcnn": 38,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 1
+    },
+    {
+      "name": "person",
+      "roboflow_ids": {},
+      "all_class_coco": 39,
+      "all_class_yolo": 38,
+      "all_class_maskrcnn": 39,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 192
+    },
+    {
+      "name": "pillow",
+      "roboflow_ids": {
+        "test": 25
+      },
+      "all_class_coco": 40,
+      "all_class_yolo": 39,
+      "all_class_maskrcnn": 40,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 39
+    },
+    {
+      "name": "plate",
+      "roboflow_ids": {
+        "test": 26
+      },
+      "all_class_coco": 41,
+      "all_class_yolo": 40,
+      "all_class_maskrcnn": 41,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 86
+    },
+    {
+      "name": "plug",
+      "roboflow_ids": {
+        "test": 27
+      },
+      "all_class_coco": 42,
+      "all_class_yolo": 41,
+      "all_class_maskrcnn": 42,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 57
+    },
+    {
+      "name": "potted plant",
+      "roboflow_ids": {},
+      "all_class_coco": 43,
+      "all_class_yolo": 42,
+      "all_class_maskrcnn": 43,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 97
+    },
+    {
+      "name": "refrigerator",
+      "roboflow_ids": {},
+      "all_class_coco": 44,
+      "all_class_yolo": 43,
+      "all_class_maskrcnn": 44,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 2
+    },
+    {
+      "name": "remote",
+      "roboflow_ids": {},
+      "all_class_coco": 45,
+      "all_class_yolo": 44,
+      "all_class_maskrcnn": 45,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 9
+    },
+    {
+      "name": "rug-merged",
+      "roboflow_ids": {
+        "test": 28
+      },
+      "all_class_coco": 46,
+      "all_class_yolo": 45,
+      "all_class_maskrcnn": 46,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 35
+    },
+    {
+      "name": "scissor",
+      "roboflow_ids": {},
+      "all_class_coco": 47,
+      "all_class_yolo": 46,
+      "all_class_maskrcnn": 47,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "scissors",
+      "roboflow_ids": {},
+      "all_class_coco": 48,
+      "all_class_yolo": 47,
+      "all_class_maskrcnn": 48,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "shelf",
+      "roboflow_ids": {
+        "test": 29
+      },
+      "all_class_coco": 49,
+      "all_class_yolo": 48,
+      "all_class_maskrcnn": 49,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 2
+    },
+    {
+      "name": "sink",
+      "roboflow_ids": {},
+      "all_class_coco": 50,
+      "all_class_yolo": 49,
+      "all_class_maskrcnn": 50,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 8
+    },
+    {
+      "name": "spoon",
+      "roboflow_ids": {
+        "test": 30
+      },
+      "all_class_coco": 51,
+      "all_class_yolo": 50,
+      "all_class_maskrcnn": 51,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 35
+    },
+    {
+      "name": "st-",
+      "roboflow_ids": {},
+      "all_class_coco": 52,
+      "all_class_yolo": 51,
+      "all_class_maskrcnn": 52,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 1
+    },
+    {
+      "name": "stairs",
+      "roboflow_ids": {},
+      "all_class_coco": 53,
+      "all_class_yolo": 52,
+      "all_class_maskrcnn": 53,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 175
+    },
+    {
+      "name": "stove-merged",
+      "roboflow_ids": {},
+      "all_class_coco": 54,
+      "all_class_yolo": 53,
+      "all_class_maskrcnn": 54,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 73
+    },
+    {
+      "name": "table-merged",
+      "roboflow_ids": {
+        "test": 31
+      },
+      "all_class_coco": 55,
+      "all_class_yolo": 54,
+      "all_class_maskrcnn": 55,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 319
+    },
+    {
+      "name": "teddy bear",
+      "roboflow_ids": {},
+      "all_class_coco": 56,
+      "all_class_yolo": 55,
+      "all_class_maskrcnn": 56,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "toaster",
+      "roboflow_ids": {},
+      "all_class_coco": 57,
+      "all_class_yolo": 56,
+      "all_class_maskrcnn": 57,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "toilet",
+      "roboflow_ids": {
+        "test": 32
+      },
+      "all_class_coco": 58,
+      "all_class_yolo": 57,
+      "all_class_maskrcnn": 58,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 2
+    },
+    {
+      "name": "toothbrush",
+      "roboflow_ids": {
+        "test": 33
+      },
+      "all_class_coco": 59,
+      "all_class_yolo": 58,
+      "all_class_maskrcnn": 59,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 0
+    },
+    {
+      "name": "towel",
+      "roboflow_ids": {
+        "test": 34
+      },
+      "all_class_coco": 60,
+      "all_class_yolo": 59,
+      "all_class_maskrcnn": 60,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 14
+    },
+    {
+      "name": "toy",
+      "roboflow_ids": {},
+      "all_class_coco": 61,
+      "all_class_yolo": 60,
+      "all_class_maskrcnn": 61,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 217
+    },
+    {
+      "name": "trash-bin",
+      "roboflow_ids": {
+        "test": 35
+      },
+      "all_class_coco": 62,
+      "all_class_yolo": 61,
+      "all_class_maskrcnn": 62,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 153
+    },
+    {
+      "name": "tree-merged",
+      "roboflow_ids": {},
+      "all_class_coco": 63,
+      "all_class_yolo": 62,
+      "all_class_maskrcnn": 63,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 1
+    },
+    {
+      "name": "tv",
+      "roboflow_ids": {},
+      "all_class_coco": 64,
+      "all_class_yolo": 63,
+      "all_class_maskrcnn": 64,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 2
+    },
+    {
+      "name": "vase",
+      "roboflow_ids": {},
+      "all_class_coco": 65,
+      "all_class_yolo": 64,
+      "all_class_maskrcnn": 65,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 4
+    },
+    {
+      "name": "wall",
+      "roboflow_ids": {},
+      "all_class_coco": 66,
+      "all_class_yolo": 65,
+      "all_class_maskrcnn": 66,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 2
+    },
+    {
+      "name": "wall-brick",
+      "roboflow_ids": {},
+      "all_class_coco": 67,
+      "all_class_yolo": 66,
+      "all_class_maskrcnn": 67,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 48
+    },
+    {
+      "name": "wall-other-merged",
+      "roboflow_ids": {
+        "test": 36
+      },
+      "all_class_coco": 68,
+      "all_class_yolo": 67,
+      "all_class_maskrcnn": 68,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 756
+    },
+    {
+      "name": "wall-stone",
+      "roboflow_ids": {},
+      "all_class_coco": 69,
+      "all_class_yolo": 68,
+      "all_class_maskrcnn": 69,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 4
+    },
+    {
+      "name": "wall-tile",
+      "roboflow_ids": {
+        "test": 37
+      },
+      "all_class_coco": 70,
+      "all_class_yolo": 69,
+      "all_class_maskrcnn": 70,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 17
+    },
+    {
+      "name": "wall-wood",
+      "roboflow_ids": {},
+      "all_class_coco": 71,
+      "all_class_yolo": 70,
+      "all_class_maskrcnn": 71,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 14
+    },
+    {
+      "name": "wallet",
+      "roboflow_ids": {},
+      "all_class_coco": 72,
+      "all_class_yolo": 71,
+      "all_class_maskrcnn": 72,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 197
+    },
+    {
+      "name": "window-blind",
+      "roboflow_ids": {},
+      "all_class_coco": 73,
+      "all_class_yolo": 72,
+      "all_class_maskrcnn": 73,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 29
+    },
+    {
+      "name": "window-other",
+      "roboflow_ids": {
+        "test": 38
+      },
+      "all_class_coco": 74,
+      "all_class_yolo": 73,
+      "all_class_maskrcnn": 74,
+      "hard3_coco": null,
+      "hard3_yolo": null,
+      "hard3_maskrcnn": null,
+      "baseline_train_instances": 90
+    }
+  ],
+  "unknown_export_categories": [
+    {
+      "split": "test",
+      "id": 0,
+      "name": "CPMK3-Personal-Indoor-Test-Set",
+      "annotations": 0,
+      "type": "project_placeholder"
+    }
+  ],
+  "maskrcnn_background_id": 0
+}

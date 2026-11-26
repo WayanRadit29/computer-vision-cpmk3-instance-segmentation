@@ -1,0 +1,70 @@
+{
+  "min_pair_iou": 0.05,
+  "min_overlap_fraction_of_either_mask": 0.5,
+  "flagged_pairs": [
+    {
+      "photo_id": "P008",
+      "overlap_pixels": 342444,
+      "annotations": [
+        {
+          "id": 27,
+          "label": "cup",
+          "overlap_fraction": 1.0
+        },
+        {
+          "id": 29,
+          "label": "window-other",
+          "overlap_fraction": 0.078695
+        }
+      ]
+    },
+    {
+      "photo_id": "P003",
+      "overlap_pixels": 329546,
+      "annotations": [
+        {
+          "id": 32,
+          "label": "pillow",
+          "overlap_fraction": 1.0
+        },
+        {
+          "id": 33,
+          "label": "bed",
+          "overlap_fraction": 0.120359
+        }
+      ]
+    },
+    {
+      "photo_id": "P005",
+      "overlap_pixels": 1356283,
+      "annotations": [
+        {
+          "id": 191,
+          "label": "wall-other-merged",
+          "overlap_fraction": 0.389042
+        },
+        {
+          "id": 193,
+          "label": "laptop",
+          "overlap_fraction": 0.506092
+        }
+      ]
+    },
+    {
+      "photo_id": "P005",
+      "overlap_pixels": 174085,
+      "annotations": [
+        {
+          "id": 195,
+          "label": "mouse",
+          "overlap_fraction": 1.0
+        },
+        {
+          "id": 196,
+          "label": "paper",
+          "overlap_fraction": 0.172408
+        }
+      ]
+    }
+  ]
+}

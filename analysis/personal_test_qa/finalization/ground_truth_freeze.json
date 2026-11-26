@@ -1,0 +1,57 @@
+{
+  "status": "FROZEN",
+  "ground_truth_frozen": true,
+  "version": "v1-human-reviewed",
+  "approval": {
+    "role": "annotator",
+    "date_local": "2026-11-26",
+    "timezone": "Asia/Jakarta",
+    "source": "persetujuan eksplisit setelah pemeriksaan overlay sebelum dan sesudah",
+    "reviewed_photos": ["P003", "P005", "P008"],
+    "approved_target_annotation_ids": [33, 191, 196, 29],
+    "approved_variants": ["all_class_master", "hard3"]
+  },
+  "evaluation_inputs": {
+    "image_root": "data/custom_test/roboflow_raw",
+    "all_class_master": {
+      "path": "data/custom_test/annotations/all_class_master_corrected.coco.json",
+      "sha256": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23"
+    },
+    "hard3": {
+      "path": "data/custom_test/annotations/hard3_corrected.coco.json",
+      "sha256": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447"
+    }
+  },
+  "provenance": {
+    "review_artifacts": {
+      "path": "analysis/personal_test_qa/finalization/dataset_provenance.json",
+      "sha256": "5d1f1c574338f737318116a3009ec48ea04534f25e630a4e30ab445a1ef2d79c"
+    },
+    "dataset_statistics": {
+      "path": "analysis/personal_test_qa/finalization/dataset_statistics.json",
+      "sha256": "0d99a55384e546ead263576dc0fde67e24d33cb588dcca3637632a71ba309b80"
+    },
+    "image_mapping": {
+      "path": "analysis/personal_test_qa/image_mapping.csv",
+      "sha256": "f350a44d23fb501af57f2e3baddaf2566f0d22d122c8d57cdbfb2d3852debf71"
+    },
+    "source_export": {
+      "path": "CPMK3 Personal Indoor Test Set.v1-personal-test-set-v1.coco-segmentation.zip",
+      "sha256": "d69e558c492d0fef79309f2b116d6c940cf2b30f98676f1b18757092713d4f29"
+    }
+  },
+  "reproduction": {
+    "script": {
+      "path": "analysis/personal_test_qa/finalize_ground_truth.py",
+      "sha256": "6f4d504b91e4e60fa7fc2db79b350792d6fd0025e3809f83c0d0c4d4185514d8"
+    },
+    "python": "3.12.4",
+    "packages": {
+      "pycocotools": "2.0.10",
+      "numpy": "1.26.4",
+      "Pillow": "10.4.0",
+      "matplotlib": "3.9.2",
+      "PyYAML": "6.0.2"
+    }
+  }
+}

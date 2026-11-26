@@ -8,12 +8,13 @@ Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN 
 
 1. **Periksa hasil utama.** Buka [evaluasi All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan Hard-3](analysis/hard3_comparison/analysis.md). Keduanya memakai 166 gambar validation.
 2. **Telusuri keputusan riset.** Buka [laporan sementara](analysis/report.md) untuk metodologi dan kurva pelatihan, serta [hipotesis sebelum Hard-3](logbook.md#hipotesis-hard-3) untuk melihat rencana yang diuji.
-3. **Periksa bukti penilaian.** Buka [manifest 40 foto](evidence/photo_metadata/photo_manifest.csv), [bukti anotasi Roboflow](evidence/annotation_screenshots/dataset_overview.png), atau [contoh hasil demo](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).
+3. **Periksa bukti penilaian.** Mulai dari [finalisasi ground truth personal test set](analysis/personal_test_qa/finalization/report.md), [bukti anotasi Roboflow](evidence/annotation_screenshots/dataset_overview.png), atau [contoh hasil demo](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).
 
 ## Progres penelitian
 
-- **Selesai** — pelatihan dan unified validation tiga model pada All-Class dan Hard-3, pemilihan kelas Hard-3, perbandingan hasil, evaluasi hipotesis pada validation, demo inference kepada dosen, pengumpulan 40 foto asli, pedoman anotasi, dan anotasi manual seluruh foto di Roboflow.
-- **Menunggu** — ekspor dan validasi personal test set, evaluasi original test dan personal test, analisis pergeseran domain, analisis kegagalan pada lima foto, eksperimen tambahan untuk menguji penjelasan kegagalan, serta laporan penelitian final.
+- **Selesai** - pelatihan dan unified validation tiga model pada All-Class dan Hard-3, pemilihan kelas Hard-3, perbandingan hasil, evaluasi hipotesis pada validation, demo inference kepada dosen, pengumpulan 40 foto asli, anotasi di Roboflow, serta ekspor dan validasi struktural COCO.
+- **Batch 1 selesai** - annotator menyetujui empat koreksi batas mask dan membekukan ground truth All-Class dan Hard-3 pada 26 November 2026 WIB. Kedua versi siap menjadi acuan evaluasi personal test pada Batch 2. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
+- **Menunggu** - evaluasi original test dan personal test, analisis pergeseran domain, analisis kegagalan pada lima foto, eksperimen tambahan untuk menguji penjelasan kegagalan, serta laporan penelitian final.
 
 ## Struktur repositori
 
@@ -22,10 +23,11 @@ Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN 
 | `analysis/dataset_audit/` | Audit dan koreksi dataset baseline. [Manifest konversi](analysis/dataset_audit/conversion_manifest.json), [QA anotasi](analysis/dataset_audit/qa_report.json), dan [contoh overlay](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png). |
 | `analysis/all_class_comparison/` | Protokol unified validation, skor semua model, AP per kelas, dan dasar pemilihan Hard-3. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json) dan [keputusan Hard-3](analysis/all_class_comparison/hard3_decision.json). |
 | `analysis/hard3_comparison/` | Perbandingan pada tiga kelas yang sama, hasil uji hipotesis pada validation, grafik, dan provenance run. [Tabel per kelas](analysis/hard3_comparison/per_class_comparison_with_relative.csv) dan [audit artefak](analysis/hard3_comparison/provenance/artifact_audit.json). |
+| `analysis/personal_test_qa/` | Validasi ekspor Roboflow, distribusi kelas, pencocokan foto sumber, keputusan annotator, dan validasi mask sesudah koreksi. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [distribusi kelas](analysis/personal_test_qa/class_distribution.png). |
 | `analysis/figures/` dan `analysis/report.md` | Grafik baseline serta laporan sementara yang menghubungkan data, metode, hasil, dan pekerjaan tersisa. [Kurva validasi baseline](analysis/figures/all_class_validation_mask_map.png) dan [laporan](analysis/report.md). |
 | `experiments/` | Enam folder model per skenario. Konfigurasi berada di tingkat folder model, `metrics/` memuat log atau ringkasan, dan grafik berada di `metrics/` atau `visualizations/`. Lihat [indeks artefak per model](#artefak-per-model-dan-notebook). |
 | `notebooks/` | Notebook pelatihan baseline, eksperimen awal Hard-3, dan recovery Mask R-CNN. [Notebook Hard-3 awal](notebooks/CPMK3_Hard3_All_Models.ipynb) dan [rekonstruksi run final](notebooks/CPMK3_Hard3_Final_Reconstructed.ipynb). |
-| `data/custom_test/` | Foto asli personal test set dan pedoman anotasi. [Pedoman](data/custom_test/annotation_guidelines.md) dan [contoh foto asli](data/custom_test/images/CPMK3_Personal_Test_Set/P026.jpg). Ekspor anotasi masih menunggu. |
+| `data/custom_test/` | Foto asli, pedoman anotasi, dan ground truth yang telah dibekukan. [Pedoman](data/custom_test/annotation_guidelines.md), [master dan All-Class](data/custom_test/annotations/all_class_master_corrected.coco.json), dan [Hard-3](data/custom_test/annotations/hard3_corrected.coco.json). |
 | `evidence/` | Bukti pendukung dataset dan eksperimen. [Screenshot proses anotasi](evidence/annotation_screenshots/annotation_process.png), [metadata EXIF](evidence/photo_metadata/exif_metadata.csv), [bukti GPU](evidence/gpu_usage/YOLO11n-seg_all_class.png), dan [diagnostik recovery](evidence/training_logs/hard3_maskrcnn/fp32_batch43_diagnostic.json). |
 | `demo_inference.py` dan `demo_outputs/` | Script inference satu gambar dan dua hasil contoh dengan mask, kotak, dan confidence. [Script](demo_inference.py) dan [contoh 053](demo_outputs/yolo11n_all_classes__053_jpg.rf.002f0adcbefe28f38a23d14e639c1865.png). |
 | `logbook.md` dan `ai_usage.md` | Riwayat eksperimen, hipotesis, serta jenis bantuan AI dan cara hasilnya diperiksa. [Logbook](logbook.md) dan [pernyataan penggunaan AI](ai_usage.md). |
@@ -40,11 +42,11 @@ Anotasi objek berbentuk poligon, yaitu rangkaian titik yang mengikuti batas obje
 
 ### Personal test set
 
-Set uji pribadi terdiri dari 40 foto indoor asli di `data/custom_test/images/CPMK3_Personal_Test_Set/`. EXIF dipertahankan, dan SHA-256 foto dicatat pada manifest. Ketentuan mencakup sedikitnya 10 foto kondisi sulit. Daftar terverifikasi untuk kondisi tersebut masih menunggu dokumentasi. [Manifest foto](evidence/photo_metadata/photo_manifest.csv) dan [metadata EXIF](evidence/photo_metadata/exif_metadata.csv).
+Set uji pribadi terdiri dari 40 foto asli di `data/custom_test/images/CPMK3_Personal_Test_Set/`, termasuk 12 contoh kondisi sulit yang ditinjau secara visual. EXIF dipertahankan dan SHA-256 tiap sumber dicatat. [Daftar kondisi sulit](analysis/personal_test_qa/difficult_conditions.md), [manifest foto](evidence/photo_metadata/photo_manifest.csv), dan [metadata EXIF](evidence/photo_metadata/exif_metadata.csv).
 
-Anotasi manual seluruh 40 foto selesai di Roboflow berdasarkan konfirmasi peneliti. Pedoman berbasis audit baseline menyelaraskan pemilihan label, pemisahan instance, dan batas mask yang terlihat. Ekspor ground truth serta validasi kelas, instance, dan kecocokan gambar masih menunggu. [Pedoman anotasi](data/custom_test/annotation_guidelines.md), [proses anotasi](evidence/annotation_screenshots/annotation_process.png), dan [tampilan dataset Roboflow](evidence/annotation_screenshots/dataset_overview.png).
+Peneliti menganotasi seluruh foto di Roboflow dengan SAM-assisted masking, poligon manual, dan pixel brush, disertai penetapan kelas dan pemeriksaan oleh peneliti. [Pedoman anotasi](data/custom_test/annotation_guidelines.md), [proses anotasi](evidence/annotation_screenshots/annotation_process.png), dan [tampilan dataset Roboflow](evidence/annotation_screenshots/dataset_overview.png).
 
-Contoh kondisi sulit meliputi pencahayaan rendah pada foto buku dan tempat tidur, serta tempat tidur yang sebagian tertutup lemari. [P026](data/custom_test/images/CPMK3_Personal_Test_Set/P026.jpg), [P027](data/custom_test/images/CPMK3_Personal_Test_Set/P027.jpg), dan [P031](data/custom_test/images/CPMK3_Personal_Test_Set/P031.jpg).
+Ground truth All-Class memuat 213 instance dari 38 kelas. Hard-3 memakai 40 foto yang sama, termasuk 15 foto tanpa instance tiga kelas target untuk mengukur false positives. [Validasi dataset](analysis/personal_test_qa/finalization/report.md)
 
 ## Hasil validasi All-Class
 

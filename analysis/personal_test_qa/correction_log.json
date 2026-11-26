@@ -1,0 +1,4452 @@
+{
+  "changes": [
+    {
+      "photo_id": "P010",
+      "raw_split": "test",
+      "annotation_id": 1,
+      "new_annotation_id": 1,
+      "changes": {
+        "image_id": [
+          0,
+          10
+        ],
+        "category_id": [
+          34,
+          60
+        ],
+        "area": [
+          4507360,
+          3070806
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P010",
+      "raw_split": "test",
+      "annotation_id": 2,
+      "new_annotation_id": 2,
+      "changes": {
+        "image_id": [
+          0,
+          10
+        ],
+        "category_id": [
+          16,
+          27
+        ],
+        "area": [
+          2227090,
+          1700255
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P010",
+      "raw_split": "test",
+      "annotation_id": 3,
+      "new_annotation_id": 3,
+      "changes": {
+        "image_id": [
+          0,
+          10
+        ],
+        "category_id": [
+          13,
+          19
+        ],
+        "area": [
+          9259593,
+          2740880
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P010",
+      "raw_split": "test",
+      "annotation_id": 4,
+      "new_annotation_id": 4,
+      "changes": {
+        "image_id": [
+          0,
+          10
+        ],
+        "category_id": [
+          11,
+          17
+        ],
+        "area": [
+          1094940,
+          553465
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P010",
+      "raw_split": "test",
+      "annotation_id": 5,
+      "new_annotation_id": 5,
+      "changes": {
+        "image_id": [
+          0,
+          10
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "bbox": [
+          [
+            2830,
+            0,
+            1249,
+            2595
+          ],
+          [
+            2830.0,
+            0.0,
+            1249.0,
+            2594.0
+          ]
+        ],
+        "area": [
+          3241155,
+          1758902
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P016",
+      "raw_split": "test",
+      "annotation_id": 6,
+      "new_annotation_id": 6,
+      "changes": {
+        "image_id": [
+          1,
+          16
+        ],
+        "category_id": [
+          26,
+          41
+        ],
+        "area": [
+          8924863,
+          7400108
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P016",
+      "raw_split": "test",
+      "annotation_id": 7,
+      "new_annotation_id": 7,
+      "changes": {
+        "image_id": [
+          1,
+          16
+        ],
+        "category_id": [
+          30,
+          51
+        ],
+        "area": [
+          1211591,
+          271015
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P016",
+      "raw_split": "test",
+      "annotation_id": 8,
+      "new_annotation_id": 8,
+      "changes": {
+        "image_id": [
+          1,
+          16
+        ],
+        "category_id": [
+          18,
+          29
+        ],
+        "area": [
+          813636,
+          495343
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P016",
+      "raw_split": "test",
+      "annotation_id": 9,
+      "new_annotation_id": 9,
+      "changes": {
+        "image_id": [
+          1,
+          16
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          8247738,
+          1682558
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P038",
+      "raw_split": "test",
+      "annotation_id": 10,
+      "new_annotation_id": 10,
+      "changes": {
+        "image_id": [
+          2,
+          38
+        ],
+        "category_id": [
+          32,
+          58
+        ],
+        "area": [
+          1195652,
+          878612
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P038",
+      "raw_split": "test",
+      "annotation_id": 11,
+      "new_annotation_id": 11,
+      "changes": {
+        "image_id": [
+          2,
+          38
+        ],
+        "category_id": [
+          37,
+          70
+        ],
+        "area": [
+          12484800,
+          9662276
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P038",
+      "raw_split": "test",
+      "annotation_id": 12,
+      "new_annotation_id": 12,
+      "changes": {
+        "image_id": [
+          2,
+          38
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          3083486,
+          1677388
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P004",
+      "raw_split": "test",
+      "annotation_id": 13,
+      "new_annotation_id": 13,
+      "changes": {
+        "image_id": [
+          3,
+          4
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          10874614,
+          6600056
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P004",
+      "raw_split": "test",
+      "annotation_id": 14,
+      "new_annotation_id": 14,
+      "changes": {
+        "image_id": [
+          3,
+          4
+        ],
+        "area": [
+          883344,
+          550947
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P004",
+      "raw_split": "test",
+      "annotation_id": 15,
+      "new_annotation_id": 15,
+      "changes": {
+        "image_id": [
+          3,
+          4
+        ],
+        "category_id": [
+          25,
+          40
+        ],
+        "area": [
+          946864,
+          528407
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P004",
+      "raw_split": "test",
+      "annotation_id": 16,
+      "new_annotation_id": 16,
+      "changes": {
+        "image_id": [
+          3,
+          4
+        ],
+        "area": [
+          7697073,
+          3567093
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P004",
+      "raw_split": "test",
+      "annotation_id": 17,
+      "new_annotation_id": 17,
+      "changes": {
+        "image_id": [
+          3,
+          4
+        ],
+        "category_id": [
+          25,
+          40
+        ],
+        "area": [
+          1603030,
+          749548
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P004",
+      "raw_split": "test",
+      "annotation_id": 18,
+      "new_annotation_id": 18,
+      "changes": {
+        "image_id": [
+          3,
+          4
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          371995,
+          229423
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P006",
+      "raw_split": "test",
+      "annotation_id": 19,
+      "new_annotation_id": 19,
+      "changes": {
+        "image_id": [
+          4,
+          6
+        ],
+        "category_id": [
+          9,
+          12
+        ],
+        "area": [
+          10553550,
+          4690408
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P006",
+      "raw_split": "test",
+      "annotation_id": 20,
+      "new_annotation_id": 20,
+      "changes": {
+        "image_id": [
+          4,
+          6
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          6512611,
+          4477898
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P006",
+      "raw_split": "test",
+      "annotation_id": 21,
+      "new_annotation_id": 21,
+      "changes": {
+        "image_id": [
+          4,
+          6
+        ],
+        "category_id": [
+          16,
+          27
+        ],
+        "area": [
+          5082714,
+          1418193
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P006",
+      "raw_split": "test",
+      "annotation_id": 22,
+      "new_annotation_id": 22,
+      "changes": {
+        "image_id": [
+          4,
+          6
+        ],
+        "area": [
+          196936,
+          102259
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P006",
+      "raw_split": "test",
+      "annotation_id": 23,
+      "new_annotation_id": 23,
+      "changes": {
+        "image_id": [
+          4,
+          6
+        ],
+        "area": [
+          311836,
+          252920
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P006",
+      "raw_split": "test",
+      "annotation_id": 24,
+      "new_annotation_id": 24,
+      "changes": {
+        "image_id": [
+          4,
+          6
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          3368734,
+          754334
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P006",
+      "raw_split": "test",
+      "annotation_id": 25,
+      "new_annotation_id": 25,
+      "changes": {
+        "image_id": [
+          4,
+          6
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          1540748,
+          398369
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P008",
+      "raw_split": "test",
+      "annotation_id": 26,
+      "new_annotation_id": 26,
+      "changes": {
+        "image_id": [
+          5,
+          8
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          697872,
+          598952
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P008",
+      "raw_split": "test",
+      "annotation_id": 27,
+      "new_annotation_id": 27,
+      "changes": {
+        "image_id": [
+          5,
+          8
+        ],
+        "category_id": [
+          10,
+          16
+        ],
+        "area": [
+          446021,
+          342444
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P008",
+      "raw_split": "test",
+      "annotation_id": 28,
+      "new_annotation_id": 28,
+      "changes": {
+        "image_id": [
+          5,
+          8
+        ],
+        "category_id": [
+          11,
+          17
+        ],
+        "area": [
+          5824336,
+          5606873
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P008",
+      "raw_split": "test",
+      "annotation_id": 29,
+      "new_annotation_id": 29,
+      "changes": {
+        "image_id": [
+          5,
+          8
+        ],
+        "category_id": [
+          38,
+          74
+        ],
+        "area": [
+          5393017,
+          4351551
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P003",
+      "raw_split": "test",
+      "annotation_id": 30,
+      "new_annotation_id": 30,
+      "changes": {
+        "image_id": [
+          6,
+          3
+        ],
+        "area": [
+          1800135,
+          954564
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P003",
+      "raw_split": "test",
+      "annotation_id": 31,
+      "new_annotation_id": 31,
+      "changes": {
+        "image_id": [
+          6,
+          3
+        ],
+        "category_id": [
+          9,
+          12
+        ],
+        "area": [
+          3098760,
+          899413
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P003",
+      "raw_split": "test",
+      "annotation_id": 32,
+      "new_annotation_id": 32,
+      "changes": {
+        "image_id": [
+          6,
+          3
+        ],
+        "category_id": [
+          25,
+          40
+        ],
+        "area": [
+          536940,
+          329546
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P003",
+      "raw_split": "test",
+      "annotation_id": 33,
+      "new_annotation_id": 33,
+      "changes": {
+        "image_id": [
+          6,
+          3
+        ],
+        "area": [
+          5022000,
+          2738023
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P003",
+      "raw_split": "test",
+      "annotation_id": 34,
+      "new_annotation_id": 34,
+      "changes": {
+        "image_id": [
+          6,
+          3
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          5222556,
+          3800259
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P003",
+      "raw_split": "test",
+      "annotation_id": 35,
+      "new_annotation_id": 35,
+      "changes": {
+        "image_id": [
+          6,
+          3
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          3352089,
+          2291738
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P003",
+      "raw_split": "test",
+      "annotation_id": 36,
+      "new_annotation_id": 36,
+      "changes": {
+        "image_id": [
+          6,
+          3
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          5025555,
+          1355997
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P007",
+      "raw_split": "test",
+      "annotation_id": 37,
+      "new_annotation_id": 37,
+      "changes": {
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          7063231,
+          5150226
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P007",
+      "raw_split": "test",
+      "annotation_id": 38,
+      "new_annotation_id": 38,
+      "changes": {
+        "category_id": [
+          9,
+          12
+        ],
+        "area": [
+          10834978,
+          4964891
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P007",
+      "raw_split": "test",
+      "annotation_id": 39,
+      "new_annotation_id": 39,
+      "changes": {
+        "category_id": [
+          16,
+          27
+        ],
+        "area": [
+          1632708,
+          751384
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P007",
+      "raw_split": "test",
+      "annotation_id": 40,
+      "new_annotation_id": 40,
+      "changes": {
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          532124,
+          423631
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P007",
+      "raw_split": "test",
+      "annotation_id": 41,
+      "new_annotation_id": 41,
+      "changes": {
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          5671472,
+          785419
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P026",
+      "raw_split": "test",
+      "annotation_id": 42,
+      "new_annotation_id": 42,
+      "changes": {
+        "image_id": [
+          8,
+          26
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          7915490,
+          5512670
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P026",
+      "raw_split": "test",
+      "annotation_id": 43,
+      "new_annotation_id": 43,
+      "changes": {
+        "image_id": [
+          8,
+          26
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          12456240,
+          6625730
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P001",
+      "raw_split": "test",
+      "annotation_id": 44,
+      "new_annotation_id": 44,
+      "changes": {
+        "image_id": [
+          9,
+          1
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          1105320,
+          621253
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P001",
+      "raw_split": "test",
+      "annotation_id": 45,
+      "new_annotation_id": 45,
+      "changes": {
+        "image_id": [
+          9,
+          1
+        ],
+        "category_id": [
+          19,
+          30
+        ],
+        "area": [
+          7372418,
+          5134365
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P001",
+      "raw_split": "test",
+      "annotation_id": 46,
+      "new_annotation_id": 46,
+      "changes": {
+        "image_id": [
+          9,
+          1
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          225803,
+          162465
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P001",
+      "raw_split": "test",
+      "annotation_id": 47,
+      "new_annotation_id": 47,
+      "changes": {
+        "image_id": [
+          9,
+          1
+        ],
+        "category_id": [
+          24,
+          38
+        ],
+        "bbox": [
+          [
+            1376.27,
+            2670,
+            1339.45,
+            389
+          ],
+          [
+            1377.0,
+            2670.0,
+            1337.0,
+            389.0
+          ]
+        ],
+        "area": [
+          521046.05,
+          262912
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P001",
+      "raw_split": "test",
+      "annotation_id": 48,
+      "new_annotation_id": 48,
+      "changes": {
+        "image_id": [
+          9,
+          1
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          5180792,
+          1131548
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P001",
+      "raw_split": "test",
+      "annotation_id": 49,
+      "new_annotation_id": 49,
+      "changes": {
+        "image_id": [
+          9,
+          1
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          10261200,
+          4471644
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P031",
+      "raw_split": "test",
+      "annotation_id": 50,
+      "new_annotation_id": 50,
+      "changes": {
+        "image_id": [
+          10,
+          31
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          5768100,
+          5668820
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P031",
+      "raw_split": "test",
+      "annotation_id": 51,
+      "new_annotation_id": 51,
+      "changes": {
+        "image_id": [
+          10,
+          31
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          3817152,
+          3370085
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P031",
+      "raw_split": "test",
+      "annotation_id": 52,
+      "new_annotation_id": 52,
+      "changes": {
+        "image_id": [
+          10,
+          31
+        ],
+        "area": [
+          3466280,
+          3352483
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P015",
+      "raw_split": "test",
+      "annotation_id": 53,
+      "new_annotation_id": 53,
+      "changes": {
+        "image_id": [
+          11,
+          15
+        ],
+        "category_id": [
+          30,
+          51
+        ],
+        "area": [
+          7533913,
+          2755209
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P015",
+      "raw_split": "test",
+      "annotation_id": 54,
+      "new_annotation_id": 54,
+      "changes": {
+        "image_id": [
+          11,
+          15
+        ],
+        "category_id": [
+          12,
+          18
+        ],
+        "area": [
+          11245803,
+          5288815
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P015",
+      "raw_split": "test",
+      "annotation_id": 55,
+      "new_annotation_id": 55,
+      "changes": {
+        "image_id": [
+          11,
+          15
+        ],
+        "category_id": [
+          15,
+          25
+        ],
+        "area": [
+          3920256,
+          712893
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P015",
+      "raw_split": "test",
+      "annotation_id": 56,
+      "new_annotation_id": 56,
+      "changes": {
+        "image_id": [
+          11,
+          15
+        ],
+        "category_id": [
+          26,
+          41
+        ],
+        "area": [
+          3070144,
+          2203750
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P011",
+      "raw_split": "test",
+      "annotation_id": 57,
+      "new_annotation_id": 57,
+      "changes": {
+        "image_id": [
+          12,
+          11
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          11957631,
+          9997853
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P011",
+      "raw_split": "test",
+      "annotation_id": 58,
+      "new_annotation_id": 58,
+      "changes": {
+        "image_id": [
+          12,
+          11
+        ],
+        "category_id": [
+          9,
+          12
+        ],
+        "area": [
+          1356194,
+          1168022
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P011",
+      "raw_split": "test",
+      "annotation_id": 59,
+      "new_annotation_id": 59,
+      "changes": {
+        "image_id": [
+          12,
+          11
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          12477661,
+          1103210
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P011",
+      "raw_split": "test",
+      "annotation_id": 60,
+      "new_annotation_id": 60,
+      "changes": {
+        "image_id": [
+          12,
+          11
+        ],
+        "area": [
+          154336,
+          104745
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P027",
+      "raw_split": "test",
+      "annotation_id": 61,
+      "new_annotation_id": 61,
+      "changes": {
+        "image_id": [
+          13,
+          27
+        ],
+        "area": [
+          12484800,
+          7909755
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P027",
+      "raw_split": "test",
+      "annotation_id": 62,
+      "new_annotation_id": 62,
+      "changes": {
+        "image_id": [
+          13,
+          27
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          9388080,
+          3502497
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P027",
+      "raw_split": "test",
+      "annotation_id": 63,
+      "new_annotation_id": 63,
+      "changes": {
+        "image_id": [
+          13,
+          27
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          1526758,
+          848484
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P023",
+      "raw_split": "test",
+      "annotation_id": 64,
+      "new_annotation_id": 64,
+      "changes": {
+        "image_id": [
+          14,
+          23
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          5265506,
+          4597166
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P023",
+      "raw_split": "test",
+      "annotation_id": 65,
+      "new_annotation_id": 65,
+      "changes": {
+        "image_id": [
+          14,
+          23
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          5328576,
+          409618
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P023",
+      "raw_split": "test",
+      "annotation_id": 66,
+      "new_annotation_id": 66,
+      "changes": {
+        "image_id": [
+          14,
+          23
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          7820606,
+          1481789
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P023",
+      "raw_split": "test",
+      "annotation_id": 67,
+      "new_annotation_id": 67,
+      "changes": {
+        "image_id": [
+          14,
+          23
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          12484800,
+          5205453
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P024",
+      "raw_split": "test",
+      "annotation_id": 68,
+      "new_annotation_id": 68,
+      "changes": {
+        "image_id": [
+          15,
+          24
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          5830540,
+          5054161
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P024",
+      "raw_split": "test",
+      "annotation_id": 69,
+      "new_annotation_id": 69,
+      "changes": {
+        "image_id": [
+          15,
+          24
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          6762600,
+          2967106
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P024",
+      "raw_split": "test",
+      "annotation_id": 70,
+      "new_annotation_id": 70,
+      "changes": {
+        "image_id": [
+          15,
+          24
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          5473972,
+          3837412
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P040",
+      "raw_split": "test",
+      "annotation_id": 71,
+      "new_annotation_id": 71,
+      "changes": {
+        "image_id": [
+          16,
+          40
+        ],
+        "category_id": [
+          8,
+          11
+        ],
+        "area": [
+          2772136,
+          1309781
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P040",
+      "raw_split": "test",
+      "annotation_id": 72,
+      "new_annotation_id": 72,
+      "changes": {
+        "image_id": [
+          16,
+          40
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          5584500,
+          3651679
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P040",
+      "raw_split": "test",
+      "annotation_id": 73,
+      "new_annotation_id": 73,
+      "changes": {
+        "image_id": [
+          16,
+          40
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          11690650,
+          3565952
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P012",
+      "raw_split": "test",
+      "annotation_id": 74,
+      "new_annotation_id": 74,
+      "changes": {
+        "image_id": [
+          17,
+          12
+        ],
+        "category_id": [
+          16,
+          27
+        ],
+        "area": [
+          1530063,
+          809549
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P012",
+      "raw_split": "test",
+      "annotation_id": 75,
+      "new_annotation_id": 75,
+      "changes": {
+        "image_id": [
+          17,
+          12
+        ],
+        "category_id": [
+          25,
+          40
+        ],
+        "area": [
+          3289600,
+          1264945
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P012",
+      "raw_split": "test",
+      "annotation_id": 76,
+      "new_annotation_id": 76,
+      "changes": {
+        "image_id": [
+          17,
+          12
+        ],
+        "category_id": [
+          25,
+          40
+        ],
+        "area": [
+          1229796,
+          760357
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P012",
+      "raw_split": "test",
+      "annotation_id": 77,
+      "new_annotation_id": 77,
+      "changes": {
+        "image_id": [
+          17,
+          12
+        ],
+        "area": [
+          11368173,
+          5319963
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P012",
+      "raw_split": "test",
+      "annotation_id": 78,
+      "new_annotation_id": 78,
+      "changes": {
+        "image_id": [
+          17,
+          12
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          7998919,
+          3455264
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P012",
+      "raw_split": "test",
+      "annotation_id": 79,
+      "new_annotation_id": 79,
+      "changes": {
+        "image_id": [
+          17,
+          12
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "bbox": [
+          [
+            0,
+            1699,
+            776,
+            1360
+          ],
+          [
+            0.0,
+            1699.0,
+            775.0,
+            1360.0
+          ]
+        ],
+        "area": [
+          1055360,
+          549513
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P014",
+      "raw_split": "test",
+      "annotation_id": 80,
+      "new_annotation_id": 80,
+      "changes": {
+        "image_id": [
+          18,
+          14
+        ],
+        "category_id": [
+          26,
+          41
+        ],
+        "area": [
+          6762018,
+          5666819
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P014",
+      "raw_split": "test",
+      "annotation_id": 81,
+      "new_annotation_id": 81,
+      "changes": {
+        "image_id": [
+          18,
+          14
+        ],
+        "category_id": [
+          15,
+          25
+        ],
+        "area": [
+          1065150,
+          168387
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P014",
+      "raw_split": "test",
+      "annotation_id": 82,
+      "new_annotation_id": 82,
+      "changes": {
+        "image_id": [
+          18,
+          14
+        ],
+        "category_id": [
+          30,
+          51
+        ],
+        "area": [
+          701445,
+          173713
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P014",
+      "raw_split": "test",
+      "annotation_id": 83,
+      "new_annotation_id": 83,
+      "changes": {
+        "image_id": [
+          18,
+          14
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          6613558,
+          3837716
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P014",
+      "raw_split": "test",
+      "annotation_id": 84,
+      "new_annotation_id": 84,
+      "changes": {
+        "image_id": [
+          18,
+          14
+        ],
+        "category_id": [
+          12,
+          18
+        ],
+        "area": [
+          10591685,
+          2401506
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P028",
+      "raw_split": "test",
+      "annotation_id": 85,
+      "new_annotation_id": 85,
+      "changes": {
+        "image_id": [
+          19,
+          28
+        ],
+        "area": [
+          12484800,
+          10059723
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P028",
+      "raw_split": "test",
+      "annotation_id": 86,
+      "new_annotation_id": 86,
+      "changes": {
+        "image_id": [
+          19,
+          28
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          7542900,
+          2263935
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P021",
+      "raw_split": "test",
+      "annotation_id": 87,
+      "new_annotation_id": 87,
+      "changes": {
+        "image_id": [
+          20,
+          21
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          4217832,
+          4076411
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P021",
+      "raw_split": "test",
+      "annotation_id": 88,
+      "new_annotation_id": 88,
+      "changes": {
+        "image_id": [
+          20,
+          21
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          12484800,
+          8315806
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 89,
+      "new_annotation_id": 89,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          19,
+          30
+        ],
+        "area": [
+          1772621,
+          1264756
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 90,
+      "new_annotation_id": 90,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          2048328,
+          1020258
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 91,
+      "new_annotation_id": 91,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          22,
+          34
+        ],
+        "area": [
+          45864,
+          30385
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 92,
+      "new_annotation_id": 92,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          17,
+          28
+        ],
+        "area": [
+          693630,
+          324753
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 93,
+      "new_annotation_id": 93,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          2717964,
+          2492800
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 94,
+      "new_annotation_id": 94,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          96380,
+          63557
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 95,
+      "new_annotation_id": 95,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          23,
+          37
+        ],
+        "area": [
+          367500,
+          308448
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 96,
+      "new_annotation_id": 96,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          24,
+          38
+        ],
+        "area": [
+          255409,
+          126691
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 97,
+      "new_annotation_id": 97,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          28662,
+          24411
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 98,
+      "new_annotation_id": 98,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          28998,
+          21737
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 99,
+      "new_annotation_id": 99,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          22287,
+          11674
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 100,
+      "new_annotation_id": 100,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          144550,
+          106511
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 101,
+      "new_annotation_id": 101,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          163560,
+          135833
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 102,
+      "new_annotation_id": 102,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          26,
+          41
+        ],
+        "area": [
+          127376,
+          40720
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 103,
+      "new_annotation_id": 103,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          20,
+          31
+        ],
+        "area": [
+          165264,
+          73315
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 104,
+      "new_annotation_id": 104,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          29,
+          49
+        ],
+        "area": [
+          712620,
+          177993
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 105,
+      "new_annotation_id": 105,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          94540,
+          64774
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P017",
+      "raw_split": "test",
+      "annotation_id": 106,
+      "new_annotation_id": 106,
+      "changes": {
+        "image_id": [
+          21,
+          17
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          11399520,
+          4447091
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 107,
+      "new_annotation_id": 107,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          19,
+          30
+        ],
+        "area": [
+          2027921,
+          1515050
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 108,
+      "new_annotation_id": 108,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          315530,
+          159375
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 109,
+      "new_annotation_id": 109,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          22,
+          34
+        ],
+        "area": [
+          61206,
+          45775
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 110,
+      "new_annotation_id": 110,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          17,
+          28
+        ],
+        "area": [
+          723800,
+          450353
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 111,
+      "new_annotation_id": 111,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          24,
+          38
+        ],
+        "area": [
+          895896,
+          401549
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 112,
+      "new_annotation_id": 112,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          227850,
+          154412
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 113,
+      "new_annotation_id": 113,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          23,
+          37
+        ],
+        "area": [
+          314592,
+          253727
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 114,
+      "new_annotation_id": 114,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          30132,
+          22849
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 115,
+      "new_annotation_id": 115,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          39312,
+          25510
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 116,
+      "new_annotation_id": 116,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          16199,
+          10540
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 117,
+      "new_annotation_id": 117,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          24,
+          38
+        ],
+        "area": [
+          290682,
+          74989
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 118,
+      "new_annotation_id": 118,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          24,
+          38
+        ],
+        "area": [
+          540144,
+          241886
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 119,
+      "new_annotation_id": 119,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          207656,
+          118907
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 120,
+      "new_annotation_id": 120,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          5240940,
+          1938723
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 121,
+      "new_annotation_id": 121,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          4367197,
+          508903
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 122,
+      "new_annotation_id": 122,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          28,
+          46
+        ],
+        "area": [
+          359388,
+          197235
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 123,
+      "new_annotation_id": 123,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          10302000,
+          4414293
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P018",
+      "raw_split": "test",
+      "annotation_id": 124,
+      "new_annotation_id": 124,
+      "changes": {
+        "image_id": [
+          22,
+          18
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          1104626,
+          639811
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P037",
+      "raw_split": "test",
+      "annotation_id": 125,
+      "new_annotation_id": 125,
+      "changes": {
+        "image_id": [
+          23,
+          37
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          7391250,
+          5651686
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P037",
+      "raw_split": "test",
+      "annotation_id": 126,
+      "new_annotation_id": 126,
+      "changes": {
+        "image_id": [
+          23,
+          37
+        ],
+        "category_id": [
+          21,
+          33
+        ],
+        "area": [
+          1245922,
+          1165095
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P037",
+      "raw_split": "test",
+      "annotation_id": 127,
+      "new_annotation_id": 127,
+      "changes": {
+        "image_id": [
+          23,
+          37
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          295776,
+          269629
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P037",
+      "raw_split": "test",
+      "annotation_id": 128,
+      "new_annotation_id": 128,
+      "changes": {
+        "image_id": [
+          23,
+          37
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          194525,
+          122878
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P037",
+      "raw_split": "test",
+      "annotation_id": 129,
+      "new_annotation_id": 129,
+      "changes": {
+        "image_id": [
+          23,
+          37
+        ],
+        "category_id": [
+          29,
+          49
+        ],
+        "area": [
+          3889935,
+          746256
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P037",
+      "raw_split": "test",
+      "annotation_id": 130,
+      "new_annotation_id": 130,
+      "changes": {
+        "image_id": [
+          23,
+          37
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          12178800,
+          3443043
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P025",
+      "raw_split": "test",
+      "annotation_id": 131,
+      "new_annotation_id": 131,
+      "changes": {
+        "image_id": [
+          24,
+          25
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          4895808,
+          3497935
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P025",
+      "raw_split": "test",
+      "annotation_id": 132,
+      "new_annotation_id": 132,
+      "changes": {
+        "image_id": [
+          24,
+          25
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          8584320,
+          5312505
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P025",
+      "raw_split": "test",
+      "annotation_id": 133,
+      "new_annotation_id": 133,
+      "changes": {
+        "image_id": [
+          24,
+          25
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          5009277,
+          2091109
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P013",
+      "raw_split": "test",
+      "annotation_id": 134,
+      "new_annotation_id": 134,
+      "changes": {
+        "image_id": [
+          25,
+          13
+        ],
+        "area": [
+          5624466,
+          3312908
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P013",
+      "raw_split": "test",
+      "annotation_id": 135,
+      "new_annotation_id": 135,
+      "changes": {
+        "image_id": [
+          25,
+          13
+        ],
+        "category_id": [
+          13,
+          19
+        ],
+        "area": [
+          2869894,
+          2825363
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P013",
+      "raw_split": "test",
+      "annotation_id": 136,
+      "new_annotation_id": 136,
+      "changes": {
+        "image_id": [
+          25,
+          13
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          5719148,
+          2683608
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P013",
+      "raw_split": "test",
+      "annotation_id": 137,
+      "new_annotation_id": 137,
+      "changes": {
+        "image_id": [
+          25,
+          13
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          4111632,
+          3454589
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P035",
+      "raw_split": "test",
+      "annotation_id": 138,
+      "new_annotation_id": 138,
+      "changes": {
+        "image_id": [
+          26,
+          35
+        ],
+        "category_id": [
+          35,
+          62
+        ],
+        "area": [
+          10413180,
+          7843885
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P035",
+      "raw_split": "test",
+      "annotation_id": 139,
+      "new_annotation_id": 139,
+      "changes": {
+        "image_id": [
+          26,
+          35
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          4198320,
+          2256253
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P035",
+      "raw_split": "test",
+      "annotation_id": 140,
+      "new_annotation_id": 140,
+      "changes": {
+        "image_id": [
+          26,
+          35
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          8289540,
+          1650493
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P039",
+      "raw_split": "test",
+      "annotation_id": 141,
+      "new_annotation_id": 141,
+      "changes": {
+        "image_id": [
+          27,
+          39
+        ],
+        "category_id": [
+          33,
+          59
+        ],
+        "area": [
+          6237165,
+          806048
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P039",
+      "raw_split": "test",
+      "annotation_id": 142,
+      "new_annotation_id": 142,
+      "changes": {
+        "image_id": [
+          27,
+          39
+        ],
+        "category_id": [
+          33,
+          59
+        ],
+        "area": [
+          6660370,
+          725746
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P039",
+      "raw_split": "test",
+      "annotation_id": 143,
+      "new_annotation_id": 143,
+      "changes": {
+        "image_id": [
+          27,
+          39
+        ],
+        "category_id": [
+          37,
+          70
+        ],
+        "area": [
+          11452560,
+          9109874
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P039",
+      "raw_split": "test",
+      "annotation_id": 144,
+      "new_annotation_id": 144,
+      "changes": {
+        "image_id": [
+          27,
+          39
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          1505520,
+          736450
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P022",
+      "raw_split": "test",
+      "annotation_id": 145,
+      "new_annotation_id": 145,
+      "changes": {
+        "image_id": [
+          28,
+          22
+        ],
+        "category_id": [
+          3,
+          4
+        ],
+        "area": [
+          8896442,
+          7977493
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P022",
+      "raw_split": "test",
+      "annotation_id": 146,
+      "new_annotation_id": 146,
+      "changes": {
+        "image_id": [
+          28,
+          22
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          12484800,
+          4314098
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P033",
+      "raw_split": "test",
+      "annotation_id": 147,
+      "new_annotation_id": 147,
+      "changes": {
+        "image_id": [
+          29,
+          33
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          12484800,
+          11764332
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P033",
+      "raw_split": "test",
+      "annotation_id": 148,
+      "new_annotation_id": 148,
+      "changes": {
+        "image_id": [
+          29,
+          33
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          4972500,
+          424546
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P033",
+      "raw_split": "test",
+      "annotation_id": 149,
+      "new_annotation_id": 149,
+      "changes": {
+        "image_id": [
+          29,
+          33
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          7591860,
+          228406
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P030",
+      "raw_split": "test",
+      "annotation_id": 150,
+      "new_annotation_id": 150,
+      "changes": {
+        "area": [
+          11288079,
+          9042348
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P030",
+      "raw_split": "test",
+      "annotation_id": 151,
+      "new_annotation_id": 151,
+      "changes": {
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          12484800,
+          3399541
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P036",
+      "raw_split": "test",
+      "annotation_id": 152,
+      "new_annotation_id": 152,
+      "changes": {
+        "image_id": [
+          31,
+          36
+        ],
+        "category_id": [
+          35,
+          62
+        ],
+        "area": [
+          1351400,
+          1007774
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P036",
+      "raw_split": "test",
+      "annotation_id": 153,
+      "new_annotation_id": 153,
+      "changes": {
+        "image_id": [
+          31,
+          36
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          10382580,
+          3084012
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P036",
+      "raw_split": "test",
+      "annotation_id": 154,
+      "new_annotation_id": 154,
+      "changes": {
+        "image_id": [
+          31,
+          36
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          4948020,
+          2368864
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P036",
+      "raw_split": "test",
+      "annotation_id": 155,
+      "new_annotation_id": 155,
+      "changes": {
+        "image_id": [
+          31,
+          36
+        ],
+        "category_id": [
+          13,
+          19
+        ],
+        "area": [
+          12324116,
+          4343074
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P029",
+      "raw_split": "test",
+      "annotation_id": 156,
+      "new_annotation_id": 156,
+      "changes": {
+        "image_id": [
+          32,
+          29
+        ],
+        "area": [
+          9498240,
+          6735426
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P029",
+      "raw_split": "test",
+      "annotation_id": 157,
+      "new_annotation_id": 157,
+      "changes": {
+        "image_id": [
+          32,
+          29
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          11566800,
+          5033285
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P029",
+      "raw_split": "test",
+      "annotation_id": 158,
+      "new_annotation_id": 158,
+      "changes": {
+        "image_id": [
+          32,
+          29
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          966414,
+          541459
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 159,
+      "new_annotation_id": 159,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          20,
+          31
+        ],
+        "area": [
+          609707,
+          288265
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 160,
+      "new_annotation_id": 160,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          29,
+          49
+        ],
+        "area": [
+          2237669,
+          559546
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 161,
+      "new_annotation_id": 161,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          28755,
+          24117
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 162,
+      "new_annotation_id": 162,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          39072,
+          21518
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 163,
+      "new_annotation_id": 163,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          23,
+          37
+        ],
+        "area": [
+          152334,
+          83299
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 164,
+      "new_annotation_id": 164,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          12484800,
+          9940330
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 165,
+      "new_annotation_id": 165,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          16,
+          27
+        ],
+        "area": [
+          299463,
+          187551
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 166,
+      "new_annotation_id": 166,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          27,
+          42
+        ],
+        "area": [
+          145924,
+          120707
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P020",
+      "raw_split": "test",
+      "annotation_id": 167,
+      "new_annotation_id": 167,
+      "changes": {
+        "image_id": [
+          33,
+          20
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          444290,
+          226921
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 168,
+      "new_annotation_id": 168,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          121208,
+          81367
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 169,
+      "new_annotation_id": 169,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          32940,
+          24290
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 170,
+      "new_annotation_id": 170,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          13,
+          19
+        ],
+        "area": [
+          340614,
+          171145
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 171,
+      "new_annotation_id": 171,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          13,
+          19
+        ],
+        "bbox": [
+          [
+            645,
+            1414,
+            106,
+            518
+          ],
+          [
+            645.0,
+            1414.0,
+            106.0,
+            517.0
+          ]
+        ],
+        "area": [
+          54908,
+          35486
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 172,
+      "new_annotation_id": 172,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          38,
+          74
+        ],
+        "area": [
+          71694,
+          48144
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 173,
+      "new_annotation_id": 173,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          38,
+          74
+        ],
+        "area": [
+          29970,
+          18697
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 174,
+      "new_annotation_id": 174,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          29,
+          49
+        ],
+        "area": [
+          29000,
+          21073
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 175,
+      "new_annotation_id": 175,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          29,
+          49
+        ],
+        "area": [
+          155331,
+          28137
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 176,
+      "new_annotation_id": 176,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          11486464,
+          3918549
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 177,
+      "new_annotation_id": 177,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          29,
+          49
+        ],
+        "area": [
+          70296,
+          14240
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 178,
+      "new_annotation_id": 178,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          29,
+          49
+        ],
+        "area": [
+          19552,
+          16674
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 179,
+      "new_annotation_id": 179,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          20,
+          31
+        ],
+        "area": [
+          3944,
+          2468
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 180,
+      "new_annotation_id": 180,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          276489,
+          235107
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 181,
+      "new_annotation_id": 181,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          2439618,
+          1233003
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P002",
+      "raw_split": "test",
+      "annotation_id": 182,
+      "new_annotation_id": 182,
+      "changes": {
+        "image_id": [
+          34,
+          2
+        ],
+        "category_id": [
+          7,
+          10
+        ],
+        "area": [
+          1502976,
+          991800
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P034",
+      "raw_split": "test",
+      "annotation_id": 183,
+      "new_annotation_id": 183,
+      "changes": {
+        "image_id": [
+          35,
+          34
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          10547820,
+          9964422
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P034",
+      "raw_split": "test",
+      "annotation_id": 184,
+      "new_annotation_id": 184,
+      "changes": {
+        "image_id": [
+          35,
+          34
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          2037960,
+          1940689
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P034",
+      "raw_split": "test",
+      "annotation_id": 185,
+      "new_annotation_id": 185,
+      "changes": {
+        "image_id": [
+          35,
+          34
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          6787080,
+          436716
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P009",
+      "raw_split": "test",
+      "annotation_id": 186,
+      "new_annotation_id": 186,
+      "changes": {
+        "image_id": [
+          36,
+          9
+        ],
+        "category_id": [
+          34,
+          60
+        ],
+        "area": [
+          2015558,
+          1245194
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P009",
+      "raw_split": "test",
+      "annotation_id": 187,
+      "new_annotation_id": 187,
+      "changes": {
+        "image_id": [
+          36,
+          9
+        ],
+        "category_id": [
+          16,
+          27
+        ],
+        "area": [
+          1103063,
+          686489
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P009",
+      "raw_split": "test",
+      "annotation_id": 188,
+      "new_annotation_id": 188,
+      "changes": {
+        "image_id": [
+          36,
+          9
+        ],
+        "category_id": [
+          11,
+          17
+        ],
+        "area": [
+          5090176,
+          5012615
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P009",
+      "raw_split": "test",
+      "annotation_id": 189,
+      "new_annotation_id": 189,
+      "changes": {
+        "image_id": [
+          36,
+          9
+        ],
+        "category_id": [
+          13,
+          19
+        ],
+        "area": [
+          3382665,
+          601464
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P009",
+      "raw_split": "test",
+      "annotation_id": 190,
+      "new_annotation_id": 190,
+      "changes": {
+        "image_id": [
+          36,
+          9
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          6010935,
+          2882850
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 191,
+      "new_annotation_id": 191,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          6237209,
+          3486209
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 192,
+      "new_annotation_id": 192,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          248040,
+          194606
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 193,
+      "new_annotation_id": 193,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          19,
+          30
+        ],
+        "area": [
+          4467896,
+          2679913
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 194,
+      "new_annotation_id": 194,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          17,
+          28
+        ],
+        "area": [
+          1578995,
+          732333
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 195,
+      "new_annotation_id": 195,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          22,
+          34
+        ],
+        "area": [
+          244647,
+          174085
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 196,
+      "new_annotation_id": 196,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          23,
+          37
+        ],
+        "area": [
+          1551396,
+          1009724
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 197,
+      "new_annotation_id": 197,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          24,
+          38
+        ],
+        "area": [
+          888030,
+          218326
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 198,
+      "new_annotation_id": 198,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          31,
+          55
+        ],
+        "area": [
+          5796504,
+          1772327
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 199,
+      "new_annotation_id": 199,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          849336,
+          638864
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P005",
+      "raw_split": "test",
+      "annotation_id": 200,
+      "new_annotation_id": 200,
+      "changes": {
+        "image_id": [
+          37,
+          5
+        ],
+        "category_id": [
+          13,
+          19
+        ],
+        "area": [
+          2637325,
+          1819804
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 201,
+      "new_annotation_id": 201,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          26,
+          41
+        ],
+        "area": [
+          465696,
+          356885
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 202,
+      "new_annotation_id": 202,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          557208,
+          477296
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 203,
+      "new_annotation_id": 203,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          780362,
+          208535
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 204,
+      "new_annotation_id": 204,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          84632,
+          67274
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 205,
+      "new_annotation_id": 205,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          5,
+          7
+        ],
+        "area": [
+          225344,
+          180383
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 206,
+      "new_annotation_id": 206,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          63336,
+          47137
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 207,
+      "new_annotation_id": 207,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          4,
+          5
+        ],
+        "area": [
+          60204,
+          27651
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 208,
+      "new_annotation_id": 208,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          21,
+          33
+        ],
+        "area": [
+          944944,
+          532639
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 209,
+      "new_annotation_id": 209,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          30,
+          51
+        ],
+        "area": [
+          6784,
+          4040
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 210,
+      "new_annotation_id": 210,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          2544605,
+          1052385
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P019",
+      "raw_split": "test",
+      "annotation_id": 211,
+      "new_annotation_id": 211,
+      "changes": {
+        "image_id": [
+          38,
+          19
+        ],
+        "category_id": [
+          36,
+          68
+        ],
+        "area": [
+          12431760,
+          7364785
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P032",
+      "raw_split": "test",
+      "annotation_id": 212,
+      "new_annotation_id": 212,
+      "changes": {
+        "image_id": [
+          39,
+          32
+        ],
+        "category_id": [
+          6,
+          8
+        ],
+        "area": [
+          12484800,
+          12301928
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    },
+    {
+      "photo_id": "P032",
+      "raw_split": "test",
+      "annotation_id": 213,
+      "new_annotation_id": 213,
+      "changes": {
+        "image_id": [
+          39,
+          32
+        ],
+        "category_id": [
+          14,
+          21
+        ],
+        "area": [
+          2980440,
+          147221
+        ]
+      },
+      "polygon_outside_max_px": 0.0
+    }
+  ],
+  "invalid_annotations": [],
+  "possible_same_class_duplicates": [],
+  "note": "Mask dan label semantik pada anotasi valid dipertahankan."
+}

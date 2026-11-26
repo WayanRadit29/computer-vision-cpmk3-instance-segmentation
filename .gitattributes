@@ -1,0 +1,7 @@
+# Pertahankan byte artefak QA yang direferensikan oleh SHA-256.
+data/custom_test/annotations/*.coco.json -text
+analysis/personal_test_qa/**/*.json -text
+analysis/personal_test_qa/**/*.csv -text
+analysis/personal_test_qa/**/*.py -text
+evidence/photo_metadata/exif_metadata.csv text eol=crlf
+evidence/photo_metadata/photo_manifest.csv text eol=crlf
