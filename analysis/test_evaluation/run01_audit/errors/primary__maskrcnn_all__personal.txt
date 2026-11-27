@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/tmp/ipykernel_23/910917327.py", line 193, in execute_stage
+    hashes = run_pair(key, domain, stage, models, datasets, lock, hard_map, device,
+                      stage_directory(run, stage, pair), config)
+  File "/tmp/ipykernel_23/910917327.py", line 136, in run_pair
+    predictions, timing = infer_pair(model, lock["models"][key], dataset, ids, device)
+                          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_23/3486351240.py", line 56, in infer_pair
+    result = model([tensor])[0]
+             ~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/torchvision/models/detection/generalized_rcnn.py", line 119, in forward
+    detections = self.transform.postprocess(
+        detections, images.image_sizes, original_image_sizes
+    )  # type: ignore[operator]
+  File "/usr/local/lib/python3.13/dist-packages/torchvision/models/detection/transform.py", line 271, in postprocess
+    masks = paste_masks_in_image(masks, boxes, o_im_s)
+  File "/usr/local/lib/python3.13/dist-packages/torchvision/models/detection/roi_heads.py", line 498, in paste_masks_in_image
+    ret = torch.stack(res, dim=0)[:, None]
+          ~~~~~~~~~~~^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 4.65 GiB. GPU 0 has a total capacity of 14.56 GiB of which 4.55 GiB is free. Including non-PyTorch memory, this process has 10.01 GiB memory in use. Of the allocated memory 5.08 GiB is allocated by PyTorch, and 4.78 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

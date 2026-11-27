@@ -179,3 +179,27 @@ Validasi ulang menghasilkan 40 foto, 213 instance dari 38 kelas pada All-Class, 
 ## P. Persetujuan akhir dan pembekuan ground truth (26 November 2026 WIB)
 
 Annotator meninjau overlay sebelum dan sesudah pada P003, P005, dan P008, lalu menyetujui keempat koreksi serta pembekuan kedua versi anotasi. Master COCO dipakai langsung untuk All-Class, sedangkan Hard-3 diturunkan dari master dan memakai 40 foto yang sama. Kedua berkas yang ditinjau ditetapkan sebagai ground truth Batch 2 berdasarkan SHA-256. Status dan tanggal persetujuan dicatat pada manifest agar evaluasi dapat mengacu pada byte anotasi yang disetujui. Batch 1 selesai. [Manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
+
+## Q. Persiapan evaluasi test set terpadu (26 November 2026 WIB)
+
+Enam checkpoint dan dua test set disiapkan untuk 12 kombinasi pengujian. Original test berisi 359 foto dan 5.344 anotasi. Proyeksi Hard-3 mempertahankan semua foto dan menyisakan 530 anotasi pada 137 foto positif. Personal test menggunakan kedua COCO JSON beku dengan hash dari Batch 1. Notebook mempertahankan pengaturan confidence, NMS, resize, dan batas deteksi dari konfigurasi unified validation, serta merekonstruksi normalisasi Mask R-CNN sesuai training. Perbandingan tiga kelas memakai proyeksi prediksi yang telah disimpan. Evaluasi penuh menunggu preflight dan smoke test di Kaggle. [Notebook](notebooks/CPMK3_Unified_Test_Evaluation.ipynb) dan [catatan protokol](analysis/test_evaluation/README.md)
+
+## R. Audit Run01 evaluasi test set (26 November 2026 WIB)
+
+Run Tesla T4 lolos preflight dan 12 smoke test, lalu berakhir parsial dengan tujuh hasil primer terverifikasi dan lima kegagalan CUDA OOM. Pada YOLO, loader daftar memasukkan seluruh split ke satu batch meskipun notebook meminta `batch=1`. Traceback original berhenti pada konvolusi mask prototypes. Traceback personal berhenti ketika `Masks.data` membentuk stack mask padat. Mask R-CNN All-Class personal gagal ketika Torchvision menumpuk mask FP32 pada resolusi asli. Recovery yang diusulkan mempertahankan ground truth dan pengaturan penilaian, serta menunggu persetujuan implementasi dan uji kesetaraan pada GPU. [Audit, traceback, dan rencana recovery](analysis/test_evaluation/run01_audit/README.md)
+
+## S. Implementasi recovery Run01 (26 November 2026 WIB)
+
+Setelah persetujuan patch, dibuat notebook recovery terpisah. Jalur YOLO memverifikasi batch singleton FP32 dan mengodekan satu crop mask per instance pada resolusi asli. Jalur Mask R-CNN mempertahankan scaling box dan interpolasi mask Torchvision sambil memproses satu mask tiap langkah. Rancangan saat itu menyiapkan pemeriksaan fingerprint dan checksum untuk mengimpor tujuh hasil Run01, lalu menjalankan lima pasangan yang gagal setelah uji GPU. [Audit Run01](analysis/test_evaluation/run01_audit/README.md)
+
+## T. Evaluasi test set Run02 (26 November 2026 WIB)
+
+Karena pemindahan dan pemasangan artefak parsial menambah langkah reproduksi di Kaggle, peneliti memilih menjalankan ulang seluruh 12 kombinasi memakai jalur inferensi hemat memori yang sama. Run02 memakai enam checkpoint dan kedua test set yang telah dikunci, dengan `RESUME_INPUTS = []` dan `SELECT_PAIRS = []`.
+
+Cell 11 direvisi untuk memisahkan pemeriksaan encoding dari perbandingan dua jalur forward. Probe membandingkan mask native dan serial dari sumber prediksi yang sama. Di Tesla T4, kedua kontrol letterbox, 806 mask same-source, fixture sintetis 100 mask per keluarga, serta stress test resolusi tinggi untuk keenam checkpoint lulus. Perbandingan jalur forward lama dengan jalur singleton YOLO11n All-Class mencatat dua mask yang masing-masing berbeda satu piksel. Temuan ini dicatat sebagai diagnostik, dan semua metrik Run02 dihitung dari prediksi baru. [Laporan gate GPU](analysis/test_evaluation/run02/gpu_equivalence_report.json)
+
+Run02 berjalan pukul 22.29–23.00 WIB. Kedua domain dinilai untuk setiap checkpoint dan konsolidasi Kaggle mencocokkan ulang metrik dari 12 pasang prediksi yang tersimpan. Prediksi All-Class diproyeksikan ke tiga kategori untuk perbandingan Hard-3 setelah seleksi deteksi per model. [Notebook yang dijalankan](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb) dan [manifest hasil](analysis/test_evaluation/run02/evaluation_status_manifest.json)
+
+## U. Verifikasi hasil test set (27 November 2026 WIB)
+
+Artefak Run02 ditelusuri ke keenam checkpoint, keempat cakupan ground truth, dan 399 berkas gambar melalui SHA-256. Pemeriksaan menghubungkan cakupan gambar dan hitungan prediksi dengan roster dan catatan runtime, memvalidasi RLE pada resolusi asli, serta mencocokkan metrik JSON dengan tabel. Run02 menjadi sumber hasil test set untuk analisis pergeseran domain dan kegagalan berikutnya. Fingerprint historis runtime dipertahankan, dan hash notebook yang memuat revisi Cell 11 dicatat terpisah. [Provenance Run02](analysis/test_evaluation/run02/integration.json)

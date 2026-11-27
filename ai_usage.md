@@ -157,3 +157,13 @@ AI membantu menyusun skrip validasi untuk mencocokkan foto sumber dan ekspor, me
 ### Koreksi batas mask berdasarkan keputusan annotator
 
 AI membantu mengukur irisan mask dan menyajikan bukti visual. Peneliti sebagai annotator memutuskan empat pasangan mask yang perlu dikoreksi serta mengonfirmasi label `paper` pada P005. AI menerapkan operasi pengurangan biner pada pasangan yang disetujui dan memvalidasi RLE, area, kotak pembatas, dan referensi COCO. Perbandingan terhadap kandidat awal memeriksa bahwa setiap perubahan terbatas pada piksel irisan yang disetujui. Keputusan tentang label dan batas anotasi tetap berada pada annotator. Prediksi model tidak digunakan. [Laporan dan log keputusan](analysis/personal_test_qa/finalization/report.md)
+
+### Notebook evaluasi test set dan audit Run01
+
+Notebook yang disusun dengan bantuan AI mengandalkan `batch=1` saat meneruskan daftar path ke Ultralytics. Audit atas run yang dijalankan peneliti menemukan bahwa loader pada versi yang dipakai memasukkan seluruh daftar dalam satu batch. Adapter juga mematerialisasi seluruh mask asli YOLO sekaligus melalui `Masks.data`, sedangkan jalur Mask R-CNN menerima stack mask dari Torchvision. Traceback menghubungkan tiga perilaku tersebut dengan lima kegagalan CUDA OOM. AI memeriksa traceback, memverifikasi artefak yang selamat, dan membuat tes sintetis CPU untuk memeriksa perilaku loader serta kesetaraan mask. [Audit Run01](analysis/test_evaluation/run01_audit/README.md)
+
+### Koreksi implementasi inferensi
+
+AI membantu menerapkan batch singleton serta konversi mask per instance. AI juga merancang impor hasil parsial dan pemeriksaan kompatibilitas fingerprint. Peneliti meninggalkan strategi impor karena pemasangan artefak parsial di Kaggle menambah langkah, kemudian menetapkan evaluasi ulang seluruh 12 pasangan dengan satu implementasi.
+
+ChatGPT membantu merevisi Cell 11 untuk memeriksa kesetaraan encoding mask dari prediksi yang sama dan melaporkan perbedaan forward lama secara terpisah. Peneliti menjalankan notebook di Kaggle. Output GPU menunjukkan gate lulus dan mencatat dua selisih satu piksel pada kontrol lintas jalur YOLO11n All-Class. AI membantu memeriksa provenance, integritas prediksi, dan konsistensi tabel Run02 berdasarkan ekspor Kaggle. [Notebook Run02](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb), [laporan GPU](analysis/test_evaluation/run02/gpu_equivalence_report.json), dan [provenance Run02](analysis/test_evaluation/run02/integration.json)

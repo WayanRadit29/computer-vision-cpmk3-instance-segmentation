@@ -6,7 +6,7 @@ Proyek ini membandingkan model visi komputer yang mengenali objek di dalam ruang
 
 Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN dalam dua skenario. **All-Class** melatih model untuk 74 kelas. **Hard-3** melatih model khusus untuk `bed`, `book`, dan `cabinet-merged`, kemudian membandingkannya dengan All-Class pada tiga kelas yang sama.
 
-1. **Periksa hasil utama.** Buka [evaluasi All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan Hard-3](analysis/hard3_comparison/analysis.md). Keduanya memakai 166 gambar validation.
+1. **Periksa hasil utama.** Buka [evaluasi test set dan panduan reproduksi](analysis/test_evaluation/README.md) untuk hasil Run02. Hasil sebelumnya tersedia dalam [evaluasi validation All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan validation Hard-3](analysis/hard3_comparison/analysis.md), keduanya pada 166 gambar validation.
 2. **Telusuri keputusan riset.** Buka [laporan sementara](analysis/report.md) untuk metodologi dan kurva pelatihan, serta [hipotesis sebelum Hard-3](logbook.md#hipotesis-hard-3) untuk melihat rencana yang diuji.
 3. **Periksa bukti penilaian.** Mulai dari [finalisasi ground truth personal test set](analysis/personal_test_qa/finalization/report.md), [bukti anotasi Roboflow](evidence/annotation_screenshots/dataset_overview.png), atau [contoh hasil demo](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).
 
@@ -14,7 +14,8 @@ Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN 
 
 - **Selesai** - pelatihan dan unified validation tiga model pada All-Class dan Hard-3, pemilihan kelas Hard-3, perbandingan hasil, evaluasi hipotesis pada validation, demo inference kepada dosen, pengumpulan 40 foto asli, anotasi di Roboflow, serta ekspor dan validasi struktural COCO.
 - **Batch 1 selesai** - annotator menyetujui empat koreksi batas mask dan membekukan ground truth All-Class dan Hard-3 pada 26 November 2026 WIB. Kedua versi siap menjadi acuan evaluasi personal test pada Batch 2. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
-- **Menunggu** - evaluasi original test dan personal test, analisis pergeseran domain, analisis kegagalan pada lima foto, eksperimen tambahan untuk menguji penjelasan kegagalan, serta laporan penelitian final.
+- **Batch 2 selesai** - Run02 menilai keenam checkpoint dengan COCOeval pada 359 gambar original test dan 40 foto personal test. Setiap model dinilai pada cakupan kelas pelatihannya. Perbandingan spesialisasi memakai tiga kelas dan ground truth yang sama. [Metrik primer](analysis/test_evaluation/run02/tables/primary_metrics.csv) dan [notebook yang dijalankan](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb)
+- **Menunggu** - analisis pergeseran domain, analisis kegagalan pada lima foto, eksperimen tambahan untuk menguji penjelasan kegagalan, serta laporan penelitian final.
 
 ## Struktur repositori
 
@@ -24,9 +25,10 @@ Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN 
 | `analysis/all_class_comparison/` | Protokol unified validation, skor semua model, AP per kelas, dan dasar pemilihan Hard-3. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json) dan [keputusan Hard-3](analysis/all_class_comparison/hard3_decision.json). |
 | `analysis/hard3_comparison/` | Perbandingan pada tiga kelas yang sama, hasil uji hipotesis pada validation, grafik, dan provenance run. [Tabel per kelas](analysis/hard3_comparison/per_class_comparison_with_relative.csv) dan [audit artefak](analysis/hard3_comparison/provenance/artifact_audit.json). |
 | `analysis/personal_test_qa/` | Validasi ekspor Roboflow, distribusi kelas, pencocokan foto sumber, keputusan annotator, dan validasi mask sesudah koreksi. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [distribusi kelas](analysis/personal_test_qa/class_distribution.png). |
+| `analysis/test_evaluation/` | Protokol, tabel, grafik, dan provenance Run02 untuk original dan personal test. Audit Run01 mendokumentasikan kegagalan memori yang memotivasi perubahan implementasi. [Panduan evaluasi](analysis/test_evaluation/README.md) dan [tabel perbandingan tiga kelas](analysis/test_evaluation/run02/tables/shared_hard3_comparison.csv). |
 | `analysis/figures/` dan `analysis/report.md` | Grafik baseline serta laporan sementara yang menghubungkan data, metode, hasil, dan pekerjaan tersisa. [Kurva validasi baseline](analysis/figures/all_class_validation_mask_map.png) dan [laporan](analysis/report.md). |
 | `experiments/` | Enam folder model per skenario. Konfigurasi berada di tingkat folder model, `metrics/` memuat log atau ringkasan, dan grafik berada di `metrics/` atau `visualizations/`. Lihat [indeks artefak per model](#artefak-per-model-dan-notebook). |
-| `notebooks/` | Notebook pelatihan baseline, eksperimen awal Hard-3, dan recovery Mask R-CNN. [Notebook Hard-3 awal](notebooks/CPMK3_Hard3_All_Models.ipynb) dan [rekonstruksi run final](notebooks/CPMK3_Hard3_Final_Reconstructed.ipynb). |
+| `notebooks/` | Notebook pelatihan, recovery Mask R-CNN, dan evaluasi test set. [Notebook Hard-3 awal](notebooks/CPMK3_Hard3_All_Models.ipynb), [rekonstruksi run training final](notebooks/CPMK3_Hard3_Final_Reconstructed.ipynb), dan [notebook evaluasi Run02](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb). |
 | `data/custom_test/` | Foto asli, pedoman anotasi, dan ground truth yang telah dibekukan. [Pedoman](data/custom_test/annotation_guidelines.md), [master dan All-Class](data/custom_test/annotations/all_class_master_corrected.coco.json), dan [Hard-3](data/custom_test/annotations/hard3_corrected.coco.json). |
 | `evidence/` | Bukti pendukung dataset dan eksperimen. [Screenshot proses anotasi](evidence/annotation_screenshots/annotation_process.png), [metadata EXIF](evidence/photo_metadata/exif_metadata.csv), [bukti GPU](evidence/gpu_usage/YOLO11n-seg_all_class.png), dan [diagnostik recovery](evidence/training_logs/hard3_maskrcnn/fp32_batch43_diagnostic.json). |
 | `demo_inference.py` dan `demo_outputs/` | Script inference satu gambar dan dua hasil contoh dengan mask, kotak, dan confidence. [Script](demo_inference.py) dan [contoh 053](demo_outputs/yolo11n_all_classes__053_jpg.rf.002f0adcbefe28f38a23d14e639c1865.png). |
@@ -74,7 +76,11 @@ Ketiga model menyelesaikan pelatihan dan unified COCOeval pada 166 gambar valida
 | YOLOv8n-seg | 3,672 | 5,581 | +1,909 |
 | Mask R-CNN ResNet-50 FPN | 1,454 | 5,738 | +4,284 |
 
-Rata-rata ketiga model meningkat. Mask R-CNN berada 0,157 poin persentase di atas YOLOv8n dan memperoleh AP `book` tertinggi, 10,707%. Kelas `bed` hanya memiliki enam instance validation. Perbandingan Mask R-CNN juga mencakup perubahan precision, laju belajar, dan gradient clipping. Original test dan personal test belum dievaluasi. [Tabel per kelas](analysis/hard3_comparison/per_class_comparison_with_relative.csv), [grafik perbandingan](analysis/hard3_comparison/per_class_comparison.png), dan [analisis Hard-3](analysis/hard3_comparison/analysis.md).
+Rata-rata ketiga model meningkat pada validation. Mask R-CNN berada 0,157 poin persentase di atas YOLOv8n dan memperoleh AP `book` tertinggi, 10,707%. Kelas `bed` hanya memiliki enam instance validation. Perbandingan Mask R-CNN juga mencakup perubahan precision, laju belajar, dan gradient clipping. [Tabel per kelas](analysis/hard3_comparison/per_class_comparison_with_relative.csv), [grafik perbandingan](analysis/hard3_comparison/per_class_comparison.png), dan [analisis Hard-3](analysis/hard3_comparison/analysis.md).
+
+## Evaluasi original dan personal test set
+
+Run02 menggunakan checkpoint yang sama dengan eksperimen penelitian dan ground truth personal yang telah disetujui annotator. COCOeval menghitung Mask AP50–95, AP50, AP75, serta AR100 untuk tiap kombinasi. Tabel lintas domain menyediakan cakupan kelas bersama dengan ground truth yang dapat dinilai di kedua test set. Untuk mereproduksi evaluasi di Kaggle, pasang kedua dataset dan enam checkpoint sesuai manifest, lalu gunakan mode preflight dan uji GPU sebelum menjalankan evaluasi penuh. [Hasil per kelas](analysis/test_evaluation/run02/tables/per_class_metrics.csv) dan [protokol, input, serta panduan reproduksi](analysis/test_evaluation/README.md).
 
 ## Artefak per model dan notebook
 

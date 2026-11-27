@@ -1,0 +1,490 @@
+{
+  "source_archive": "CPMK3_Unified_Test_Evaluation_Partial_Run01.zip",
+  "source_archive_size": 180244492,
+  "source_archive_sha256": "b0642cab97cb75051d9e8d9476c32dd77b797ac2fce9661b277e7c8966306787",
+  "archive_entries": 127,
+  "uncompressed_members_bytes": 171177927,
+  "run_root": "CPMK3_unified_test/20261126T092418Z-43649903/run/",
+  "inner_archive_member": "CPMK3_unified_test/20261126T092418Z-43649903/CPMK3_Unified_Test_Evaluation_Partial.zip",
+  "inner_archive_sha256": "183e9c841217fe704b0e6653cd13f84efc18cc65ae25362564e2ab819056e996",
+  "run_summary": {
+    "mode": "FULL_EVALUATION",
+    "primary_complete": 7,
+    "primary_expected": 12,
+    "smoke_complete": 12,
+    "status": "PARTIAL",
+    "statuses": {
+      "primary": {
+        "complete": 7,
+        "failed": 5
+      },
+      "smoke": {
+        "complete": 12
+      }
+    }
+  },
+  "environment": {
+    "cudnn": 92700,
+    "device": "cuda:0",
+    "gpu": "Tesla T4",
+    "matplotlib": "3.10.0",
+    "numpy": "2.1.3",
+    "opencv": "4.14.0",
+    "pandas": "2.3.3",
+    "pillow": "13.0.0",
+    "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+    "pycocotools": "2.0.10",
+    "python": "3.13.16",
+    "torch": "2.11.0+cu130",
+    "torch_cuda": "13.0",
+    "torchvision": "0.26.0+cu130",
+    "ultralytics": "8.4.216"
+  },
+  "pipeline_sha256": "34c9460d0815aa9a68306dc0888cf81d5a0927a7221da62291528e781c1b45eb",
+  "artifact_count_verified_in_both_archives": 125,
+  "results": {
+    "primary": {
+      "maskrcnn_all__original": {
+        "status": "complete",
+        "config_fingerprint": "3aab98b96a59d06d1881bef1e7ac689f0d8d5f896ae9eced5cd2ff2716577d81",
+        "checkpoint_sha256": "32165bb4e2d822300237ce64f5a969423cd4dbd6f32b559bf5a4cd8ade31cafe",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 359,
+        "images_processed": 359,
+        "bbox": 35561,
+        "segm": 35497,
+        "images_with_prediction": {
+          "bbox": 359,
+          "segm": 359
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 142.68682538099995
+      },
+      "maskrcnn_all__personal": {
+        "status": "failed",
+        "config_fingerprint": "0777a1ff26ebd63d68765017badb2eae3c89c372db2ca9ae910ecfc6331bd93e",
+        "checkpoint_sha256": "32165bb4e2d822300237ce64f5a969423cd4dbd6f32b559bf5a4cd8ade31cafe",
+        "source_gt_sha256": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23",
+        "expected_images": 40,
+        "exception": "CUDA out of memory. Tried to allocate 4.65 GiB. GPU 0 has a total capacity of 14.56 GiB of which 4.55 GiB is free. Including non-PyTorch memory, this process has 10.01 GiB memory in use. Of the allocated memory 5.08 GiB is allocated by PyTorch, and 4.78 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+        "traceback": "errors/primary__maskrcnn_all__personal.txt",
+        "allocation_gib": 4.65
+      },
+      "maskrcnn_hard3__original": {
+        "status": "complete",
+        "config_fingerprint": "7a388f159dd5ebd21968e6ce28983b27aeea6e90118b53b2d02e74b0b724e65f",
+        "checkpoint_sha256": "8337a3a93c6dcbbc68fcb0b8534d7660461109be03facff22910ecb5d87939d6",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 359,
+        "images_processed": 359,
+        "bbox": 34113,
+        "segm": 33094,
+        "images_with_prediction": {
+          "bbox": 359,
+          "segm": 358
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 137.14912873900005
+      },
+      "maskrcnn_hard3__personal": {
+        "status": "complete",
+        "config_fingerprint": "44b61603341caeeb434c3048f5e9c7e2c893c6100abe93f5e83cddcc8d1fb62b",
+        "checkpoint_sha256": "8337a3a93c6dcbbc68fcb0b8534d7660461109be03facff22910ecb5d87939d6",
+        "source_gt_sha256": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447",
+        "expected_images": 40,
+        "images_processed": 40,
+        "bbox": 3679,
+        "segm": 3556,
+        "images_with_prediction": {
+          "bbox": 40,
+          "segm": 40
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 169.59632414200007
+      },
+      "yolo11n_all__original": {
+        "status": "failed",
+        "config_fingerprint": "f0452bb247c7ff52d96d5d3d123f8a102f40357adef92a4c537ae78207834d97",
+        "checkpoint_sha256": "bcfc5e73096871f15394987a6683531b9a9baabb3e14026c575bd2a94a14defc",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 359,
+        "exception": "CUDA out of memory. Tried to allocate 2.19 GiB. GPU 0 has a total capacity of 14.56 GiB of which 368.81 MiB is free. Including non-PyTorch memory, this process has 14.20 GiB memory in use. Of the allocated memory 9.77 GiB is allocated by PyTorch, and 4.27 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+        "traceback": "errors/primary__yolo11n_all__original.txt",
+        "allocation_gib": 2.19
+      },
+      "yolo11n_all__personal": {
+        "status": "failed",
+        "config_fingerprint": "e4f1885a6b4c9b36cb398190fafe7bc448361323d9deb09afc87ef4bcfcd76b8",
+        "checkpoint_sha256": "bcfc5e73096871f15394987a6683531b9a9baabb3e14026c575bd2a94a14defc",
+        "source_gt_sha256": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23",
+        "expected_images": 40,
+        "exception": "CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 14.56 GiB of which 292.81 MiB is free. Including non-PyTorch memory, this process has 14.27 GiB memory in use. Of the allocated memory 11.08 GiB is allocated by PyTorch, and 3.04 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+        "traceback": "errors/primary__yolo11n_all__personal.txt",
+        "allocation_gib": 1.16
+      },
+      "yolo11n_hard3__original": {
+        "status": "complete",
+        "config_fingerprint": "8bfa09ae50631f9d4735c32dddcb5a11f450072591ad88b319580e066cd6fe1d",
+        "checkpoint_sha256": "6e17a8d8b2a4291da424d8ecaddb080744e5c83f17ce375aeaa550b8cae1f775",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 359,
+        "images_processed": 359,
+        "bbox": 11116,
+        "segm": 11116,
+        "images_with_prediction": {
+          "bbox": 357,
+          "segm": 357
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 32.62748013099997
+      },
+      "yolo11n_hard3__personal": {
+        "status": "complete",
+        "config_fingerprint": "c025af412bafef66de03327b24a989cd2d0f0b46c3a6e9f899e065bb00e91415",
+        "checkpoint_sha256": "6e17a8d8b2a4291da424d8ecaddb080744e5c83f17ce375aeaa550b8cae1f775",
+        "source_gt_sha256": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447",
+        "expected_images": 40,
+        "images_processed": 40,
+        "bbox": 548,
+        "segm": 548,
+        "images_with_prediction": {
+          "bbox": 40,
+          "segm": 40
+        },
+        "max_detections_in_one_image": {
+          "bbox": 42,
+          "segm": 42
+        },
+        "inference_pipeline_seconds": 22.633824826000023
+      },
+      "yolov8n_all__original": {
+        "status": "failed",
+        "config_fingerprint": "5e8e0f6aca7b60929b0fe6b43a88ec840bbd0e6bce9636e57139f7d2d254cd3e",
+        "checkpoint_sha256": "4e19c04c344e0849cbf1d1154db89233ab9be5f0ffb817513e7ad611e28b19f6",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 359,
+        "exception": "CUDA out of memory. Tried to allocate 2.19 GiB. GPU 0 has a total capacity of 14.56 GiB of which 914.81 MiB is free. Including non-PyTorch memory, this process has 13.67 GiB memory in use. Of the allocated memory 9.23 GiB is allocated by PyTorch, and 4.28 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+        "traceback": "errors/primary__yolov8n_all__original.txt",
+        "allocation_gib": 2.19
+      },
+      "yolov8n_all__personal": {
+        "status": "failed",
+        "config_fingerprint": "b9fa7769a7ab6dbf1b1397fb91d97d1faa0a080bf14bb5fd683639cda97018c3",
+        "checkpoint_sha256": "4e19c04c344e0849cbf1d1154db89233ab9be5f0ffb817513e7ad611e28b19f6",
+        "source_gt_sha256": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23",
+        "expected_images": 40,
+        "exception": "CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 14.56 GiB of which 834.81 MiB is free. Including non-PyTorch memory, this process has 13.74 GiB memory in use. Of the allocated memory 11.78 GiB is allocated by PyTorch, and 1.81 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+        "traceback": "errors/primary__yolov8n_all__personal.txt",
+        "allocation_gib": 1.16
+      },
+      "yolov8n_hard3__original": {
+        "status": "complete",
+        "config_fingerprint": "b60dfb0778b39448ab4e49c835f217aee539e8b8b6915b122583d49e77ac7de1",
+        "checkpoint_sha256": "87f5775efe1cc799e805f9808161c15adae8e7ab7e1ff496dacbd722a815af03",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 359,
+        "images_processed": 359,
+        "bbox": 5509,
+        "segm": 5509,
+        "images_with_prediction": {
+          "bbox": 358,
+          "segm": 358
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 21.30181577100001
+      },
+      "yolov8n_hard3__personal": {
+        "status": "complete",
+        "config_fingerprint": "41f322a51490088e6cfec31a9994934567518b4c566d9873413559c7f1c58dfa",
+        "checkpoint_sha256": "87f5775efe1cc799e805f9808161c15adae8e7ab7e1ff496dacbd722a815af03",
+        "source_gt_sha256": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447",
+        "expected_images": 40,
+        "images_processed": 40,
+        "bbox": 306,
+        "segm": 306,
+        "images_with_prediction": {
+          "bbox": 40,
+          "segm": 40
+        },
+        "max_detections_in_one_image": {
+          "bbox": 20,
+          "segm": 20
+        },
+        "inference_pipeline_seconds": 15.468638762999944
+      }
+    },
+    "smoke": {
+      "maskrcnn_all__original": {
+        "status": "complete",
+        "config_fingerprint": "c52a87f661f6638acdb8eebdbed3f9ab15c3f6333c4d51996224ff13c3126a17",
+        "checkpoint_sha256": "32165bb4e2d822300237ce64f5a969423cd4dbd6f32b559bf5a4cd8ade31cafe",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 159,
+        "segm": 159,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 0.7832704739999485
+      },
+      "maskrcnn_all__personal": {
+        "status": "complete",
+        "config_fingerprint": "325f0e7ffbe0ba999becc110667e4ba4c79da3293c5cfe11c5be7c10326f40af",
+        "checkpoint_sha256": "32165bb4e2d822300237ce64f5a969423cd4dbd6f32b559bf5a4cd8ade31cafe",
+        "source_gt_sha256": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 200,
+        "segm": 200,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 22.76578289600002
+      },
+      "maskrcnn_hard3__original": {
+        "status": "complete",
+        "config_fingerprint": "08aa34a05fcafaebe3edc0b1cc1b4b0abc4474126da5498ff960d56b216a99a7",
+        "checkpoint_sha256": "8337a3a93c6dcbbc68fcb0b8534d7660461109be03facff22910ecb5d87939d6",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 152,
+        "segm": 152,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 0.8192786019999971
+      },
+      "maskrcnn_hard3__personal": {
+        "status": "complete",
+        "config_fingerprint": "e8ec3f8ce608585b5b85b3607dcb2ea6a7cc3d0e93618701b32f27f4dba5a891",
+        "checkpoint_sha256": "8337a3a93c6dcbbc68fcb0b8534d7660461109be03facff22910ecb5d87939d6",
+        "source_gt_sha256": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 200,
+        "segm": 200,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 22.77422869100002
+      },
+      "yolo11n_all__original": {
+        "status": "complete",
+        "config_fingerprint": "ed908e925491e2152ef013a5d06abd41493ea3fdaeb8124dd78c5ec08ad576ea",
+        "checkpoint_sha256": "bcfc5e73096871f15394987a6683531b9a9baabb3e14026c575bd2a94a14defc",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 171,
+        "segm": 171,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 3.236428060000037
+      },
+      "yolo11n_all__personal": {
+        "status": "complete",
+        "config_fingerprint": "fa963d018b8f4604d93c750700f2c415a671a2ad290a619ae61fbaf49f8e1dc1",
+        "checkpoint_sha256": "bcfc5e73096871f15394987a6683531b9a9baabb3e14026c575bd2a94a14defc",
+        "source_gt_sha256": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 200,
+        "segm": 200,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 20.47790015099997
+      },
+      "yolo11n_hard3__original": {
+        "status": "complete",
+        "config_fingerprint": "32682180ce7715063020049593ebf524041a079d3a6e5445936f6e4dbfb8cef1",
+        "checkpoint_sha256": "6e17a8d8b2a4291da424d8ecaddb080744e5c83f17ce375aeaa550b8cae1f775",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 8,
+        "segm": 8,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 6,
+          "segm": 6
+        },
+        "inference_pipeline_seconds": 0.19931519199997183
+      },
+      "yolo11n_hard3__personal": {
+        "status": "complete",
+        "config_fingerprint": "500dcca7ec7cfb08a3f14a88df78d2b2f5af34d6e49c38fc38f6a67028fe1e65",
+        "checkpoint_sha256": "6e17a8d8b2a4291da424d8ecaddb080744e5c83f17ce375aeaa550b8cae1f775",
+        "source_gt_sha256": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 31,
+        "segm": 31,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 18,
+          "segm": 18
+        },
+        "inference_pipeline_seconds": 2.197066487000029
+      },
+      "yolov8n_all__original": {
+        "status": "complete",
+        "config_fingerprint": "1d22b67ae0019ee69b41dc4d957e26e9e38c049a0ad8f19d0c0ac701d77c841e",
+        "checkpoint_sha256": "4e19c04c344e0849cbf1d1154db89233ab9be5f0ffb817513e7ad611e28b19f6",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 179,
+        "segm": 179,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 0.4634877609999535
+      },
+      "yolov8n_all__personal": {
+        "status": "complete",
+        "config_fingerprint": "9c60bc9a3658e754d05af3457b1d4b1f52b1d0a78eee5c8dbbaf1b126feee230",
+        "checkpoint_sha256": "4e19c04c344e0849cbf1d1154db89233ab9be5f0ffb817513e7ad611e28b19f6",
+        "source_gt_sha256": "85b204036437434a055af3b2ef80add2a54e48e39851a2b2e355563222d6ac23",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 200,
+        "segm": 200,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 100,
+          "segm": 100
+        },
+        "inference_pipeline_seconds": 12.045181877000005
+      },
+      "yolov8n_hard3__original": {
+        "status": "complete",
+        "config_fingerprint": "7e6490f3a021560c3fe01ca8bba3e81cb67afbb69c9770214b7c19e0fc4dd911",
+        "checkpoint_sha256": "87f5775efe1cc799e805f9808161c15adae8e7ab7e1ff496dacbd722a815af03",
+        "source_gt_sha256": "1b756f0cab2be19fb338e35aea80c3a1e40eca6c5343f4daee9bf3d675bd466f",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 5,
+        "segm": 5,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 4,
+          "segm": 4
+        },
+        "inference_pipeline_seconds": 0.16486141799998677
+      },
+      "yolov8n_hard3__personal": {
+        "status": "complete",
+        "config_fingerprint": "3ca3837ac4ad5bcb3eabf57f85050198075d64d5a557cb2c15afebc73c991854",
+        "checkpoint_sha256": "87f5775efe1cc799e805f9808161c15adae8e7ab7e1ff496dacbd722a815af03",
+        "source_gt_sha256": "938bab7a90ac3ccfec8c03ec075c6cf09b24c0ccdb1d41e5b97742280d0f6447",
+        "expected_images": 2,
+        "images_processed": 2,
+        "bbox": 13,
+        "segm": 13,
+        "images_with_prediction": {
+          "bbox": 2,
+          "segm": 2
+        },
+        "max_detections_in_one_image": {
+          "bbox": 8,
+          "segm": 8
+        },
+        "inference_pipeline_seconds": 1.1538902639999833
+      }
+    }
+  },
+  "resume_verified_under_archived_config": [
+    "maskrcnn_all__original",
+    "maskrcnn_hard3__original",
+    "maskrcnn_hard3__personal",
+    "yolo11n_hard3__original",
+    "yolo11n_hard3__personal",
+    "yolov8n_hard3__original",
+    "yolov8n_hard3__personal"
+  ],
+  "synthetic_cpu_checks": {
+    "loader_request_batch": 1,
+    "list_actual_batch": 3,
+    "singleton_actual_batch": 1,
+    "mixed_list_model_pixels": [
+      640,
+      640,
+      3
+    ],
+    "singleton_default_rect_model_pixels": [
+      320,
+      640,
+      3
+    ],
+    "singleton_square_exact_pixel_match": true,
+    "yolo_crop_mask_exact_rle_match": true,
+    "torchvision_sequential_paste_exact_cpu_match": true,
+    "gpu_oom_reproduced_locally": false
+  }
+}

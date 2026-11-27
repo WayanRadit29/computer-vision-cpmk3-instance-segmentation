@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/tmp/ipykernel_23/910917327.py", line 193, in execute_stage
+    hashes = run_pair(key, domain, stage, models, datasets, lock, hard_map, device,
+                      stage_directory(run, stage, pair), config)
+  File "/tmp/ipykernel_23/910917327.py", line 136, in run_pair
+    predictions, timing = infer_pair(model, lock["models"][key], dataset, ids, device)
+                          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/ipykernel_23/3486351240.py", line 85, in infer_pair
+    output.boxes.conf.cpu().numpy(), output.masks.data if output.masks else None,
+                                     ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/functools.py", line 1025, in __get__
+    val = self.func(instance)
+  File "/usr/local/lib/python3.13/dist-packages/ultralytics/engine/results.py", line 1208, in data
+    data = np.zeros(size, m.dtype) if isinstance(m, np.ndarray) else m.new_zeros(size)  # the masks' converted dtype
+                                                                     ~~~~~~~~~~~^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 14.56 GiB of which 834.81 MiB is free. Including non-PyTorch memory, this process has 13.74 GiB memory in use. Of the allocated memory 11.78 GiB is allocated by PyTorch, and 1.81 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

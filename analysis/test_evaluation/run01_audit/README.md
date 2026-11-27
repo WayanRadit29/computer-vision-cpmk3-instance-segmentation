@@ -1,0 +1,88 @@
+# Audit evaluasi test set Run01
+
+**26 November 2026 WIB · Batch 2.2A.** Run Kaggle `20261126T092418Z-43649903` berakhir **PARTIAL** pada 16.38 WIB. Preflight dan 12 smoke test lolos. Evaluasi primer menghasilkan tujuh kombinasi lengkap dan lima gagal. Kelima kegagalan melaporkan `torch.OutOfMemoryError` pada Tesla T4 dengan kapasitas 14,56 GiB. Recovery lima kombinasi layak diuji dengan membatasi alokasi memori sambil menjaga perilaku prediksi Run01. Persetujuan implementasi dan pengujian GPU masih diperlukan.
+
+## Sumber dan pemeriksaan
+
+- Arsip utama `CPMK3_Unified_Test_Evaluation_Partial_Run01.zip` berukuran 180.244.492 byte dengan SHA-256 `b0642cab97cb75051d9e8d9476c32dd77b797ac2fce9661b277e7c8966306787`. Arsip memuat 127 anggota, termasuk ZIP Partial internal berukuran 85.374.629 byte dan folder `run/` yang memuat salinannya. Kedua daftar isi dan checksum 125 artefak yang dicatat diverifikasi.
+- Manifest, summary, environment, konfigurasi, dan traceback berasal dari folder `run/`. Laporan preflight cocok dengan empat view ground truth dan enam checkpoint. Environment tercatat sebagai Python 3.13.16, PyTorch 2.11.0+cu130, Torchvision 0.26.0+cu130, Ultralytics 8.4.216, pycocotools 2.0.10, dan Tesla T4. Hash pipeline Run01 `34c9460d0815aa9a68306dc0888cf81d5a0927a7221da62291528e781c1b45eb` cocok dengan yang tertanam pada notebook lokal. Lima traceback juga cocok dengan baris pada cell **06 Unified inference and prediction encoding** serta **08 Artifacts and resume**. Arsip tidak memuat salinan notebook yang dieksekusi.
+- Pemeriksaan membaca data dan hasil yang sudah tersimpan, tanpa menjalankan inferensi model atau menghitung ulang COCOeval pada test set. [Notebook Run01](../../../notebooks/CPMK3_Unified_Test_Evaluation.ipynb), [freeze record](../../personal_test_qa/finalization/ground_truth_freeze.json), dan [verifikasi mesin](verification.json)
+
+## Status akhir evaluasi primer
+
+| Model | Original | Personal |
+| --- | --- | --- |
+| YOLO11n All-Class | Gagal | Gagal |
+| YOLOv8n All-Class | Gagal | Gagal |
+| Mask R-CNN All-Class | Lengkap dan terverifikasi | Gagal |
+| YOLO11n Hard-3 | Lengkap dan terverifikasi | Lengkap dan terverifikasi |
+| YOLOv8n Hard-3 | Lengkap dan terverifikasi | Lengkap dan terverifikasi |
+| Mask R-CNN Hard-3 | Lengkap dan terverifikasi | Lengkap dan terverifikasi |
+
+Tidak ada kombinasi primer yang hilang. Setiap kombinasi gagal memiliki `pair_config.json` serta traceback, tanpa artefak prediksi atau metrik primer. Smoke disimpan terpisah dan berlabel `NON-FINAL`.
+
+## Bukti akar masalah
+
+| Kelompok | Traceback dan tahap | Alokasi gagal | Interpretasi |
+| --- | --- | ---: | --- |
+| `yolo11n_all__original`, `yolov8n_all__original` | `infer_pair:73 → stream_inference → Segment.forward → self.proto → F.conv2d`. [YOLO11n](errors/primary__yolo11n_all__original.txt), [YOLOv8n](errors/primary__yolov8n_all__original.txt) | 2,19 GiB pada masing-masing model | OOM saat forward mask prototypes. `model.predict(source=[...], stream=True, batch=1)` mengarah ke `LoadPilAndNumpy` pada Ultralytics 8.4.216. Loader mendekode daftar lalu mengembalikan seluruh 359 foto sebagai satu batch. |
+| `yolo11n_all__personal`, `yolov8n_all__personal` | `infer_pair:85 → Masks.data → m.new_zeros(size)`. [YOLO11n](errors/primary__yolo11n_all__personal.txt), [YOLOv8n](errors/primary__yolov8n_all__personal.txt) | 1,16 GiB pada masing-masing model | Akses `Masks.data` mematerialisasi dan menyimpan stack padat `(N,H,W)` dari mask lokal per box. Seluruh 40 foto sudah menjadi satu batch dan objek `Results` masih dirujuk predictor. Besar alokasi konsisten dengan 100 mask satu byte pada 4.080 × 3.060. |
+| `maskrcnn_all__personal` | `infer_pair:56 → GeneralizedRCNN.forward → transform.postprocess → paste_masks_in_image → torch.stack(res)`. [Mask R-CNN](errors/primary__maskrcnn_all__personal.txt) | 4,65 GiB | Torchvision sudah menyimpan daftar mask FP32 pada resolusi asli, lalu mencoba membuat stack kedua yang sama besarnya. Alokasi cocok dengan 100 mask FP32 pada 4.080 × 3.060. Inferensi sudah berjalan satu foto per pemanggilan pada jalur Mask R-CNN. |
+
+**Kepastian tinggi** untuk jenis exception, tahap, dan pola alokasi. ID, nama, dan jumlah prediksi foto yang gagal tidak tercatat. Resolusi personal diketahui dari manifest dan besar alokasi memberi indikasi sekitar 100 mask, tanpa membuktikan ID foto. Untuk kedua YOLO, dua kegagalan original terjadi saat forward dan dua kegagalan personal terjadi sesudah forward, sebelum konversi serta encoding RLE. Kegagalan Mask R-CNN juga terjadi sebelum objek deteksi dikembalikan ke adapter. Tidak ada traceback yang menunjuk CPU RAM, COCOeval, serialisasi, atau warning deprecation `half`. Status reserved CUDA dapat membantu diagnosis fragmentasi, tetapi kontribusi fragmentasi dan referensi lintas kombinasi belum terisolasi.
+
+## Mengapa smoke lolos
+
+Smoke memakai dua foto per kombinasi. Dengan loader yang sama, ukuran batch YOLO efektif turun dari 359 atau 40 menjadi dua. Untuk original, smoke All-Class memakai ID 0 dan 1 dengan dimensi 960 × 1.280 dan 225 × 225, sementara full mencakup 216 bentuk gambar. Hard-3 juga terkena perilaku batch daftar, tetapi seluruh kombinasi Hard-3 selesai. Khusus personal, jumlah mask YOLO Hard-3 adalah 548 dan 306 untuk 40 foto, jauh di bawah beban stack yang diindikasikan traceback kedua YOLO All-Class. Perbedaan head dan volume hasil dapat berkontribusi, dengan kontribusi masing-masing terhadap puncak VRAM belum diukur.
+
+Pada personal, tiap foto memiliki 12.484.800 piksel. Smoke Mask R-CNN All-Class dan Hard-3 masing-masing mencapai 100 deteksi per foto pada P001–P002 dan tetap lolos. Jadi, resolusi foto dan jumlah deteksi saja belum menjelaskan kapan OOM terjadi. Full memperpanjang rangkaian alokasi pada 40 foto dan berjalan dengan keadaan allocator yang berbeda. Traceback mencatat alokasi 4,65 GiB dengan hanya 4,55 GiB bebas, termasuk 4,78 GiB yang dilaporkan sebagai reserved tetapi belum dialokasikan. Pemrosesan smoke juga memakai subset GT yang sama kecilnya saat scoring. Perbedaan scope COCOeval dan jumlah artefak full tidak menjelaskan kegagalan karena seluruh traceback terjadi sebelum prediksi disimpan.
+
+Tes CPU sintetis mereproduksi `batch=1` yang menjadi tiga untuk daftar tiga gambar, perubahan letterbox pada singleton, dan kesetaraan piksel untuk kanvas 640 × 640. Tes kecil juga membandingkan RLE hasil mask crop dengan jalur stack YOLO dan membandingkan paste mask Torchvision per instance dengan stack lama. OOM CUDA dan kesetaraan numerik forward GPU belum direproduksi.
+
+## Integritas tujuh hasil primer
+
+| Kombinasi | Gambar diproses | Box | Mask RLE |
+| --- | ---: | ---: | ---: |
+| `maskrcnn_all__original` | 359 | 35.561 | 35.497 |
+| `maskrcnn_hard3__original` | 359 | 34.113 | 33.094 |
+| `maskrcnn_hard3__personal` | 40 | 3.679 | 3.556 |
+| `yolo11n_hard3__original` | 359 | 11.116 | 11.116 |
+| `yolo11n_hard3__personal` | 40 | 548 | 548 |
+| `yolov8n_hard3__original` | 359 | 5.509 | 5.509 |
+| `yolov8n_hard3__personal` | 40 | 306 | 306 |
+
+Semua hasil di atas lolos pembandingan checkpoint aktual, freeze record, hash GT efektif, roster gambar, protokol, fingerprint, dan lima artefak wajib per kombinasi. Setiap RLE diperiksa terhadap ukuran foto, total run pixels, dan area positif. Sampel mask didekode. Prediksi memiliki ID gambar dan kategori valid, skor pada batas yang ditetapkan, serta box pada koordinat foto. Scope metrik, jumlah dukungan GT, nilai agregat, dan AP tak terdefinisi sesuai data per kelas. Jumlah prediksi cocok dengan timing dan metrik tersimpan.
+
+`pair_config.image_ids` dan `timing.images_processed` mencakup seluruh set. Notebook memasukkan ID ke `seen` sebelum menyaring deteksi kosong dan mewajibkan himpunan `seen` persis sama dengan roster sebelum memulai serialisasi. Arsip tidak menyimpan log sukses per foto, sehingga bukti gambar tanpa prediksi berasal dari gate kode dan timing, serta dapat dibedakan dari gambar yang memiliki rekaman prediksi. Tidak ada indikasi kegagalan OOM diam-diam diteruskan pada salah satu dari tujuh kombinasi. Hasil tetap valid untuk perilaku Run01 yang tercatat. Reuse dengan revisi notebook memerlukan verifikasi kesetaraan implementasi dan provenance.
+
+## Rencana patch terarah untuk Batch 2.2B
+
+| Cell dan fungsi | Perubahan yang diusulkan | Uji dan risiko terhadap validitas |
+| --- | --- | --- |
+| **06 Unified inference and prediction encoding** · `infer_pair` YOLO | Proses singleton dan habiskan generator sebelum lanjut agar tensor dan state predictor dilepaskan lebih cepat. Pertahankan decode melalui list singleton, dan pakai letterbox 640 × 640 dengan `auto=False` untuk padanan full batch campuran Run01. Terapkan cabang recovery pada pasangan yang gagal. | Default singleton dengan `rect=True` dapat mengubah piksel input. Bandingkan tensor input dengan jalur lama pada foto berdimensi berbeda, lalu kelas, urutan, skor, box, mask RLE, dan dampak terhadap COCO pada subset yang masih muat pada T4. Perubahan batch juga dapat menghasilkan selisih FP32. |
+| **06** · adapter YOLO | Iterasi `Masks.crops()`, pindahkan hanya crop, susun satu canvas pada koordinat asli di CPU dan encode segera. Hindari `Masks.data` untuk stack padat. | Bandingkan crop, clipping, dan RLE terhadap stack lama untuk fixture batas gambar dan deteksi kosong. Pertahankan asosiasi mask dan urutan box, serta buang mask kosong persis seperti jalur lama. |
+| **06** · adapter Mask R-CNN | Delegasikan scaling box ke transform yang sama. Tahan mask ROI sebelum stack besar, lalu paste tiap deteksi pada resolusi asli dengan fungsi Torchvision yang sama. Pakai threshold 0,5 kemudian encode dan lepaskan tiap buffer. | Uji kesetaraan pada mask ROI, box tepi, deteksi kosong, dan 100 mask di T4. Perbedaan urutan threshold dan resize atau perubahan padding akan mengubah mask. |
+| **08 Artifacts and resume** · `run_pair`, `execute_stage`, `recover_pair` | Tutup generator dan lepaskan objek hasil, lalu lakukan cleanup setelah referensi traceback lepas. Catat ID terakhir, dimensi, jumlah deteksi bila tersedia, tahap, dan statistik CUDA per pasangan. Tambahkan jalur legacy yang dibatasi hash arsip, pipeline, dan allowlist. | Uji kegagalan buatan, retensi hasil berhasil, import ZIP/folder, serta penolakan hash, protokol, dan environment yang berbeda. Status sukses hanya setelah seluruh roster dan artefak lengkap. |
+| **02 Configuration**, **11 Run smoke gate**, **12 Run full evaluation** | Pilih pasangan gagal, import output lama, dan tambah stress gate sebelum full recovery. Gunakan subset tetap yang mencakup foto besar dan beban deteksi tinggi melalui fixture atau foto kontrol terpilih dari metadata. Simpan fingerprint revisi dan status gate. | Preflight dan smoke biasa tetap perlu. Stress gate menguji peak VRAM, kesetaraan, dan resume. Hasil uji tetap non-final dan tidak digunakan untuk tuning. |
+
+Precision FP32, checkpoint, resolusi, confidence 0,001, NMS, maksimum 100 deteksi, threshold mask 0,5, dan ground truth dipertahankan. Untuk YOLO, layout efektif 640 × 640 adalah konsekuensi full list bercampur dimensi. Perubahan batch memerlukan uji kesetaraan numerik di Kaggle. Timing Run01 dan recovery harus diberi label masing-masing karena jalur batching dan memori berbeda.
+
+## Reuse dan prosedur Kaggle
+
+Resume asli dapat menemukan manifest yang bersarang di ZIP luar. Audit menguji restore ketujuh kombinasi dengan konfigurasi Run01 dan environment yang direkonstruksi dari arsip. Fingerprint saat ini memuat `pipeline_sha256` dan environment. Setelah patch, persamaan fingerprint langsung akan menolak Run01. Calon jalur kompatibilitas harus memvalidasi konfigurasi legacy secara lengkap, termasuk pipeline Run01, SHA-256 checkpoint dan GT, roster, protokol, environment, dan checksum semua artefak. Pertahankan byte `pair_config.json` lama dan catat lineage sumber bersamaan dengan fingerprint pipeline baru. Bila versi runtime berubah atau uji kesetaraan gagal, hentikan promosi hasil dan laporkan kombinasi yang terdampak.
+
+Pertahankan input notebook dan hasil run yang sudah ada. Jika output Run01 sudah bisa dipasang di Kaggle, arahkan `RESUME_INPUTS` ke folder mount itu. Jika perlu mengunggah hasil dari laptop, unggah ZIP Partial internal secara privat. Notebook menerima path file ZIP yang tetap utuh atau direktori induk jika input diekstrak otomatis. ZIP luar juga dapat dibaca lewat manifest bersarang, tetapi membawa salinan tambahan. Path mount aktual harus diambil dari panel input Kaggle setelah pemasangan.
+
+Setelah persetujuan patch, jalankan preflight, verifikasi ketujuh hasil impor, dan jalankan stress gate pada T4. Lima key berikut merupakan kandidat rerun yang harus dipilih setelah gate lolos.
+
+```python
+SELECT_PAIRS = [
+    "yolo11n_all__original",
+    "yolo11n_all__personal",
+    "yolov8n_all__original",
+    "yolov8n_all__personal",
+    "maskrcnn_all__personal",
+]
+```
+
+Set `MODE = "FULL_EVALUATION"` hanya setelah gate recovery lolos. Tujuh hasil lama dapat dipromosikan bersama lima hasil baru bila garis keturunan dan kesetaraan terverifikasi. ZIP Complete mensyaratkan 12 pasangan primer lengkap. Sampai saat itu, Run01 tetap merupakan hasil parsial.
