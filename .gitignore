@@ -51,6 +51,11 @@ checkpoints/
 /experiments/**/visualizations/*_batch*.jpg
 /experiments/**/visualizations/kaggle_outputs/
 
+# Draf dan skrip recovery evaluasi yang disimpan lokal
+/analysis/test_evaluation/fresh_full_evaluation_cells.py
+/analysis/test_evaluation/recovery_cells.md
+/analysis/test_evaluation/verify_recovery_offline.py
+
 # Arsip, berkas sementara, dan pengaturan lokal
 /demo_outputs/*
 !/demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png
