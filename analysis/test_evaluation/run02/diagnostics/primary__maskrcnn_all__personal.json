@@ -1,0 +1,1 @@
+{"actual_batch_size":1,"filename":"test/P040_jpg.rf.56a4d8128f99bfcf1139cc1b46ba15b9.jpg","gpu_allocated_bytes":34603008,"gpu_peak_allocated_bytes":698712064,"gpu_peak_reserved_bytes":916455424,"gpu_reserved_bytes":35651584,"image_id":40,"model_dataset_key":"maskrcnn_all__personal","original_shape":[4080,3060],"prediction_count":100,"stage":"complete"}

@@ -1,0 +1,1 @@
+{"actual_batch_size":1,"filename":"194_jpg.rf.a50b4e46e0f927eab7cf94d63dece2ac.jpg","gpu_allocated_bytes":34603008,"gpu_peak_allocated_bytes":262379008,"gpu_peak_reserved_bytes":364904448,"gpu_reserved_bytes":35651584,"image_id":358,"model_dataset_key":"yolo11n_all__original","original_shape":[960,640],"prediction_count":98,"stage":"complete"}

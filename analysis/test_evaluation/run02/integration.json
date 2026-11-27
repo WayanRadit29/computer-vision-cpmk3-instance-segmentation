@@ -1,0 +1,372 @@
+{
+  "run_id": "20261126T152940Z-d1cca883",
+  "status": "COMPLETE",
+  "result_origin": "fresh",
+  "started_utc": "2026-11-26T15:29:40+00:00",
+  "finished_utc": "2026-11-26T16:00:28+00:00",
+  "source_archive": {
+    "path": "CPMK3_Unified_Test_Evaluation_Run02_Complete.zip",
+    "bytes": 328425985,
+    "sha256": "b4cb3c966ab7f32b0b320fd0c82757193edbcc156926e08c29ba67ad84ac38e4",
+    "member_prefix": "CPMK3_unified_test_recovery/20261126T152940Z-d1cca883/run/",
+    "verified_inventory_members": 105,
+    "inner_complete": {
+      "member": "CPMK3_unified_test_recovery/20261126T152940Z-d1cca883/CPMK3_Unified_Test_Evaluation_Recovery_Complete.zip",
+      "bytes": 155589458,
+      "sha256": "09cde6efd359b6574a11c292d590d8528554c8841f2c0b96f8b1f3a09a27035b",
+      "identical_result_members": 106
+    }
+  },
+  "historical_archive": {
+    "path": "CPMK3_Unified_Test_Evaluation_Partial_Run01.zip",
+    "sha256": "b0642cab97cb75051d9e8d9476c32dd77b797ac2fce9661b277e7c8966306787",
+    "used_for_run02": false
+  },
+  "notebooks": {
+    "run02": {
+      "path": "notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb",
+      "sha256": "3d704cba7718c5a9e5481c6974c1cecdd5ffb1eb43b6844e3653359ce3baa20b",
+      "code_cells_executed": 16,
+      "runtime_pipeline_sha256": "61b9f9ac63f7c354a410fa0bf2298f0c19f016eecb170b7d49ce6dbd258cd35d",
+      "pipeline_hash_covers_final_cell_11": false,
+      "cell_11_sha256": "0f2831c1daebca76fc3c20d70d0fad7d19d87cfc3b306bed50c4118699c6ea08",
+      "configuration": {
+        "MODE": "FULL_EVALUATION",
+        "APPROVE_FULL_RECOVERY": true,
+        "RESUME_INPUTS": [],
+        "SELECT_PAIRS": []
+      }
+    },
+    "run01": {
+      "path": "notebooks/CPMK3_Unified_Test_Evaluation.ipynb",
+      "sha256": "fe2b0e1a779b3117d00b7a3c7bf46905dc506efbb3c7a5b81c9e42ae76750630",
+      "code_cells_with_saved_output": 0
+    }
+  },
+  "primary": {
+    "maskrcnn_all__original": {
+      "status": "complete",
+      "images_processed": 359,
+      "masks": 35497,
+      "mask_ap": 0.07745672721674585,
+      "mask_ap50": 0.13138266872317897,
+      "mask_ap75": 0.07869430652297046,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 35561,
+          "images_with_predictions": 359,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 35497,
+          "images_with_predictions": 359,
+          "max_per_image": 100
+        }
+      }
+    },
+    "maskrcnn_all__personal": {
+      "status": "complete",
+      "images_processed": 40,
+      "masks": 3794,
+      "mask_ap": 0.14272646504140366,
+      "mask_ap50": 0.21783009963362615,
+      "mask_ap75": 0.14738515181524167,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 3962,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 3794,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        }
+      }
+    },
+    "maskrcnn_hard3__original": {
+      "status": "complete",
+      "images_processed": 359,
+      "masks": 33094,
+      "mask_ap": 0.0687001124779915,
+      "mask_ap50": 0.16194089342337298,
+      "mask_ap75": 0.05113575639758598,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 34113,
+          "images_with_predictions": 359,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 33094,
+          "images_with_predictions": 358,
+          "max_per_image": 100
+        }
+      }
+    },
+    "maskrcnn_hard3__personal": {
+      "status": "complete",
+      "images_processed": 40,
+      "masks": 3556,
+      "mask_ap": 0.12283156929006332,
+      "mask_ap50": 0.24354287985099354,
+      "mask_ap75": 0.08980399609590006,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 3679,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 3556,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        }
+      }
+    },
+    "yolo11n_all__original": {
+      "status": "complete",
+      "images_processed": 359,
+      "masks": 35197,
+      "mask_ap": 0.09110948157721395,
+      "mask_ap50": 0.14927536213432097,
+      "mask_ap75": 0.09020213807932487,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 35197,
+          "images_with_predictions": 359,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 35197,
+          "images_with_predictions": 359,
+          "max_per_image": 100
+        }
+      }
+    },
+    "yolo11n_all__personal": {
+      "status": "complete",
+      "images_processed": 40,
+      "masks": 3795,
+      "mask_ap": 0.12628253188851266,
+      "mask_ap50": 0.16165054390097477,
+      "mask_ap75": 0.12971088706648262,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 3795,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 3795,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        }
+      }
+    },
+    "yolo11n_hard3__original": {
+      "status": "complete",
+      "images_processed": 359,
+      "masks": 11116,
+      "mask_ap": 0.0719389797318239,
+      "mask_ap50": 0.17587965111290238,
+      "mask_ap75": 0.03900349609861375,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 11116,
+          "images_with_predictions": 357,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 11116,
+          "images_with_predictions": 357,
+          "max_per_image": 100
+        }
+      }
+    },
+    "yolo11n_hard3__personal": {
+      "status": "complete",
+      "images_processed": 40,
+      "masks": 548,
+      "mask_ap": 0.03808975798207143,
+      "mask_ap50": 0.07435759726368574,
+      "mask_ap75": 0.036821346045710204,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 548,
+          "images_with_predictions": 40,
+          "max_per_image": 42
+        },
+        "segm": {
+          "rows": 548,
+          "images_with_predictions": 40,
+          "max_per_image": 42
+        }
+      }
+    },
+    "yolov8n_all__original": {
+      "status": "complete",
+      "images_processed": 359,
+      "masks": 35652,
+      "mask_ap": 0.07544668490725417,
+      "mask_ap50": 0.12403982309195796,
+      "mask_ap75": 0.07482366257806077,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 35652,
+          "images_with_predictions": 359,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 35652,
+          "images_with_predictions": 359,
+          "max_per_image": 100
+        }
+      }
+    },
+    "yolov8n_all__personal": {
+      "status": "complete",
+      "images_processed": 40,
+      "masks": 3910,
+      "mask_ap": 0.09976100913386302,
+      "mask_ap50": 0.12844859380153403,
+      "mask_ap75": 0.09697568017341933,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 3910,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 3910,
+          "images_with_predictions": 40,
+          "max_per_image": 100
+        }
+      }
+    },
+    "yolov8n_hard3__original": {
+      "status": "complete",
+      "images_processed": 359,
+      "masks": 5509,
+      "mask_ap": 0.0705443527563173,
+      "mask_ap50": 0.18292803532837792,
+      "mask_ap75": 0.032279395008625734,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 5509,
+          "images_with_predictions": 358,
+          "max_per_image": 100
+        },
+        "segm": {
+          "rows": 5509,
+          "images_with_predictions": 358,
+          "max_per_image": 100
+        }
+      }
+    },
+    "yolov8n_hard3__personal": {
+      "status": "complete",
+      "images_processed": 40,
+      "masks": 306,
+      "mask_ap": 0.11723638071425457,
+      "mask_ap50": 0.22521885753539803,
+      "mask_ap75": 0.1315305698313852,
+      "prediction_checks": {
+        "bbox": {
+          "rows": 306,
+          "images_with_predictions": 40,
+          "max_per_image": 20
+        },
+        "segm": {
+          "rows": 306,
+          "images_with_predictions": 40,
+          "max_per_image": 20
+        }
+      }
+    }
+  },
+  "verified_input_image_hashes": 399,
+  "verified_checkpoint_hashes": 6,
+  "dataset_views": {
+    "original_all": {
+      "images": 359,
+      "instances": 5344,
+      "positive_images": 359,
+      "negative_images": 0,
+      "represented_classes": 69
+    },
+    "original_hard3": {
+      "images": 359,
+      "instances": 530,
+      "positive_images": 137,
+      "negative_images": 222,
+      "represented_classes": 3
+    },
+    "personal_all": {
+      "images": 40,
+      "instances": 213,
+      "positive_images": 40,
+      "negative_images": 0,
+      "represented_classes": 38
+    },
+    "personal_hard3": {
+      "images": 40,
+      "instances": 33,
+      "positive_images": 25,
+      "negative_images": 15,
+      "represented_classes": 3
+    }
+  },
+  "shared_represented_category_counts": {
+    "all_class": 37,
+    "hard3": 3
+  },
+  "gpu_same_source_mask_counts": {
+    "maskrcnn_all": 200,
+    "maskrcnn_hard3": 181,
+    "yolo11n_all": 200,
+    "yolo11n_hard3": 13,
+    "yolov8n_all": 199,
+    "yolov8n_hard3": 13
+  },
+  "local_verification": {
+    "prediction_rle": "COCO run lengths, canvas coverage and positive area verified",
+    "metrics": "COCOeval re-score in Kaggle; local JSON, CSV, support and delta checks"
+  },
+  "integrated_files": [
+    "artifact_hashes.json",
+    "checkpoint_manifest.json",
+    "dataset_manifest.json",
+    "diagnostics/primary__maskrcnn_all__original.json",
+    "diagnostics/primary__maskrcnn_all__personal.json",
+    "diagnostics/primary__maskrcnn_hard3__original.json",
+    "diagnostics/primary__maskrcnn_hard3__personal.json",
+    "diagnostics/primary__yolo11n_all__original.json",
+    "diagnostics/primary__yolo11n_all__personal.json",
+    "diagnostics/primary__yolo11n_hard3__original.json",
+    "diagnostics/primary__yolo11n_hard3__personal.json",
+    "diagnostics/primary__yolov8n_all__original.json",
+    "diagnostics/primary__yolov8n_all__personal.json",
+    "diagnostics/primary__yolov8n_hard3__original.json",
+    "diagnostics/primary__yolov8n_hard3__personal.json",
+    "environment.json",
+    "evaluation_protocol.json",
+    "evaluation_status_manifest.json",
+    "execution_summary.json",
+    "figures/primary.png",
+    "figures/shared_hard3.png",
+    "figures/shared_represented.png",
+    "gpu_equivalence_report.json",
+    "image_category_mapping.json",
+    "preflight_report.json",
+    "tables/aggregate_metrics.csv",
+    "tables/ground_truth_support.csv",
+    "tables/original_vs_personal.csv",
+    "tables/per_class_metrics.csv",
+    "tables/primary_metrics.csv",
+    "tables/shared_hard3_comparison.csv",
+    "tables/shared_hard3_per_class.csv",
+    "tables/shared_represented_metrics.csv",
+    "tables/timings.csv"
+  ]
+}
