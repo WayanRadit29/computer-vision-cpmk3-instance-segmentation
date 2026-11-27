@@ -1,6 +1,6 @@
 # Perbandingan All-Class dan Hard-3
 
-Ketiga model menaikkan rata-rata Mask AP50–95 pada tiga kelas target di validation. Mask R-CNN mencatat rata-rata Hard-3 tertinggi, 5,738%, dengan selisih 0,157 poin persentase dari YOLOv8n-seg. Hasil ini berasal dari satu run per konfigurasi dan belum diuji pada data uji.
+Pada validasi, saya membandingkan All-Class dan Hard-3 pada tiga kelas yang sama. Ketiga model menaikkan rata-rata Mask AP50–95 pada tiga kelas target di validation. Mask R-CNN mencatat rata-rata Hard-3 tertinggi, 5,738%, dengan selisih 0,157 poin persentase dari YOLOv8n-seg. Bagian ini membahas satu run per konfigurasi pada validation. [Hasil kedua set uji](../test_evaluation/quantitative_analysis.md)
 
 ## Data dan protokol
 

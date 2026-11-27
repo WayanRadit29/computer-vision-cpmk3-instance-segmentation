@@ -1,10 +1,10 @@
 # Evaluasi terpadu original dan personal test set
 
-Run02 (`20261126T152940Z-d1cca883`) mencakup enam checkpoint, dua test set, dan 12 kombinasi primer. Ketiga arsitektur memiliki checkpoint All-Class dan Hard-3. Evaluasi berlangsung pada GPU Tesla T4 tanggal 26 November 2026 WIB. [Notebook yang dijalankan](../../notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb) dan [ringkasan Run02](run02/execution_summary.json).
+Saya menggunakan Run02 (`20261126T152940Z-d1cca883`) sebagai sumber hasil akhir. Run ini mencakup enam checkpoint, dua test set, dan 12 kombinasi primer. Ketiga arsitektur memiliki checkpoint All-Class dan Hard-3. Evaluasi berlangsung pada GPU Tesla T4 tanggal 26 November 2026 WIB. [Notebook yang dijalankan](../../notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb) dan [ringkasan Run02](run02/execution_summary.json).
 
 [Analisis kuantitatif Batch 3.1](quantitative_analysis.md) memuat peringkat model, perubahan AP dan recall pada spesialisasi Hard-3, pergeseran domain pada kategori bersama, serta hasil pengujian hipotesis.
 
-[Analisis kegagalan Batch 3.2](failure_analysis/failure_analysis.md) menghubungkan lima foto personal dengan prediksi asli Run02, pencocokan per instance, dan kandidat eksperimen diagnostik.
+[Analisis kegagalan Batch 3.2](failure_analysis/failure_analysis.md) menghubungkan lima foto personal dengan prediksi asli Run02, pencocokan per instance, dan dasar pemilihan eksperimen diagnostik.
 
 [Eksperimen diagnostik Batch 3.3](diagnostic_experiment/diagnostic_experiment.md) mengukur kontribusi urutan confidence terhadap AP50 lemari pada dua checkpoint Mask R-CNN dengan penugasan tetap.
 
@@ -37,7 +37,7 @@ Implementasi validation Hard-3 sebelumnya memakai factory Mask R-CNN `weights=No
 
 ## Reproduksi di Kaggle
 
-Gunakan notebook Run02 dan GPU Tesla T4. Cell **00 Install pinned evaluation packages** mencatat Ultralytics 8.4.216 dan pycocotools 2.0.10. Versi Torch, Torchvision, dan CUDA yang digunakan tercantum dalam [lingkungan Run02](run02/environment.json). Pasang input sesuai *dataset manifest* dan *checkpoint manifest*. Tabel berikut memuat nama aset pada run tersebut. Akses pengguna lain ke aset privat mengikuti izin Kaggle masing-masing. [Manifest dataset](run02/dataset_manifest.json) dan [manifest checkpoint](run02/checkpoint_manifest.json).
+Gunakan notebook Run02 dan GPU Tesla T4. Cell **00 Install pinned evaluation packages** mencatat Ultralytics 8.4.216 dan pycocotools 2.0.10. Versi Torch, Torchvision, dan CUDA yang digunakan tercantum dalam [lingkungan Run02](run02/environment.json). Pasang input sesuai *dataset manifest* dan *checkpoint manifest*. Tabel berikut memuat nama aset pada run tersebut. Akses ke aset privat mengikuti izin Kaggle. [Manifest dataset](run02/dataset_manifest.json) dan [manifest checkpoint](run02/checkpoint_manifest.json).
 
 | Input | Aset Kaggle yang tercatat | Cadangan lokal |
 | --- | --- | --- |
@@ -55,3 +55,5 @@ Gunakan notebook Run02 dan GPU Tesla T4. Cell **00 Install pinned evaluation pac
 Tabel dan grafik berada di `analysis/test_evaluation/run02/`. [Manifest status](run02/evaluation_status_manifest.json) mencatat fingerprint, identitas input, dan SHA-256 tiap kombinasi. [Inventaris artefak](run02/artifact_hashes.json) mencakup file di dalam ZIP. [Tabel durasi](run02/tables/timings.csv) memisahkan waktu pipeline, pemuatan model, serialisasi, dan COCOeval. Pipeline meliputi sebagian pemrosesan gambar dan mask. Kolom ini mencatat cakupan waktu eksekusi penelitian. Perbandingan latensi model memerlukan pengukuran terstandar.
 
 Seluruh bbox dan mask tersimpan sebagai `predictions_bbox.json.gz` dan `predictions_segm.json.gz` di `results/combinations/<model>__<domain>/` di dalam arsip Run02. Gunakan awalan anggota arsip yang tercatat di provenance. Setiap hasil dapat dicocokkan dengan foto melalui ID gambar dan kategori. Untuk personal test, pemetaan menghubungkan ID gambar ke P001–P040, sedangkan daftar kondisi sulit menghubungkannya dengan jenis kondisi foto. [Indeks arsip dan checksum](run02/integration.json), [pemetaan foto dan kelas](run02/image_category_mapping.json), dan [bukti kondisi sulit](../personal_test_qa/difficult_conditions.md).
+
+Untuk mereproduksi analisis dari prediksi, siapkan `CPMK3_Unified_Test_Evaluation_Run02_Complete.zip` di root repositori sesuai struktur anggota dan SHA-256 yang tercatat. Arsip disimpan di luar Git. Tabel, gambar, dan hasil diagnostik yang dapat dibaca dari repositori tersedia di [analisis kuantitatif](quantitative_analysis.md), [lima kasus kegagalan](failure_analysis/failure_analysis.md), dan [eksperimen D1](diagnostic_experiment/diagnostic_experiment.md#reproduksi).

@@ -2,7 +2,7 @@
 
 **Batch 3.1 · 27 November 2026 WIB · Run02 `20261126T152940Z-d1cca883`**
 
-Peringkat model bergantung pada domain dan cakupan kelas. Pelatihan Hard-3 menaikkan recall pada keenam perbandingan berpasangan, tetapi hanya satu yang sekaligus menaikkan AP50–95. Perpindahan dari original ke personal test juga menghasilkan lima kenaikan AP agregat dari enam checkpoint. Kenaikan ini perlu dibaca dengan memperhatikan dukungan anotasi, skala objek, dan komposisi foto. [Indeks evaluasi Run02](README.md)
+Pada Run02, saya membandingkan ketiga model pada domain dan cakupan kelas yang sama. Peringkat model bergantung pada domain dan cakupan kelas. Pelatihan Hard-3 menaikkan recall pada keenam perbandingan berpasangan, tetapi hanya satu yang sekaligus menaikkan AP50–95. Perpindahan dari original ke personal test juga menghasilkan lima kenaikan AP agregat dari enam checkpoint. Kenaikan ini perlu dibaca dengan memperhatikan dukungan anotasi, skala objek, dan komposisi foto. [Indeks evaluasi Run02](README.md)
 
 ## 1. Pertanyaan dan dasar perbandingan
 
@@ -194,4 +194,4 @@ Catatan retrospektif **23 November 2026 WIB** menyatakan, “Hipotesis untuk per
 
 ### Handover Batch 3.2
 
-Gunakan lima gambar personal untuk menjawab pertanyaan kualitatif dari hasil di atas. Prioritas investigasi adalah `book` pada kedua YOLO Hard-3, `cabinet-merged` Mask R-CNN ketika recall naik tetapi AP turun setelah spesialisasi, dan perbedaan `bed` ketiga model pada konteks skala atau oklusi. Untuk setiap pola, bedakan miss, salah label, dan duplikasi dari kotak yang cocok dengan mask yang meleset. Tinjau konteks foto, dukungan GT, serta batas anotasi saat menafsirkan hasil. Pemilihan lima gambar dan rancangan eksperimen diagnostik dilakukan pada batch berikutnya.
+Gunakan lima gambar personal untuk menjawab pertanyaan kualitatif dari hasil di atas. Prioritas investigasi adalah `book` pada kedua YOLO Hard-3, `cabinet-merged` Mask R-CNN ketika recall naik tetapi AP turun setelah spesialisasi, dan perbedaan `bed` ketiga model pada konteks skala atau oklusi. Untuk setiap pola, bedakan miss, salah label, dan duplikasi dari kotak yang cocok dengan mask yang meleset. Tinjau konteks foto, dukungan GT, serta batas anotasi saat menafsirkan hasil. Saya menindaklanjuti ketiga pola pada [analisis lima kasus](failure_analysis/failure_analysis.md) dan menguji kontribusi ranking pada [eksperimen D1](diagnostic_experiment/diagnostic_experiment.md).

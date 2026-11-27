@@ -1,6 +1,6 @@
 # Audit evaluasi test set Run01
 
-**26 November 2026 WIB · Batch 2.2A.** Run Kaggle `20261126T092418Z-43649903` berakhir **PARTIAL** pada 16.38 WIB. Preflight dan 12 smoke test lolos. Evaluasi primer menghasilkan tujuh kombinasi lengkap dan lima gagal. Kelima kegagalan melaporkan `torch.OutOfMemoryError` pada Tesla T4 dengan kapasitas 14,56 GiB. Recovery lima kombinasi layak diuji dengan membatasi alokasi memori sambil menjaga perilaku prediksi Run01. Persetujuan implementasi dan pengujian GPU masih diperlukan.
+**26 November 2026 WIB · Batch 2.2A.** Run Kaggle yang saya jalankan (`20261126T092418Z-43649903`) berakhir **PARTIAL** pada 16.38 WIB. Preflight dan 12 smoke test lolos. Evaluasi primer menghasilkan tujuh kombinasi lengkap dan lima gagal. Kelima kegagalan melaporkan `torch.OutOfMemoryError` pada Tesla T4 dengan kapasitas 14,56 GiB. Recovery lima kombinasi layak diuji dengan membatasi alokasi memori sambil menjaga perilaku prediksi Run01. Pada tahap audit ini, persetujuan implementasi dan pengujian GPU masih diperlukan. Saya kemudian memilih evaluasi ulang seluruh pasangan pada [Run02](../README.md).
 
 ## Sumber dan pemeriksaan
 

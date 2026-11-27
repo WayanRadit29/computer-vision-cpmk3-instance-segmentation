@@ -2,7 +2,7 @@
 
 ## Tujuan dan taksonomi
 
-Anotasi manual di Roboflow menghasilkan ground truth untuk menilai model pada foto indoor pribadi. Gunakan 74 nama kelas aktif, termasuk ejaan, spasi, dan akhiran aslinya, dari `data/processed/all_classes/data.yaml`. Gunakan kategori baseline v5 lokal agar kategori pelatihan dan evaluasi sepadan. Labeli semua instance yang dapat diidentifikasi di antara 74 kelas tersebut, termasuk objek di tepi foto dan di latar.
+Saya menggunakan Roboflow untuk menyiapkan ground truth pada foto indoor pribadi dengan menerapkan pedoman berikut. Bantuan SAM, poligon manual, dan pixel brush tercatat di [deklarasi penggunaan AI](../../ai_usage.md#anotasi-personal-test-set-dan-audit-ground-truth). Gunakan 74 nama kelas aktif, termasuk ejaan, spasi, dan akhiran aslinya, dari `data/processed/all_classes/data.yaml`. Gunakan kategori baseline v5 lokal agar kategori pelatihan dan evaluasi sepadan. Labeli semua instance yang dapat diidentifikasi di antara 74 kelas tersebut, termasuk objek di tepi foto dan di latar.
 
 Nama dan ID seluruh 74 kelas dicocokkan dengan anotasi COCO asli pada split train, validation, dan test. ID YOLO mengikuti urutan `names` pada YAML, dari 0 sampai 73. ID COCO asli untuk kategori yang sama adalah `COCO ID = YOLO ID + 1`. Kategori kosong `indoor-objects` dengan COCO ID 0 dikeluarkan saat konversi baseline. Cocokkan nama kategori saat memeriksa ekspor Roboflow sebelum memetakan ID-nya ke skema evaluasi. [Manifest konversi](../../analysis/dataset_audit/conversion_manifest.json)
 

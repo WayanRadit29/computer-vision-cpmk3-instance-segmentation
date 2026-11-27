@@ -1,19 +1,19 @@
 # Pernyataan Penggunaan AI
 
-ChatGPT membantu menyiapkan data, menyusun kode eksperimen YOLO, dan mendokumentasikan hasil ketiga model. Bagian di bawah menjelaskan batas bantuan tersebut dan satu kesalahan kode yang ditemukan.
+Saya menggunakan ChatGPT untuk membantu merancang eksperimen, menyiapkan data, menyusun dan memperbaiki kode, menelaah hasil, serta menyunting laporan. Bagian berikut mencatat bentuk bantuan, koreksi berdasarkan bukti eksekusi, dan keputusan yang saya ambil.
 
 ## Bagian yang dibantu AI
 
-| Tahap | Bentuk bantuan |
-| --- | --- |
-| Penyiapan data | Menelusuri format COCO dan YOLO, menyusun kode audit dan konversi anotasi, serta membantu menangani perbedaan orientasi gambar. |
-| YOLO11n-seg | Menyusun dan menjelaskan konfigurasi notebook serta membantu memperbaiki kode pengambilan metrik setelah pelatihan. |
-| YOLOv8n-seg | Membantu menyusun notebook, menyelaraskan konfigurasi dengan YOLO11n-seg, serta menyusun kode pelatihan dan ekspor metrik. [Notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb) |
-| Mask R-CNN | Membantu membaca dan mendokumentasikan hasil. Penggunaan AI saat penyusunan notebook pelatihan belum terdokumentasi. [Notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb) |
+| Tahap                       | Bentuk bantuan                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Penyiapan data              | Menelusuri format COCO dan YOLO, menyusun kode audit dan konversi anotasi, serta membantu menangani perbedaan orientasi gambar.                                                                                                                                                                                                                                                                                                                   |
+| YOLO11n-seg                 | Menyusun dan menjelaskan konfigurasi notebook serta membantu memperbaiki kode pengambilan metrik setelah pelatihan.                                                                                                                                                                                                                                                                                                                               |
+| YOLOv8n-seg                 | Membantu menyusun notebook, menyelaraskan konfigurasi dengan YOLO11n-seg, serta menyusun kode pelatihan dan ekspor metrik. [Notebook YOLOv8n](notebooks/cpmk3-yolov8n-seg-all-class-baseline.ipynb)                                                                                                                                                                                                                                                |
+| Mask R-CNN                  | Membantu membaca dan mendokumentasikan hasil. Penggunaan AI saat penyusunan notebook pelatihan belum terdokumentasi. [Notebook Mask R-CNN](notebooks/cpmk3-mask-r-cnn-all-class-baseline.ipynb)                                                                                                                                                                                                                                                    |
 | Evaluasi bersama dan Hard-3 | Membantu menelaah rancangan evaluasi, koreksi ground truth, pemetaan COCO–YOLO, serta aturan pemeringkatan. Bantuan pada tahap analisis mencakup penataan artefak untuk reproduksi, penghitungan ulang mean dan SD AP, dan penjelasan keterbatasan. Riwayat bantuan AI untuk penyusunan notebook evaluasi dan rekonstruksi ground truth belum dapat dirinci dari artefak yang ada. [Analisis evaluasi](analysis/all_class_comparison/analysis.md) |
-| Pedoman personal test set | Membantu mencocokkan nama dan ID kategori COCO dan YOLO, memeriksa overlay poligon baseline, mengenali label ambigu, serta menyusun usulan aturan label dan mask. [Pedoman anotasi](data/custom_test/annotation_guidelines.md) |
-| Demo inference | Membantu menyusun script, memeriksa kecocokan checkpoint dengan hasil unified validation, serta menjalankan uji lokal pada contoh original test. Peneliti mendemonstrasikan hasil kepada dosen. [Script demo](demo_inference.py) dan [contoh visual](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png). |
-| Dokumentasi | Membantu merangkum metode, metrik, dan keterbatasan eksperimen berdasarkan konfigurasi dan hasil pelatihan. [Logbook](logbook.md) |
+| Pedoman personal test set   | Membantu mencocokkan nama dan ID kategori COCO dan YOLO, memeriksa overlay poligon baseline, mengenali label ambigu, serta menyusun usulan aturan label dan mask. [Pedoman anotasi](data/custom_test/annotation_guidelines.md)                                                                                                                                                                                                                     |
+| Demo inference              | Membantu menyusun script, memeriksa kecocokan checkpoint dengan hasil unified validation, serta menjalankan uji lokal pada contoh original test. Saya mendemonstrasikan hasil kepada dosen. [Script demo](demo_inference.py) dan [contoh visual](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).                                                                                                                |
+| Dokumentasi                 | Membantu merangkum metode, metrik, dan keterbatasan eksperimen berdasarkan konfigurasi dan hasil pelatihan. [Logbook](logbook.md)                                                                                                                                                                                                                                                                                                                  |
 
 ## Kesalahan kode yang ditemukan dan cara memperbaikinya
 
@@ -39,11 +39,11 @@ Daftar berikut merangkum permintaan kepada AI selama eksperimen.
 >
 > Laporkan tiga kandidat Hard-3 untuk mendapatkan konfirmasi pengguna sebelum menetapkannya sebagai keputusan final.
 
-Mean, standar deviasi, dan urutan kandidat dapat ditelusuri ke AP per kelas ketiga model. Peneliti menetapkan keputusan akhir berdasarkan hasil COCOeval pada validation set. [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv) dan [keputusan final](analysis/all_class_comparison/hard3_decision.json).
+Mean, standar deviasi, dan urutan kandidat dapat ditelusuri ke AP per kelas ketiga model. Saya menetapkan keputusan akhir berdasarkan hasil COCOeval pada validation set. [AP per kelas](analysis/all_class_comparison/per_class_ap_comparison.csv) dan [keputusan final](analysis/all_class_comparison/hard3_decision.json).
 
 ### Hipotesis sebelum pelatihan Hard-3
 
-AI membantu merumuskan H1, H2, dan H3 sebagai prediksi yang terukur, menelaah dasar empiris dan teknisnya, serta merancang pembandingan pada tiga kategori yang sama. AP baseline digunakan untuk memeriksa dasar H2 dan H3. Penjelasan arsitektur dipakai sebagai dugaan yang perlu diuji. Peneliti menetapkan tiga kelas final dan arah hipotesis. [Hipotesis](logbook.md#hipotesis-hard-3) dan [rancangan pengujian](logbook.md#rancangan-pengujian-hipotesis-hard-3).
+AI membantu merumuskan H1, H2, dan H3 sebagai prediksi yang terukur, menelaah dasar empiris dan teknisnya, serta merancang pembandingan pada tiga kategori yang sama. AP baseline digunakan untuk memeriksa dasar H2 dan H3. Penjelasan arsitektur dipakai sebagai dugaan yang perlu diuji. Saya menetapkan tiga kelas final dan arah hipotesis. [Hipotesis](logbook.md#hipotesis-hard-3) dan [rancangan pengujian](logbook.md#rancangan-pengujian-hipotesis-hard-3).
 
 ### Implementasi notebook Hard-3
 
@@ -55,7 +55,7 @@ Berdasarkan traceback run Kaggle, AI membantu merancang percobaan Mask R-CNN dal
 
 ### Audit konvensi anotasi personal test set
 
-AI membandingkan nama dan ID seluruh 74 kelas antara YAML dan COCO lokal. Inspeksi visual terbatas pada sampel dari 25 kelas. Overlay dapat dipakai mahasiswa untuk memeriksa contoh yang mendasari rekomendasi. Konvensi untuk kelas langka atau batas yang tidak konsisten, seperti `wall` dan pemisahan perlengkapan tidur, memiliki keyakinan terbatas. Mahasiswa memeriksa rekomendasi terhadap contoh baseline saat menemui kasus ambigu dan menggambar sendiri seluruh mask personal test set di Roboflow.
+AI membandingkan nama dan ID seluruh 74 kelas antara YAML dan COCO lokal. Inspeksi visual terbatas pada sampel dari 25 kelas. Overlay membantu saya memeriksa contoh yang mendasari rekomendasi. Konvensi untuk kelas langka atau batas yang tidak konsisten, seperti `wall` dan pemisahan perlengkapan tidur, memiliki keyakinan terbatas. Saya menggunakan contoh baseline saat menemui kasus ambigu. Di Roboflow, saya menetapkan label dan meninjau mask yang saya kerjakan dengan bantuan SAM, poligon manual, dan pixel brush.
 
 <details>
 <summary>Prompt asli audit konvensi anotasi</summary>
@@ -140,33 +140,33 @@ Prioritize speed and practical usefulness.
 
 ### Stabilisasi numerik Mask R-CNN pada recovery V2
 
-AI membantu menelaah diagnostik Kaggle dari percobaan dengan AMP dan FP32, memeriksa jalur loss RPN dan RoI, serta menerapkan konfigurasi stabilisasi yang ditetapkan peneliti. Bantuan mencakup probe batch tanpa instance dan batch positif, pencatatan gradien serta proposal, dan pemulihan artefak YOLO dari ZIP atau folder ekstraksi. Diagnostik yang tersedia menunjukkan lokasi munculnya loss NaN. Penetapan penyebab dan verifikasi kestabilan memerlukan hasil probe dan run Kaggle. [Catatan penelitian](logbook.md#l-kegagalan-recovery-fp32-dan-rancangan-stabilisasi-v2-24-november-2026-wib)
+AI membantu menelaah diagnostik Kaggle dari percobaan dengan AMP dan FP32, memeriksa jalur loss RPN dan RoI, serta menerapkan konfigurasi stabilisasi yang saya pilih. Bantuan mencakup probe batch tanpa instance dan batch positif, pencatatan gradien serta proposal, dan pemulihan artefak YOLO dari ZIP atau folder ekstraksi. Diagnostik yang tersedia menunjukkan lokasi munculnya loss NaN. Penetapan penyebab dan verifikasi kestabilan memerlukan hasil probe dan run Kaggle. [Catatan penelitian](logbook.md#l-kegagalan-recovery-fp32-dan-rancangan-stabilisasi-v2-24-november-2026-wib)
 
 ### Verifikasi runtime dan analisis Hard-3
 
-Instruksi recovery awal dari AI mengasumsikan ZIP dapat dibaca langsung sebagai berkas dan belum mengantisipasi ekstraksi otomatis oleh Kaggle. Peneliti mempertahankan cell rebuild ZIP untuk input yang sudah terpasang. Rekomendasi FP32 pertama masih berakhir dengan NaN pada batch 43. Setelah memeriksa diagnostik, AI membantu menyusun dua cell pengganti yang memisahkan fingerprint kedua YOLO dari fingerprint Mask R-CNN V2 serta menambahkan probe, penurunan laju belajar, clipping, dan pencatatan diagnostik. Peneliti memilih penggantian dua cell dan menjalankan notebook di Kaggle. Pemeriksaan sintaks dan kompatibilitas recovery memberi bukti sebelum eksekusi, sedangkan kestabilan didukung oleh log Kaggle dan penyelesaian 20 epoch. Penyebab NaN tetap belum terisolasi. [Catatan eksperimen](logbook.md#m-recovery-v2-dan-hasil-validation-hard-3-25-november-2026-wib) dan [status Kaggle](analysis/hard3_comparison/provenance/run_summary.json).
+Instruksi recovery awal dari AI mengasumsikan ZIP dapat dibaca langsung sebagai berkas dan belum mengantisipasi ekstraksi otomatis oleh Kaggle. Saya mempertahankan cell rebuild ZIP untuk input yang sudah terpasang. Rekomendasi FP32 pertama masih berakhir dengan NaN pada batch 43. Setelah memeriksa diagnostik, AI membantu menyusun dua cell pengganti yang memisahkan fingerprint kedua YOLO dari fingerprint Mask R-CNN V2 serta menambahkan probe, penurunan laju belajar, clipping, dan pencatatan diagnostik. Saya memilih penggantian dua cell dan menjalankan notebook di Kaggle. Pemeriksaan sintaks dan kompatibilitas recovery memberi bukti sebelum eksekusi, sedangkan kestabilan didukung oleh log Kaggle dan penyelesaian 20 epoch. Penyebab NaN tetap belum terisolasi. [Catatan eksperimen](logbook.md#m-recovery-v2-dan-hasil-validation-hard-3-25-november-2026-wib) dan [status Kaggle](analysis/hard3_comparison/provenance/run_summary.json).
 
 AI membantu mencocokkan metadata evaluasi dan ground truth, memeriksa konsistensi angka, menyajikan grafik, dan menilai hasil terhadap hipotesis yang sudah dirumuskan. Kesimpulan didasarkan pada artefak validation dan dibatasi oleh jumlah instance, satu seed, serta perubahan konfigurasi Mask R-CNN. [Analisis hasil dan batas interpretasi](analysis/hard3_comparison/analysis.md).
 
 ### Anotasi personal test set dan audit ground truth
 
-Peneliti menganotasi 40 foto di Roboflow dengan bantuan SAM pada sebagian mask, poligon manual, dan pixel brush. Peneliti menetapkan label kelas dan meninjau mask. Penyelesaian anotasi di Roboflow merupakan konfirmasi peneliti, sedangkan cakupan gambar dan jumlah anotasi diperiksa terhadap ekspor COCO. Persetujuan khusus dosen untuk SAM-assisted masking belum terdokumentasi.
+Saya menganotasi 40 foto di Roboflow dengan bantuan SAM pada sebagian mask, poligon manual, dan pixel brush. Saya menetapkan label kelas dan meninjau mask. Penyelesaian anotasi di Roboflow saya konfirmasi, sedangkan cakupan gambar dan jumlah anotasi diperiksa terhadap ekspor COCO. Persetujuan khusus dosen untuk SAM-assisted masking belum terdokumentasi.
 
-AI membantu menyusun skrip validasi untuk mencocokkan foto sumber dan ekspor, memeriksa poligon serta RLE, dan menyelaraskan ID kategori menurut nama kelas baseline. COCO digunakan untuk memverifikasi mask dan menghitung ulang area serta kotak pembatas secara deterministik. AI juga membantu menyiapkan kandidat All-Class dan Hard-3 dari master yang sama dan meninjau overlay untuk merangkum usulan koreksi. Perubahan bentuk mask, kelas, dan pengelompokan instance memerlukan keputusan peneliti. Keterbatasan pemeriksaan visual mencakup objek kecil dan batas tipis pada skala overlay. [Skrip validasi](analysis/personal_test_qa/build_candidates.py), [hasil QA](analysis/personal_test_qa/report.md), dan [antrean keputusan](analysis/personal_test_qa/human_review.md)
+AI membantu menyusun skrip validasi untuk mencocokkan foto sumber dan ekspor, memeriksa poligon serta RLE, dan menyelaraskan ID kategori menurut nama kelas baseline. COCO digunakan untuk memverifikasi mask dan menghitung ulang area serta kotak pembatas secara deterministik. AI juga membantu menyiapkan kandidat All-Class dan Hard-3 dari master yang sama dan meninjau overlay untuk merangkum usulan koreksi. Perubahan bentuk mask, kelas, dan pengelompokan instance memerlukan persetujuan saya. Keterbatasan pemeriksaan visual mencakup objek kecil dan batas tipis pada skala overlay. [Skrip validasi](analysis/personal_test_qa/build_candidates.py), [hasil QA](analysis/personal_test_qa/report.md), dan [antrean keputusan](analysis/personal_test_qa/human_review.md)
 
-### Koreksi batas mask berdasarkan keputusan annotator
+### Koreksi batas mask yang saya setujui
 
-AI membantu mengukur irisan mask dan menyajikan bukti visual. Peneliti sebagai annotator memutuskan empat pasangan mask yang perlu dikoreksi serta mengonfirmasi label `paper` pada P005. AI menerapkan operasi pengurangan biner pada pasangan yang disetujui dan memvalidasi RLE, area, kotak pembatas, dan referensi COCO. Perbandingan terhadap kandidat awal memeriksa bahwa setiap perubahan terbatas pada piksel irisan yang disetujui. Keputusan tentang label dan batas anotasi tetap berada pada annotator. Prediksi model tidak digunakan. [Laporan dan log keputusan](analysis/personal_test_qa/finalization/report.md)
+AI membantu mengukur irisan mask dan menyajikan bukti visual. Saya memutuskan empat pasangan mask yang perlu dikoreksi serta mengonfirmasi label `paper` pada P005. AI menerapkan operasi pengurangan biner pada pasangan yang disetujui dan memvalidasi RLE, area, kotak pembatas, dan referensi COCO. Perbandingan terhadap kandidat awal memeriksa bahwa setiap perubahan terbatas pada piksel irisan yang disetujui. Keputusan tentang label dan batas anotasi tetap menjadi tanggung jawab saya. Prediksi model tidak digunakan. [Laporan dan log keputusan](analysis/personal_test_qa/finalization/report.md)
 
 ### Notebook evaluasi test set dan audit Run01
 
-Notebook yang disusun dengan bantuan AI mengandalkan `batch=1` saat meneruskan daftar path ke Ultralytics. Audit atas run yang dijalankan peneliti menemukan bahwa loader pada versi yang dipakai memasukkan seluruh daftar dalam satu batch. Adapter juga mematerialisasi seluruh mask asli YOLO sekaligus melalui `Masks.data`, sedangkan jalur Mask R-CNN menerima stack mask dari Torchvision. Traceback menghubungkan tiga perilaku tersebut dengan lima kegagalan CUDA OOM. AI memeriksa traceback, memverifikasi artefak yang selamat, dan membuat tes sintetis CPU untuk memeriksa perilaku loader serta kesetaraan mask. [Audit Run01](analysis/test_evaluation/run01_audit/README.md)
+Notebook yang disusun dengan bantuan AI mengandalkan `batch=1` saat meneruskan daftar path ke Ultralytics. Audit atas run yang saya jalankan menemukan bahwa loader pada versi yang dipakai memasukkan seluruh daftar dalam satu batch. Adapter juga mematerialisasi seluruh mask asli YOLO sekaligus melalui `Masks.data`, sedangkan jalur Mask R-CNN menerima stack mask dari Torchvision. Traceback menghubungkan tiga perilaku tersebut dengan lima kegagalan CUDA OOM. AI memeriksa traceback, memverifikasi artefak yang selamat, dan membuat tes sintetis CPU untuk memeriksa perilaku loader serta kesetaraan mask. [Audit Run01](analysis/test_evaluation/run01_audit/README.md)
 
 ### Koreksi implementasi inferensi
 
-AI membantu menerapkan batch singleton serta konversi mask per instance. AI juga merancang impor hasil parsial dan pemeriksaan kompatibilitas fingerprint. Peneliti meninggalkan strategi impor karena pemasangan artefak parsial di Kaggle menambah langkah, kemudian menetapkan evaluasi ulang seluruh 12 pasangan dengan satu implementasi.
+AI membantu menerapkan batch singleton serta konversi mask per instance. AI juga merancang impor hasil parsial dan pemeriksaan kompatibilitas fingerprint. Saya meninggalkan strategi impor karena pemasangan artefak parsial di Kaggle menambah langkah, kemudian menetapkan evaluasi ulang seluruh 12 pasangan dengan satu implementasi.
 
-ChatGPT membantu merevisi Cell 11 untuk memeriksa kesetaraan encoding mask dari prediksi yang sama dan melaporkan perbedaan forward lama secara terpisah. Peneliti menjalankan notebook di Kaggle. Output GPU menunjukkan gate lulus dan mencatat dua selisih satu piksel pada kontrol lintas jalur YOLO11n All-Class. AI membantu memeriksa provenance, integritas prediksi, dan konsistensi tabel Run02 berdasarkan ekspor Kaggle. [Notebook Run02](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb), [laporan GPU](analysis/test_evaluation/run02/gpu_equivalence_report.json), dan [provenance Run02](analysis/test_evaluation/run02/integration.json)
+ChatGPT membantu merevisi Cell 11 untuk memeriksa kesetaraan encoding mask dari prediksi yang sama dan melaporkan perbedaan forward lama secara terpisah. Saya menjalankan notebook di Kaggle. Output GPU menunjukkan gate lulus dan mencatat dua selisih satu piksel pada kontrol lintas jalur YOLO11n All-Class. AI membantu memeriksa provenance, integritas prediksi, dan konsistensi tabel Run02 berdasarkan ekspor Kaggle. [Notebook Run02](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb), [laporan GPU](analysis/test_evaluation/run02/gpu_equivalence_report.json), dan [provenance Run02](analysis/test_evaluation/run02/integration.json)
 
 ### Analisis kuantitatif test set
 
@@ -174,8 +174,23 @@ AI membantu menghitung ulang perubahan AP dari tabel Run02, mencocokkan cakupan 
 
 ### Analisis kegagalan pada lima foto
 
-AI membantu menyaring prediksi Run02, menghitung IoU dan kecocokan per instance, memilih contoh diagnostik, serta membuat overlay dari GT beku dan mask tersimpan. AI memisahkan bukti keluaran dari dugaan mengenai tahap internal model dan mengajukan dua rancangan diagnostik. Pemilihan foto, interpretasi visual, dan rancangan eksperimen menunggu review peneliti. [Analisis kegagalan](analysis/test_evaluation/failure_analysis/failure_analysis.md)
+AI membantu menyaring prediksi Run02, menghitung IoU dan kecocokan per instance, memilih contoh diagnostik, serta membuat overlay dari GT beku dan mask tersimpan. AI memisahkan bukti keluaran dari dugaan mengenai tahap internal model dan mengajukan dua rancangan diagnostik. Saya meninjau pilihan foto dan interpretasi visual, lalu memilih D1 untuk diuji. [Analisis kegagalan](analysis/test_evaluation/failure_analysis/failure_analysis.md)
 
 ### Eksperimen oracle ranking
 
-Peneliti memilih D1 setelah review analisis kegagalan. AI mengimplementasikan intervensi urutan pada prediksi tersimpan, memeriksa bahwa assignment tetap, dan menyusun grafik serta interpretasi post-hoc. Eksperimen dijalankan di CPU menggunakan GT beku dan keluaran Run02. [Eksperimen diagnostik](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
+Saya memilih D1 setelah review analisis kegagalan. AI mengimplementasikan intervensi urutan pada prediksi tersimpan, memeriksa bahwa assignment tetap, dan menyusun grafik serta interpretasi post-hoc. Eksperimen dijalankan di CPU menggunakan GT beku dan keluaran Run02. [Eksperimen diagnostik](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
+
+### Finalisasi laporan akademik — 27 November 2026 WIB
+
+Saya menggunakan AI untuk mengonsolidasikan analisis Batch 3 yang telah saya tinjau, menelusuri klaim ke tabel dan log terkait, serta menyunting narasi laporan. Angka di laporan merujuk pada artefak eksperimen dan hasil analisis yang tersimpan. Bantuan ini tidak mencakup pelatihan, inferensi, atau pemilihan ulang kasus. [Laporan akademik](analysis/report.md)
+
+Cuplikan verbatim prompt yang saya berikan untuk tahap analisis dan pelaporan tercantum di bawah. Teks prompt asli yang belum tersimpan pada bagian sebelumnya tercatat sebagai ringkasan.
+
+| Tahap                 | Cuplikan prompt asli                                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Analisis spesialisasi | “Do not directly compare aggregate All-Class 74-category AP against aggregate Hard-3 3-category AP as evidence of specialization.” |
+| Analisis kegagalan    | “Use class-aware, confidence-ordered, one-to-one matching for diagnostic detection counts.”                                        |
+| Eksperimen D1         | “Freeze TP/FP assignments after original matching.”                                                                                |
+| Laporan akhir         | “WAJIB mengedit report.md yang sudah ada secara langsung.”                                                                         |
+
+

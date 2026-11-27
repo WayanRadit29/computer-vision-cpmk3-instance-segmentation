@@ -1,6 +1,6 @@
 # Foto personal test set pada kondisi sulit
 
-Foto berikut diverifikasi dengan mencocokkan P-ID pada [manifest sumber](../../evidence/photo_metadata/photo_manifest.csv) dan memeriksa isi foto. Setiap baris mewakili satu foto unik. Kategori menjelaskan kondisi utama yang tampak dan belum mengukur dampaknya terhadap akurasi model.
+Dengan bantuan AI, saya mendokumentasikan foto berikut dengan mencocokkan P-ID pada [manifest sumber](../../evidence/photo_metadata/photo_manifest.csv) dan memeriksa isi foto. Setiap baris mewakili satu foto unik. Kategori menjelaskan kondisi utama yang tampak dan belum mengukur dampaknya terhadap akurasi model.
 
 | Foto asli | Kondisi utama | Bukti yang terlihat |
 | --- | --- | --- |

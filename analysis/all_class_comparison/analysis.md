@@ -2,7 +2,7 @@
 
 ## Pertanyaan penelitian
 
-Bagaimana peringkat tiga model berubah ketika prediksi dinilai dengan ground truth dan evaluator yang sama? Kelas mana yang layak ditinjau sebagai kandidat Hard-3 karena sulit bagi ketiga model?
+Saya menilai ketiga model untuk menjawab dua pertanyaan. Bagaimana peringkat tiga model berubah ketika prediksi dinilai dengan ground truth dan evaluator yang sama? Kelas mana yang layak ditinjau sebagai kandidat Hard-3 karena sulit bagi ketiga model?
 
 ## Protokol evaluasi
 

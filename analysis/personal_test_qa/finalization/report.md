@@ -1,6 +1,6 @@
 # Finalisasi ground truth personal test set
 
-**FROZEN · 26 November 2026 WIB.** Setelah pengumpulan awal di Classroom, annotator meninjau overlay P003, P005, dan P008 serta menyetujui empat koreksi dan pembekuan ground truth All-Class dan Hard-3. Kedua berkas yang disetujui telah lolos validasi COCO dan diidentifikasi dengan SHA-256 pada manifest pembekuan. [Audit sebelum koreksi](../report.md) dan [manifest pembekuan](ground_truth_freeze.json)
+**FROZEN · 26 November 2026 WIB.** Setelah pengumpulan awal di Classroom, saya meninjau overlay P003, P005, dan P008 serta menyetujui empat koreksi dan pembekuan ground truth All-Class dan Hard-3. Kedua berkas yang disetujui telah lolos validasi COCO dan diidentifikasi dengan SHA-256 pada manifest pembekuan. [Audit sebelum koreksi](../report.md) dan [manifest pembekuan](ground_truth_freeze.json)
 
 ## Keputusan dan hasil koreksi
 
@@ -13,7 +13,7 @@ Pedoman visible-instance masking membatasi mask pada bagian objek yang terlihat.
 | P005 | `paper` #196 | `mouse` #195 | 1.009.724 | 174.085 | 835.639 | 17,24% | 0 |
 | P008 | `window-other` #29 | `cup` #27 | 4.351.551 | 342.444 | 4.009.107 | 7,87% | 0 |
 
-Annotator mengonfirmasi label `paper` pada P005. Meja `table-merged` #48 pada P001 tetap dihitung satu kali sesuai RLE sumber yang memuat beberapa region. Empat mask objek depan dan 205 mask lain yang berada di luar keputusan koreksi tetap identik. [Log koreksi dan metadata bbox](correction_log.json) dan [tabel pengukuran CSV](correction_summary.csv)
+Saya mengonfirmasi label `paper` pada P005. Meja `table-merged` #48 pada P001 tetap dihitung satu kali sesuai RLE sumber yang memuat beberapa region. Empat mask objek depan dan 205 mask lain yang berada di luar keputusan koreksi tetap identik. [Log koreksi dan metadata bbox](correction_log.json) dan [tabel pengukuran CSV](correction_summary.csv)
 
 ## Bukti visual
 
@@ -51,7 +51,7 @@ Empat koreksi membatasi ground truth pada bagian objek yang terlihat. Pengaruhny
 | --- | --- |
 | [Master COCO dan All-Class](../../../data/custom_test/annotations/all_class_master_corrected.coco.json) | Sumber anotasi untuk 40 foto dan 74 kelas |
 | [COCO Hard-3](../../../data/custom_test/annotations/hard3_corrected.coco.json) | Turunan master dengan tiga kelas dan 40 foto yang sama, termasuk foto negatif |
-| [Manifest pembekuan](ground_truth_freeze.json) | Persetujuan annotator, status resmi, versi anotasi, SHA-256 final, dan root gambar |
+| [Manifest pembekuan](ground_truth_freeze.json) | Persetujuan saya, status resmi, versi anotasi, SHA-256 final, dan root gambar |
 | [Provenance saat review](dataset_provenance.json) | Riwayat sumber, checksum hasil koreksi, dan bukti visual sebelum persetujuan akhir |
 | [Skrip finalisasi](../finalize_ground_truth.py) | Pengurangan mask yang disetujui, validasi, dan pembuatan bukti |
 

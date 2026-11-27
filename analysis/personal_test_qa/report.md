@@ -1,12 +1,12 @@
 # Validasi ground truth personal test set
 
-Dokumen ini merekam audit sebelum keputusan annotator. Hasil penerapan keputusan dan validasi kandidat terbaru tersedia dalam [laporan finalisasi](finalization/report.md).
+Dokumen ini merekam audit yang saya gunakan sebelum menyetujui koreksi anotasi. Hasil penerapan keputusan dan validasi kandidat terbaru tersedia dalam [laporan finalisasi](finalization/report.md).
 
 **26 November 2026 WIB · REVIEW REQUIRED.** Ekspor 40 foto memenuhi pemeriksaan struktural dan menghasilkan kandidat All-Class dan Hard-3. Ketiga foto dalam [antrean review](human_review.md) memerlukan keputusan mengenai cakupan mask sebelum kandidat dapat dibekukan dan dipakai untuk evaluasi.
 
 ## Identitas gambar dan integritas ekspor
 
-Peneliti menganotasi foto di Roboflow dengan bantuan SAM untuk memperoleh mask awal, kemudian menggunakan poligon manual dan pixel brush, menetapkan kelas, dan meninjau hasilnya. Ekspor COCO Segmentation v1 tercatat pada 26 November 2026 pukul 13.21 WIB. Seluruh foto berada pada split `test`. Jumlah anotasi pada setiap foto diperiksa langsung pada COCO JSON. Semua foto memiliki anotasi meskipun antarmuka Roboflow sempat melaporkan 40 foto sebagai *unannotated*.
+Saya menganotasi foto di Roboflow dengan bantuan SAM untuk memperoleh mask awal, kemudian menggunakan poligon manual dan pixel brush, menetapkan kelas, dan meninjau hasilnya. Ekspor COCO Segmentation v1 tercatat pada 26 November 2026 pukul 13.21 WIB. Seluruh foto berada pada split `test`. Jumlah anotasi pada setiap foto diperiksa langsung pada COCO JSON. Semua foto memiliki anotasi meskipun antarmuka Roboflow sempat melaporkan 40 foto sebagai *unannotated*.
 
 P001–P040 dicocokkan menggunakan nama foto dalam ekspor, dimensi setelah orientasi EXIF, dan perbandingan thumbnail RGB 80 × 80 terhadap seluruh 40 foto asli. Setiap pasangan memiliki dimensi yang sama setelah orientasi diterapkan, dan foto sumbernya merupakan kecocokan terdekat. Selisih rata-rata absolut maksimum antarpasangan adalah 0,408490 pada skala RGB 0–255. Hasil tersebut konsisten dengan auto-orientation dan pengodean ulang JPEG. Metadata ekspor menyatakan tanpa augmentasi, dan pemeriksaan tidak menemukan duplikat, perubahan skala, atau transformasi geometris tambahan. SHA-256 40 foto sumber cocok dengan kedua CSV bukti. [Pemetaan foto sumber, nama ekspor, dan ID COCO](image_mapping.csv)
 
@@ -39,7 +39,7 @@ Pemeriksaan dengan `pycocotools` memverifikasi ID, referensi gambar dan kelas, d
 
 Di kandidat master, 206 nilai `image_id` dan 199 nilai `category_id` pada anotasi diselaraskan. Rasterisasi mask COCO digunakan untuk menghitung ulang `area` dalam piksel pada 213 anotasi dan memperbarui empat `bbox` yang berbeda. Seluruh ID anotasi sumber, geometri mask, dan makna kelas dipertahankan. Pada Hard-3, seluruh gambar ikut dipertahankan agar deteksi keliru pada foto tanpa instance target dapat dicatat. [Log koreksi](correction_log.json)
 
-Pemeriksaan visual mencakup seluruh P001–P040, dengan pengecekan lebih dekat pada pasangan mask yang saling menutupi dan pada keputusan yang dicatat peneliti. Empat komponen meja P001 sudah tersimpan sebagai satu instance. Tiga foto memiliki irisan mask yang perlu ditinjau manusia. Penilaian dilakukan pada skala overlay dan berfokus pada perbedaan label, batas, dan pengelompokan yang material. [P001–P008](overlays/contact_1.jpg), [P009–P016](overlays/contact_2.jpg), [P017–P024](overlays/contact_3.jpg), [P025–P032](overlays/contact_4.jpg), [P033–P040](overlays/contact_5.jpg), dan [antrean review](human_review.md)
+Pemeriksaan visual mencakup seluruh P001–P040, dengan pengecekan lebih dekat pada pasangan mask yang saling menutupi dan pada keputusan anotasi yang saya catat. Empat komponen meja P001 sudah tersimpan sebagai satu instance. Tiga foto memiliki irisan mask yang perlu ditinjau manusia. Penilaian dilakukan pada skala overlay dan berfokus pada perbedaan label, batas, dan pengelompokan yang material. [P001–P008](overlays/contact_1.jpg), [P009–P016](overlays/contact_2.jpg), [P017–P024](overlays/contact_3.jpg), [P025–P032](overlays/contact_4.jpg), [P033–P040](overlays/contact_5.jpg), dan [antrean review](human_review.md)
 
 ## Bukti penilaian
 
@@ -47,9 +47,9 @@ Pemeriksaan visual mencakup seluruh P001–P040, dengan pengecekan lebih dekat p
 | --- | --- |
 | Minimum 40 foto dari kamera ponsel sendiri dan lingkungan nyata | 40 sumber P001–P040 terverifikasi terhadap [manifest](../../evidence/photo_metadata/photo_manifest.csv) dan [metadata EXIF](../../evidence/photo_metadata/exif_metadata.csv). |
 | Minimum 10 foto kondisi sulit | 12 foto berbeda disertai alasan visual dalam [daftar kondisi sulit](difficult_conditions.md). |
-| Anotasi sendiri di Roboflow menggunakan kelas yang sama, disertai bukti proses | Penyelesaian 40 foto dan cara anotasi dinyatakan oleh peneliti. Anotasi ekspor, kelas baseline, serta [screenshot proses](../../evidence/annotation_screenshots/annotation_process.png) dan [tampilan dataset](../../evidence/annotation_screenshots/dataset_overview.png) tersedia. Persetujuan khusus dosen terkait SAM-assisted masking belum terdokumentasi. |
+| Anotasi sendiri di Roboflow menggunakan kelas yang sama, disertai bukti proses | Saya mengonfirmasi penyelesaian anotasi 40 foto dan mendokumentasikan metode yang saya pakai. Anotasi ekspor, kelas baseline, serta [screenshot proses](../../evidence/annotation_screenshots/annotation_process.png) dan [tampilan dataset](../../evidence/annotation_screenshots/dataset_overview.png) tersedia. Persetujuan khusus dosen terkait SAM-assisted masking belum terdokumentasi. |
 | Tiga model, minimal dua keluarga arsitektur, serta All-Class vs Hard-3 | Hasil [All-Class](../all_class_comparison/analysis.md) dan [Hard-3](../hard3_comparison/analysis.md) tersedia pada validation set. |
-| Evaluasi original dan personal test set, analisis domain shift, lima kasus kegagalan, dan eksperimen pembuktian | Menunggu ground truth disetujui. |
+| Evaluasi original dan personal test set, analisis domain shift, lima kasus kegagalan, dan eksperimen pembuktian | Saat audit ini, persetujuan ground truth masih menunggu. [Hasil finalisasi](finalization/report.md) dan [evaluasi final](../test_evaluation/README.md). |
 | Bukti training dan GPU, logbook, dan deklarasi AI | [Indeks artefak model dan notebook](../../README.md#artefak-per-model-dan-notebook), [logbook](../../logbook.md), dan [deklarasi AI](../../ai_usage.md) tersedia. |
 
 ## Kesiapan evaluasi berikutnya

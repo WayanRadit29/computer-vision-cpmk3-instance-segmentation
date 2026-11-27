@@ -8,7 +8,7 @@ Pada kelas `cabinet-merged` di personal test, pengurutan oracle menaikkan AP50 d
 
 Seberapa besar ranking confidence membatasi AP `cabinet-merged` pada Mask R-CNN All-Class dan Hard-3 ketika semua mask, kategori, dan penugasan dipertahankan?
 
-**H-D1.** Ranking confidence yang buruk berkontribusi terhadap rendahnya AP `cabinet-merged` Mask R-CNN Hard-3 meskipun cakupan deteksinya meningkat. Hipotesis ini mencakup urutan keluaran yang tersimpan. Peneliti memilih D1 setelah review Batch 3.2. [Dasar kuantitatif](../quantitative_analysis.md) dan [bukti analisis kegagalan](../failure_analysis/failure_analysis.md)
+**H-D1.** Ranking confidence yang buruk berkontribusi terhadap rendahnya AP `cabinet-merged` Mask R-CNN Hard-3 meskipun cakupan deteksinya meningkat. Hipotesis ini mencakup urutan keluaran yang tersimpan. Saya memilih D1 setelah meninjau analisis kegagalan Batch 3.2. [Dasar kuantitatif](../quantitative_analysis.md) dan [bukti analisis kegagalan](../failure_analysis/failure_analysis.md)
 
 ## Metode dan kontrol
 

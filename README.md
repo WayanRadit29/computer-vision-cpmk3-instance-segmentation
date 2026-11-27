@@ -1,24 +1,25 @@
 # Computer Vision CPMK 3: Segmentasi Instance
 
-Proyek ini membandingkan model visi komputer yang mengenali objek di dalam ruangan dan menandai piksel yang membentuk setiap objek. Tugas ini disebut *segmentasi instance*. Jika ada dua kursi dalam satu gambar, model diharapkan menghasilkan mask tersendiri untuk setiap kursi.
+Dalam penelitian CPMK 3 ini, saya membandingkan model visi komputer yang mengenali objek di dalam ruangan dan menandai piksel yang membentuk setiap objek. Tugas ini disebut *segmentasi instance*. Jika ada dua kursi dalam satu gambar, model diharapkan menghasilkan mask tersendiri untuk setiap kursi.
 
 ## Mulai di sini
 
 Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN dalam dua skenario. **All-Class** melatih model untuk 74 kelas. **Hard-3** melatih model khusus untuk `bed`, `book`, dan `cabinet-merged`, kemudian membandingkannya dengan All-Class pada tiga kelas yang sama.
 
-1. **Periksa hasil utama.** Buka [analisis kuantitatif test set](analysis/test_evaluation/quantitative_analysis.md) untuk perbandingan model, spesialisasi, pergeseran domain, dan hasil pengujian hipotesis. Rincian eksperimen ada di [protokol dan panduan reproduksi Run02](analysis/test_evaluation/README.md). Hasil validation tersedia dalam [evaluasi All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan Hard-3](analysis/hard3_comparison/analysis.md).
-2. **Telusuri keputusan riset.** Buka [laporan sementara](analysis/report.md) untuk metodologi dan kurva pelatihan, serta [hipotesis sebelum Hard-3](logbook.md#hipotesis-hard-3) untuk melihat rencana yang diuji.
-3. **Periksa bukti penilaian.** Mulai dari [finalisasi ground truth personal test set](analysis/personal_test_qa/finalization/report.md), [bukti anotasi Roboflow](evidence/annotation_screenshots/dataset_overview.png), atau [contoh hasil demo](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).
+1. **Baca laporan akademik.** Mulai dari [laporan akhir CPMK 3](analysis/report.md), yang mencakup metode, hasil uji, lima kasus kegagalan, dan eksperimen D1.
+2. **Periksa hasil utama.** Buka [analisis kuantitatif test set](analysis/test_evaluation/quantitative_analysis.md) untuk perbandingan model, spesialisasi, pergeseran domain, dan hasil pengujian hipotesis. Rincian eksperimen ada di [protokol dan panduan reproduksi Run02](analysis/test_evaluation/README.md). Hasil validation tersedia dalam [evaluasi All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan Hard-3](analysis/hard3_comparison/analysis.md).
+3. **Telusuri keputusan riset.** Saya mencatat [hipotesis sebelum Hard-3](logbook.md#hipotesis-hard-3), [bukti lima kasus](analysis/test_evaluation/failure_analysis/failure_analysis.md), dan [uji ranking confidence](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md).
+4. **Periksa bukti penilaian.** Mulai dari [finalisasi ground truth personal test set](analysis/personal_test_qa/finalization/report.md), [bukti anotasi Roboflow](evidence/annotation_screenshots/dataset_overview.png), atau [contoh hasil demo](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).
 
 ## Progres penelitian
 
 - **Selesai** - pelatihan dan unified validation tiga model pada All-Class dan Hard-3, pemilihan kelas Hard-3, perbandingan hasil, evaluasi hipotesis pada validation, demo inference kepada dosen, pengumpulan 40 foto asli, anotasi di Roboflow, serta ekspor dan validasi struktural COCO.
-- **Batch 1 selesai** - annotator menyetujui empat koreksi batas mask dan membekukan ground truth All-Class dan Hard-3 pada 26 November 2026 WIB. Kedua versi siap menjadi acuan evaluasi personal test pada Batch 2. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
+- **Batch 1 selesai** - saya menyetujui empat koreksi batas mask dan membekukan ground truth All-Class dan Hard-3 pada 26 November 2026 WIB. Kedua versi siap menjadi acuan evaluasi personal test pada Batch 2. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
 - **Batch 2 selesai** - Run02 menilai keenam checkpoint dengan COCOeval pada 359 gambar original test dan 40 foto personal test. Setiap model dinilai pada cakupan kelas pelatihannya. Perbandingan spesialisasi memakai tiga kelas dan ground truth yang sama. [Metrik primer](analysis/test_evaluation/run02/tables/primary_metrics.csv) dan [notebook yang dijalankan](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb)
 - **Batch 3.1 selesai** - analisis kuantitatif mencakup peringkat dalam empat cakupan primer, spesialisasi pada tiga kelas yang sama, pergeseran domain pada kelas bersama, dan pengujian hipotesis di kedua set uji. [Analisis kuantitatif](analysis/test_evaluation/quantitative_analysis.md)
 - **Batch 3.2 selesai** - lima foto personal memperlihatkan konflik label, urutan confidence, duplikasi, dan perbedaan lokalisasi kotak serta mask. [Analisis kegagalan](analysis/test_evaluation/failure_analysis/failure_analysis.md)
-- **Batch 3.3 siap direview** - ranking oracle menambah AP50 diagnostik lemari sebesar 45,708 pp pada Mask R-CNN All-Class dan 94,396 pp pada Hard-3 dengan penugasan TP/FP tetap. [Eksperimen diagnostik](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
-- **Menunggu** - review eksperimen diagnostik dan laporan penelitian final.
+- **Batch 3.3 selesai dan telah saya tinjau** - ranking oracle menambah AP50 diagnostik lemari sebesar 45,708 pp pada Mask R-CNN All-Class dan 94,396 pp pada Hard-3 dengan penugasan TP/FP tetap. [Eksperimen diagnostik](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
+- **Batch 4** - laporan akademik dan indeks bukti siap untuk pemeriksaan akhir. [Laporan CPMK 3](analysis/report.md)
 
 ## Struktur repositori
 
@@ -27,9 +28,9 @@ Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN 
 | `analysis/dataset_audit/` | Audit dan koreksi dataset baseline. [Manifest konversi](analysis/dataset_audit/conversion_manifest.json), [QA anotasi](analysis/dataset_audit/qa_report.json), dan [contoh overlay](analysis/dataset_audit/rebuilt_yolo_mask_inspection.png). |
 | `analysis/all_class_comparison/` | Protokol unified validation, skor semua model, AP per kelas, dan dasar pemilihan Hard-3. [Konfigurasi evaluasi](analysis/all_class_comparison/evaluation_config.json) dan [keputusan Hard-3](analysis/all_class_comparison/hard3_decision.json). |
 | `analysis/hard3_comparison/` | Perbandingan pada tiga kelas yang sama, hasil uji hipotesis pada validation, grafik, dan provenance run. [Tabel per kelas](analysis/hard3_comparison/per_class_comparison_with_relative.csv) dan [audit artefak](analysis/hard3_comparison/provenance/artifact_audit.json). |
-| `analysis/personal_test_qa/` | Validasi ekspor Roboflow, distribusi kelas, pencocokan foto sumber, keputusan annotator, dan validasi mask sesudah koreksi. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [distribusi kelas](analysis/personal_test_qa/class_distribution.png). |
+| `analysis/personal_test_qa/` | Validasi ekspor Roboflow, distribusi kelas, pencocokan foto sumber, keputusan anotasi, dan validasi mask sesudah koreksi. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [distribusi kelas](analysis/personal_test_qa/class_distribution.png). |
 | `analysis/test_evaluation/` | Protokol, tabel, grafik, dan provenance Run02 untuk original dan personal test. Audit Run01 mendokumentasikan kegagalan memori yang memotivasi perubahan implementasi. [Panduan evaluasi](analysis/test_evaluation/README.md) dan [tabel perbandingan tiga kelas](analysis/test_evaluation/run02/tables/shared_hard3_comparison.csv). |
-| `analysis/figures/` dan `analysis/report.md` | Grafik baseline serta laporan sementara yang menghubungkan data, metode, hasil, dan pekerjaan tersisa. [Kurva validasi baseline](analysis/figures/all_class_validation_mask_map.png) dan [laporan](analysis/report.md). |
+| `analysis/figures/` dan `analysis/report.md` | Grafik baseline serta laporan akademik yang menghubungkan data, metode, hasil, dan keterbatasan. [Kurva validasi baseline](analysis/figures/all_class_validation_mask_map.png) dan [laporan](analysis/report.md). |
 | `experiments/` | Enam folder model per skenario. Konfigurasi berada di tingkat folder model, `metrics/` memuat log atau ringkasan, dan grafik berada di `metrics/` atau `visualizations/`. Lihat [indeks artefak per model](#artefak-per-model-dan-notebook). |
 | `notebooks/` | Notebook pelatihan, recovery Mask R-CNN, dan evaluasi test set. [Notebook Hard-3 awal](notebooks/CPMK3_Hard3_All_Models.ipynb), [rekonstruksi run training final](notebooks/CPMK3_Hard3_Final_Reconstructed.ipynb), dan [notebook evaluasi Run02](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb). |
 | `data/custom_test/` | Foto asli, pedoman anotasi, dan ground truth yang telah dibekukan. [Pedoman](data/custom_test/annotation_guidelines.md), [master dan All-Class](data/custom_test/annotations/all_class_master_corrected.coco.json), dan [Hard-3](data/custom_test/annotations/hard3_corrected.coco.json). |
@@ -49,7 +50,7 @@ Anotasi objek berbentuk poligon, yaitu rangkaian titik yang mengikuti batas obje
 
 Set uji pribadi terdiri dari 40 foto asli di `data/custom_test/images/CPMK3_Personal_Test_Set/`, termasuk 12 contoh kondisi sulit yang ditinjau secara visual. EXIF dipertahankan dan SHA-256 tiap sumber dicatat. [Daftar kondisi sulit](analysis/personal_test_qa/difficult_conditions.md), [manifest foto](evidence/photo_metadata/photo_manifest.csv), dan [metadata EXIF](evidence/photo_metadata/exif_metadata.csv).
 
-Peneliti menganotasi seluruh foto di Roboflow dengan SAM-assisted masking, poligon manual, dan pixel brush, disertai penetapan kelas dan pemeriksaan oleh peneliti. [Pedoman anotasi](data/custom_test/annotation_guidelines.md), [proses anotasi](evidence/annotation_screenshots/annotation_process.png), dan [tampilan dataset Roboflow](evidence/annotation_screenshots/dataset_overview.png).
+Saya menetapkan kelas, menganotasi seluruh foto di Roboflow dengan SAM-assisted masking, poligon manual, dan pixel brush, lalu memeriksa hasilnya. [Pedoman anotasi](data/custom_test/annotation_guidelines.md), [proses anotasi](evidence/annotation_screenshots/annotation_process.png), dan [tampilan dataset Roboflow](evidence/annotation_screenshots/dataset_overview.png).
 
 Ground truth All-Class memuat 213 instance dari 38 kelas. Hard-3 memakai 40 foto yang sama, termasuk 15 foto tanpa instance tiga kelas target untuk mengukur false positives. [Validasi dataset](analysis/personal_test_qa/finalization/report.md)
 
@@ -83,7 +84,9 @@ Rata-rata ketiga model meningkat pada validation. Mask R-CNN berada 0,157 poin p
 
 ## Evaluasi original dan personal test set
 
-Run02 menggunakan checkpoint yang sama dengan eksperimen penelitian dan ground truth personal yang telah disetujui annotator. COCOeval menghitung Mask AP50–95, AP50, AP75, serta AR100 untuk tiap kombinasi. Tabel lintas domain menyediakan cakupan kelas bersama dengan ground truth yang dapat dinilai di kedua test set. Untuk mereproduksi evaluasi di Kaggle, pasang kedua dataset dan enam checkpoint sesuai manifest, lalu gunakan mode preflight dan uji GPU sebelum menjalankan evaluasi penuh. [Hasil per kelas](analysis/test_evaluation/run02/tables/per_class_metrics.csv) dan [protokol, input, serta panduan reproduksi](analysis/test_evaluation/README.md).
+Run02 menggunakan checkpoint yang sama dengan eksperimen penelitian dan ground truth personal yang telah saya tinjau dan bekukan. COCOeval menghitung Mask AP50–95, AP50, AP75, serta AR100 untuk tiap kombinasi. Tabel lintas domain menyediakan cakupan kelas bersama dengan ground truth yang dapat dinilai di kedua test set. Untuk mereproduksi evaluasi di Kaggle, pasang kedua dataset dan enam checkpoint sesuai manifest, lalu gunakan mode preflight dan uji GPU sebelum menjalankan evaluasi penuh. [Hasil per kelas](analysis/test_evaluation/run02/tables/per_class_metrics.csv) dan [protokol, input, serta panduan reproduksi](analysis/test_evaluation/README.md).
+
+Peringkat model berubah menurut cakupan evaluasi dan set uji. Pada tiga kelas yang sama, Hard-3 menaikkan AR100 dalam keenam perbandingan, sedangkan Mask AP50–95 meningkat pada YOLOv8n di personal test sebesar 8,470 poin persentase. Saya menelaah hubungan antara recall dan AP melalui lima kasus kegagalan serta uji pengurutan confidence pada prediksi lemari Mask R-CNN. [Hasil uji dan interpretasi](analysis/report.md#9-evaluasi-original-test-set-dan-personal-test-set).
 
 ## Artefak per model dan notebook
 

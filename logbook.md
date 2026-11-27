@@ -45,10 +45,6 @@ Kolom `time` mencatat waktu kumulatif. Nilai terakhirnya adalah 599,949 detik at
 
 Setelah 60 epoch selesai, sel ekspor melaporkan `AssertionError: Mask mAP column not found.` Kode yang disusun dengan bantuan AI mencari `metrics/seg(mAP50-95)`. Pemeriksaan CSV menemukan nama kolom yang dipakai, yaitu `metrics/mAP50-95(M)` dan `metrics/mAP50(M)`. Sel ekspor disesuaikan dengan kedua nama itu, dan notebook yang tersimpan memperlihatkan ringkasan validasi setelah koreksi. Pelajarannya adalah memeriksa nama kolom dari hasil eksekusi sebelum menulis kode yang membacanya. [CSV pelatihan](experiments/yolo11n_all_classes/metrics/results.csv) dan [notebook](notebooks/cpmk3-yolo11n-seg-all-class-baseline.ipynb)
 
-## Catatan retrospektif (23 November 2026 WIB)
-
-Hipotesis untuk perbandingan tiga model pada semua kelas belum dicatat sebelum pelatihan pertama.
-
 ## F. Pelatihan YOLOv8n-seg untuk semua kelas (22 November 2026)
 
 YOLOv8n-seg memakai pembagian data, ukuran gambar (`imgsz=640`), ukuran batch (`batch=8`), dan seed (42) yang sama dengan YOLO11n-seg. Pelatihan dimulai dari bobot pralatih `yolov8n-seg.pt` dan menggunakan Ultralytics 8.4.216. [Konfigurasi](experiments/yolov8n_all_classes/args.yaml) dan [ringkasan](experiments/yolov8n_all_classes/metrics/summary.json)
@@ -86,7 +82,11 @@ COCOeval menilai kotak dan mask pada 166 gambar validasi. Mask mAP50-95 meningka
 
 Tabel AP per kelas berasal dari checkpoint terbaik. Sebanyak 16 dari 74 kelas tidak punya contoh pada data validasi dan nilai AP-nya kosong. Angka kosong perlu dibedakan dari AP nol saat memilih kelas tersulit. [AP validasi per kelas](experiments/maskrcnn_all_classes/metrics/per_class_val_ap.csv)
 
-Ketiga hasil yang dilaporkan berasal dari data validasi. Evaluasi pada set uji asli dan foto pribadi, serta pelatihan khusus tiga kelas tersulit, belum dilakukan.
+Ketiga hasil yang dilaporkan berasal dari data validasi. Pada tahap ini, saya belum menjalankan evaluasi pada set uji asli dan foto pribadi maupun pelatihan khusus tiga kelas tersulit.
+
+## Catatan retrospektif (23 November 2026 WIB)
+
+Hipotesis untuk perbandingan tiga model pada semua kelas belum dicatat sebelum pelatihan pertama.
 
 ## H. Evaluasi bersama dan pemeringkatan kandidat Hard-3 (24 November 2026)
 
@@ -100,7 +100,7 @@ Untuk menghindari pemeringkatan pada kelas yang terlalu jarang atau tidak bisa d
 
 Hipotesis berikut dirumuskan setelah evaluasi baseline all-class dengan COCOeval dan sebelum pelatihan Hard-3. Hipotesis ini bersifat prospektif untuk eksperimen Hard-3. Catatan retrospektif tentang pelatihan baseline pertama tetap berlaku.
 
-Peneliti menetapkan `cabinet-merged`, `book`, dan `bed` sebagai Hard-3. Ketiganya memiliki rata-rata Mask AP50–95 terendah di antara 39 kelas dengan minimal 10 instance train, 5 instance validation, dan AP yang tersedia dari ketiga model. Pemilihan hanya memakai data validation. Enam instance validation pada `bed` memenuhi ambang, tetapi membuat AP kelas tersebut peka terhadap perubahan beberapa prediksi. [Ranking COCOeval](analysis/all_class_comparison/hard3_ranking.csv) dan [keputusan final](analysis/all_class_comparison/hard3_decision.json).
+Saya menetapkan `cabinet-merged`, `book`, dan `bed` sebagai Hard-3. Ketiganya memiliki rata-rata Mask AP50–95 terendah di antara 39 kelas dengan minimal 10 instance train, 5 instance validation, dan AP yang tersedia dari ketiga model. Pemilihan hanya memakai data validation. Enam instance validation pada `bed` memenuhi ambang, tetapi membuat AP kelas tersebut peka terhadap perubahan beberapa prediksi. [Ranking COCOeval](analysis/all_class_comparison/hard3_ranking.csv) dan [keputusan final](analysis/all_class_comparison/hard3_decision.json).
 
 ### Hipotesis Hard-3
 
@@ -154,7 +154,7 @@ Perubahan precision, laju belajar, dan gradient clipping membatasi interpretasi 
 
 Run Kaggle V2 dimulai sekitar 09.18 WIB sesuai ID run `20261125T021827548702Z`. Percobaan awal dengan AMP gagal pada epoch 1 batch 32. Percobaan FP32 dengan laju belajar 0,005 gagal pada batch 43. Dua gambar tanpa instance Hard-3 (ID 153 dan 205) menghasilkan NaN pada loss classifier dan box regression, dengan RPN objectness loss 933,6926. Angka tersebut mendorong pemeriksaan pembaruan optimizer, keluaran RPN, dan jumlah RoI yang terpilih. Data diagnostik percobaan lama belum cukup untuk menetapkan penyebabnya. [Traceback awal](evidence/training_logs/hard3_maskrcnn/initial_training_error.txt) dan [diagnostik recovery FP32](evidence/training_logs/hard3_maskrcnn/fp32_batch43_diagnostic.json).
 
-Peneliti mempertahankan notebook Kaggle dengan input yang telah terpasang, termasuk cell rebuild ZIP dari folder ekstraksi. Dua cell diganti. Cell pelatihan menetapkan fingerprint Mask R-CNN V2 setelah recovery YOLO, menjalankan preflight, dan melatih Mask R-CNN dengan FP32, SGD, laju belajar 0,0005, serta clipping norma L2 5,0. Cell ekspor menyimpan hasil dan diagnostik V2. YOLO11n dan YOLOv8n memakai kembali checkpoint, fingerprint, dan evaluasi run awal tanpa pelatihan ulang. [Rekonstruksi kode notebook](notebooks/CPMK3_Hard3_Final_Reconstructed.ipynb) dan [status Kaggle](analysis/hard3_comparison/provenance/run_summary.json).
+Saya mempertahankan notebook Kaggle dengan input yang telah terpasang, termasuk cell rebuild ZIP dari folder ekstraksi. Dua cell diganti. Cell pelatihan menetapkan fingerprint Mask R-CNN V2 setelah recovery YOLO, menjalankan preflight, dan melatih Mask R-CNN dengan FP32, SGD, laju belajar 0,0005, serta clipping norma L2 5,0. Cell ekspor menyimpan hasil dan diagnostik V2. YOLO11n dan YOLOv8n memakai kembali checkpoint, fingerprint, dan evaluasi run awal tanpa pelatihan ulang. [Rekonstruksi kode notebook](notebooks/CPMK3_Hard3_Final_Reconstructed.ipynb) dan [status Kaggle](analysis/hard3_comparison/provenance/run_summary.json).
 
 Kedua probe awal lolos. Pada training batch 43, kedua gambar yang sebelumnya bermasalah kembali muncul dan menghasilkan total loss 0,02873, RPN objectness 0,02298, serta 512 RoI per gambar. Mask R-CNN menyelesaikan 20 epoch dan checkpoint terbaik epoch 5 berhasil dievaluasi dengan unified COCOeval. Keberhasilan konfigurasi gabungan belum mengisolasi faktor stabilisasi atau membuktikan akar kegagalan. [Probe](experiments/maskrcnn_hard3/metrics/preflight.jsonl), [log 100 batch pertama](experiments/maskrcnn_hard3/metrics/early_training_batches.jsonl), dan [ringkasan training](experiments/maskrcnn_hard3/metrics/summary.json).
 
@@ -166,11 +166,11 @@ Setelah pengumpulan awal di Classroom, ekspor COCO Segmentation dari Roboflow di
 
 Pemeriksaan COCO memvalidasi 213 instance dari 38 kelas. ID kategori diselaraskan berdasarkan kecocokan nama dengan taksonomi 74 kelas. Kategori yang berisi nama proyek tidak memiliki instance sehingga tidak masuk ke master. `mouse`, `keyboard`, dan `toothbrush` dipertahankan meski tidak muncul pada split train. Area piksel dan empat bounding box dihitung kembali dari mask yang valid. Label semantik, ID anotasi, dan geometri mask dipertahankan. Kandidat Hard-3 menyaring anotasi menjadi 33 instance pada 25 foto positif. Lima belas foto tanpa kelas target tetap disertakan agar false positives dapat diukur. [Laporan validasi](analysis/personal_test_qa/report.md) dan [log koreksi teknis](analysis/personal_test_qa/correction_log.json)
 
-Overlay seluruh foto diperiksa untuk melihat kesesuaian kelas, batas dan pemisahan instance, serta bagian yang tertutup. Di P001, satu RLE meja sudah menyimpan empat komponen terpisah. Pada P003, P005, dan P008, irisan mask mencakup seluruh objek depan atau bagian yang besar, sehingga batas mask memerlukan keputusan peneliti. Status kandidat masih **REVIEW REQUIRED**. Ground truth perlu disetujui dan dibekukan sebelum prediksi personal test ditinjau. [Antrean review](analysis/personal_test_qa/human_review.md)
+Overlay seluruh foto diperiksa untuk melihat kesesuaian kelas, batas dan pemisahan instance, serta bagian yang tertutup. Di P001, satu RLE meja sudah menyimpan empat komponen terpisah. Pada P003, P005, dan P008, irisan mask mencakup seluruh objek depan atau bagian yang besar, sehingga batas mask perlu saya tinjau. Status kandidat masih **REVIEW REQUIRED**. Ground truth perlu disetujui dan dibekukan sebelum prediksi personal test ditinjau. [Antrean review](analysis/personal_test_qa/human_review.md)
 
-## O. Koreksi batas mask berdasarkan keputusan annotator (26 November 2026 WIB)
+## O. Koreksi batas mask berdasarkan peninjauan anotasi (26 November 2026 WIB)
 
-Pada tahap penyelesaian setelah pengumpulan awal di Classroom, annotator menyetujui empat koreksi. Pada P003, piksel bantal #32 dikeluarkan dari tempat tidur #33. Pada P005, piksel laptop #193 dikeluarkan dari dinding #191 dan piksel mouse #195 dikeluarkan dari kertas #196. Annotator mengonfirmasi bahwa bidang merah muda adalah kertas. Pada P008, piksel cangkir #27 dikeluarkan dari jendela #29. Meja #48 pada P001 tetap satu instance.
+Pada tahap penyelesaian setelah pengumpulan awal di Classroom, saya menyetujui empat koreksi. Pada P003, piksel bantal #32 dikeluarkan dari tempat tidur #33. Pada P005, piksel laptop #193 dikeluarkan dari dinding #191 dan piksel mouse #195 dikeluarkan dari kertas #196. Saya mengonfirmasi bahwa bidang merah muda adalah kertas. Pada P008, piksel cangkir #27 dikeluarkan dari jendela #29. Meja #48 pada P001 tetap satu instance.
 
 Sesuai pedoman visible-instance masking, objek yang berada di depan tidak ikut dihitung sebagai bagian terlihat dari objek di belakangnya. Keputusan diterapkan pada resolusi ekspor dengan operasi `target AND NOT occluding`, kemudian dikodekan sebagai COCO RLE dan dihitung ulang area serta kotak pembatasnya. Keempat pasangan memiliki nol piksel irisan setelah koreksi. Label, ID, referensi gambar, serta seluruh mask selain empat target tetap sesuai kandidat awal. Hard-3 diturunkan dari master hasil koreksi sehingga memakai mask `bed` P003 yang sama.
 
@@ -178,7 +178,7 @@ Validasi ulang menghasilkan 40 foto, 213 instance dari 38 kelas pada All-Class, 
 
 ## P. Persetujuan akhir dan pembekuan ground truth (26 November 2026 WIB)
 
-Annotator meninjau overlay sebelum dan sesudah pada P003, P005, dan P008, lalu menyetujui keempat koreksi serta pembekuan kedua versi anotasi. Master COCO dipakai langsung untuk All-Class, sedangkan Hard-3 diturunkan dari master dan memakai 40 foto yang sama. Kedua berkas yang ditinjau ditetapkan sebagai ground truth Batch 2 berdasarkan SHA-256. Status dan tanggal persetujuan dicatat pada manifest agar evaluasi dapat mengacu pada byte anotasi yang disetujui. Batch 1 selesai. [Manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
+Saya meninjau overlay sebelum dan sesudah pada P003, P005, dan P008, lalu menyetujui keempat koreksi serta pembekuan kedua versi anotasi. Master COCO dipakai langsung untuk All-Class, sedangkan Hard-3 diturunkan dari master dan memakai 40 foto yang sama. Kedua berkas yang ditinjau ditetapkan sebagai ground truth Batch 2 berdasarkan SHA-256. Status dan tanggal persetujuan dicatat pada manifest agar evaluasi dapat mengacu pada byte anotasi yang disetujui. Batch 1 selesai. [Manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
 
 ## Q. Persiapan evaluasi test set terpadu (26 November 2026 WIB)
 
@@ -194,7 +194,7 @@ Setelah persetujuan patch, dibuat notebook recovery terpisah. Jalur YOLO memveri
 
 ## T. Evaluasi test set Run02 (26 November 2026 WIB)
 
-Karena pemindahan dan pemasangan artefak parsial menambah langkah reproduksi di Kaggle, peneliti memilih menjalankan ulang seluruh 12 kombinasi memakai jalur inferensi hemat memori yang sama. Run02 memakai enam checkpoint dan kedua test set yang telah dikunci, dengan `RESUME_INPUTS = []` dan `SELECT_PAIRS = []`.
+Karena pemindahan dan pemasangan artefak parsial menambah langkah reproduksi di Kaggle, saya memilih menjalankan ulang seluruh 12 kombinasi memakai jalur inferensi hemat memori yang sama. Run02 memakai enam checkpoint dan kedua test set yang telah dikunci, dengan `RESUME_INPUTS = []` dan `SELECT_PAIRS = []`.
 
 Cell 11 direvisi untuk memisahkan pemeriksaan encoding dari perbandingan dua jalur forward. Probe membandingkan mask native dan serial dari sumber prediksi yang sama. Di Tesla T4, kedua kontrol letterbox, 806 mask same-source, fixture sintetis 100 mask per keluarga, serta stress test resolusi tinggi untuk keenam checkpoint lulus. Perbandingan jalur forward lama dengan jalur singleton YOLO11n All-Class mencatat dua mask yang masing-masing berbeda satu piksel. Temuan ini dicatat sebagai diagnostik, dan semua metrik Run02 dihitung dari prediksi baru. [Laporan gate GPU](analysis/test_evaluation/run02/gpu_equivalence_report.json)
 
@@ -210,8 +210,12 @@ Analisis Run02 membandingkan arsitektur dalam setiap pasangan skenario dan domai
 
 ## W. Analisis kegagalan personal test (27 November 2026 WIB)
 
-Prediksi enam checkpoint pada 40 foto disaring menggunakan pencocokan sadar kelas pada IoU 0,50 dan 0,75 serta pemeriksaan overlap agnostik. Lima foto mendokumentasikan konflik label buku, prediksi lemari benar yang skornya berada di bawah FP, dan kasur dengan kotak cocok tetapi mask gagal. Perbandingan memakai prediksi Run02 dan ground truth beku. Eksperimen post-hoc tentang urutan confidence diajukan untuk review peneliti. [Analisis kegagalan dan bukti per instance](analysis/test_evaluation/failure_analysis/failure_analysis.md)
+Prediksi enam checkpoint pada 40 foto disaring menggunakan pencocokan sadar kelas pada IoU 0,50 dan 0,75 serta pemeriksaan overlap agnostik. Lima foto mendokumentasikan konflik label buku, prediksi lemari benar yang skornya berada di bawah FP, dan kasur dengan kotak cocok tetapi mask gagal. Perbandingan memakai prediksi Run02 dan ground truth beku. Eksperimen post-hoc tentang urutan confidence diajukan untuk saya pertimbangkan. [Analisis kegagalan dan bukti per instance](analysis/test_evaluation/failure_analysis/failure_analysis.md)
 
 ## X. Eksperimen oracle ranking (27 November 2026 WIB)
 
-Setelah review peneliti memilih D1, prediksi lemari Mask R-CNN pada 40 foto diurutkan ulang secara global dengan TP di depan. Assignment dan recall maksimum tetap. Headroom AP50 diagnostik mencapai 45,708 pp untuk All-Class dan 94,396 pp untuk Hard-3. Hasil ini mendukung kontribusi ranking pada AP Hard-3 yang rendah di personal test. [Hasil dan batas interpretasi](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
+Setelah meninjau lima kasus, saya memilih D1. Skrip yang disusun dengan bantuan AI mengurutkan ulang prediksi lemari Mask R-CNN pada 40 foto secara global dengan TP di depan. Assignment dan recall maksimum tetap. Headroom AP50 diagnostik mencapai 45,708 pp untuk All-Class dan 94,396 pp untuk Hard-3. Hasil ini mendukung kontribusi ranking pada AP Hard-3 yang rendah di personal test. [Hasil dan batas interpretasi](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
+
+## Y. Finalisasi laporan akademik (27 November 2026 WIB)
+
+Dengan bantuan AI, saya menyusun laporan akhir dari hasil Run02 dan analisis Batch 3 yang telah saya tinjau. Laporan menghubungkan hasil validation dan kedua test set dengan hipotesis yang saya catat sebelum pelatihan Hard-3. AP resmi COCOeval dan AP50 diagnostik D1 disajikan dengan definisi dan batas interpretasi masing-masing. Saya menggunakan log pelatihan, bukti anotasi, dan provenance untuk menelusuri hasil dan keputusan penelitian. Tahap ini berlangsung setelah pengumpulan awal melalui Classroom. [Laporan akademik](analysis/report.md)
