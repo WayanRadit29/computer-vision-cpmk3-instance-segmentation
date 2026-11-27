@@ -2,6 +2,12 @@
 
 Run02 (`20261126T152940Z-d1cca883`) mencakup enam checkpoint, dua test set, dan 12 kombinasi primer. Ketiga arsitektur memiliki checkpoint All-Class dan Hard-3. Evaluasi berlangsung pada GPU Tesla T4 tanggal 26 November 2026 WIB. [Notebook yang dijalankan](../../notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb) dan [ringkasan Run02](run02/execution_summary.json).
 
+[Analisis kuantitatif Batch 3.1](quantitative_analysis.md) memuat peringkat model, perubahan AP dan recall pada spesialisasi Hard-3, pergeseran domain pada kategori bersama, serta hasil pengujian hipotesis.
+
+[Analisis kegagalan Batch 3.2](failure_analysis/failure_analysis.md) menghubungkan lima foto personal dengan prediksi asli Run02, pencocokan per instance, dan kandidat eksperimen diagnostik.
+
+[Eksperimen diagnostik Batch 3.3](diagnostic_experiment/diagnostic_experiment.md) mengukur kontribusi urutan confidence terhadap AP50 lemari pada dua checkpoint Mask R-CNN dengan penugasan tetap.
+
 ## Ground truth dan cakupan penilaian
 
 | Cakupan | Foto | Instance | Kelas terwakili | Foto positif | Foto negatif |

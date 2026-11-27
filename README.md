@@ -6,7 +6,7 @@ Proyek ini membandingkan model visi komputer yang mengenali objek di dalam ruang
 
 Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN dalam dua skenario. **All-Class** melatih model untuk 74 kelas. **Hard-3** melatih model khusus untuk `bed`, `book`, dan `cabinet-merged`, kemudian membandingkannya dengan All-Class pada tiga kelas yang sama.
 
-1. **Periksa hasil utama.** Buka [evaluasi test set dan panduan reproduksi](analysis/test_evaluation/README.md) untuk hasil Run02. Hasil sebelumnya tersedia dalam [evaluasi validation All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan validation Hard-3](analysis/hard3_comparison/analysis.md), keduanya pada 166 gambar validation.
+1. **Periksa hasil utama.** Buka [analisis kuantitatif test set](analysis/test_evaluation/quantitative_analysis.md) untuk perbandingan model, spesialisasi, pergeseran domain, dan hasil pengujian hipotesis. Rincian eksperimen ada di [protokol dan panduan reproduksi Run02](analysis/test_evaluation/README.md). Hasil validation tersedia dalam [evaluasi All-Class](analysis/all_class_comparison/analysis.md) dan [perbandingan Hard-3](analysis/hard3_comparison/analysis.md).
 2. **Telusuri keputusan riset.** Buka [laporan sementara](analysis/report.md) untuk metodologi dan kurva pelatihan, serta [hipotesis sebelum Hard-3](logbook.md#hipotesis-hard-3) untuk melihat rencana yang diuji.
 3. **Periksa bukti penilaian.** Mulai dari [finalisasi ground truth personal test set](analysis/personal_test_qa/finalization/report.md), [bukti anotasi Roboflow](evidence/annotation_screenshots/dataset_overview.png), atau [contoh hasil demo](demo_outputs/yolo11n_all_classes__005_jpg.rf.f2248d837b7b97b5870fc8796a0eefd8.png).
 
@@ -15,7 +15,10 @@ Penelitian membandingkan YOLO11n-seg, YOLOv8n-seg, dan Mask R-CNN ResNet-50 FPN 
 - **Selesai** - pelatihan dan unified validation tiga model pada All-Class dan Hard-3, pemilihan kelas Hard-3, perbandingan hasil, evaluasi hipotesis pada validation, demo inference kepada dosen, pengumpulan 40 foto asli, anotasi di Roboflow, serta ekspor dan validasi struktural COCO.
 - **Batch 1 selesai** - annotator menyetujui empat koreksi batas mask dan membekukan ground truth All-Class dan Hard-3 pada 26 November 2026 WIB. Kedua versi siap menjadi acuan evaluasi personal test pada Batch 2. [Laporan finalisasi](analysis/personal_test_qa/finalization/report.md) dan [manifest pembekuan](analysis/personal_test_qa/finalization/ground_truth_freeze.json)
 - **Batch 2 selesai** - Run02 menilai keenam checkpoint dengan COCOeval pada 359 gambar original test dan 40 foto personal test. Setiap model dinilai pada cakupan kelas pelatihannya. Perbandingan spesialisasi memakai tiga kelas dan ground truth yang sama. [Metrik primer](analysis/test_evaluation/run02/tables/primary_metrics.csv) dan [notebook yang dijalankan](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb)
-- **Menunggu** - analisis pergeseran domain, analisis kegagalan pada lima foto, eksperimen tambahan untuk menguji penjelasan kegagalan, serta laporan penelitian final.
+- **Batch 3.1 selesai** - analisis kuantitatif mencakup peringkat dalam empat cakupan primer, spesialisasi pada tiga kelas yang sama, pergeseran domain pada kelas bersama, dan pengujian hipotesis di kedua set uji. [Analisis kuantitatif](analysis/test_evaluation/quantitative_analysis.md)
+- **Batch 3.2 selesai** - lima foto personal memperlihatkan konflik label, urutan confidence, duplikasi, dan perbedaan lokalisasi kotak serta mask. [Analisis kegagalan](analysis/test_evaluation/failure_analysis/failure_analysis.md)
+- **Batch 3.3 siap direview** - ranking oracle menambah AP50 diagnostik lemari sebesar 45,708 pp pada Mask R-CNN All-Class dan 94,396 pp pada Hard-3 dengan penugasan TP/FP tetap. [Eksperimen diagnostik](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
+- **Menunggu** - review eksperimen diagnostik dan laporan penelitian final.
 
 ## Struktur repositori
 

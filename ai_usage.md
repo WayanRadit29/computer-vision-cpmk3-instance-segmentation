@@ -167,3 +167,15 @@ Notebook yang disusun dengan bantuan AI mengandalkan `batch=1` saat meneruskan d
 AI membantu menerapkan batch singleton serta konversi mask per instance. AI juga merancang impor hasil parsial dan pemeriksaan kompatibilitas fingerprint. Peneliti meninggalkan strategi impor karena pemasangan artefak parsial di Kaggle menambah langkah, kemudian menetapkan evaluasi ulang seluruh 12 pasangan dengan satu implementasi.
 
 ChatGPT membantu merevisi Cell 11 untuk memeriksa kesetaraan encoding mask dari prediksi yang sama dan melaporkan perbedaan forward lama secara terpisah. Peneliti menjalankan notebook di Kaggle. Output GPU menunjukkan gate lulus dan mencatat dua selisih satu piksel pada kontrol lintas jalur YOLO11n All-Class. AI membantu memeriksa provenance, integritas prediksi, dan konsistensi tabel Run02 berdasarkan ekspor Kaggle. [Notebook Run02](notebooks/CPMK3_Unified_Test_Evaluation_Recovery.ipynb), [laporan GPU](analysis/test_evaluation/run02/gpu_equivalence_report.json), dan [provenance Run02](analysis/test_evaluation/run02/integration.json)
+
+### Analisis kuantitatif test set
+
+AI membantu menghitung ulang perubahan AP dari tabel Run02, mencocokkan cakupan kategori dan dukungan ground truth, membuat grafik turunan, serta menyusun interpretasi deskriptif dan evaluasi berdasarkan kriteria hipotesis yang telah dicatat. [Analisis kuantitatif](analysis/test_evaluation/quantitative_analysis.md) menyertakan sumber angka dan membatasi penjelasan mekanisme sebagai pertanyaan untuk inspeksi berikutnya.
+
+### Analisis kegagalan pada lima foto
+
+AI membantu menyaring prediksi Run02, menghitung IoU dan kecocokan per instance, memilih contoh diagnostik, serta membuat overlay dari GT beku dan mask tersimpan. AI memisahkan bukti keluaran dari dugaan mengenai tahap internal model dan mengajukan dua rancangan diagnostik. Pemilihan foto, interpretasi visual, dan rancangan eksperimen menunggu review peneliti. [Analisis kegagalan](analysis/test_evaluation/failure_analysis/failure_analysis.md)
+
+### Eksperimen oracle ranking
+
+Peneliti memilih D1 setelah review analisis kegagalan. AI mengimplementasikan intervensi urutan pada prediksi tersimpan, memeriksa bahwa assignment tetap, dan menyusun grafik serta interpretasi post-hoc. Eksperimen dijalankan di CPU menggunakan GT beku dan keluaran Run02. [Eksperimen diagnostik](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)

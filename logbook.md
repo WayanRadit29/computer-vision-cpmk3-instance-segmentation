@@ -203,3 +203,15 @@ Run02 berjalan pukul 22.29–23.00 WIB. Kedua domain dinilai untuk setiap checkp
 ## U. Verifikasi hasil test set (27 November 2026 WIB)
 
 Artefak Run02 ditelusuri ke keenam checkpoint, keempat cakupan ground truth, dan 399 berkas gambar melalui SHA-256. Pemeriksaan menghubungkan cakupan gambar dan hitungan prediksi dengan roster dan catatan runtime, memvalidasi RLE pada resolusi asli, serta mencocokkan metrik JSON dengan tabel. Run02 menjadi sumber hasil test set untuk analisis pergeseran domain dan kegagalan berikutnya. Fingerprint historis runtime dipertahankan, dan hash notebook yang memuat revisi Cell 11 dicatat terpisah. [Provenance Run02](analysis/test_evaluation/run02/integration.json)
+
+## V. Analisis kuantitatif test set (27 November 2026 WIB)
+
+Analisis Run02 membandingkan arsitektur dalam setiap pasangan skenario dan domain. Selisih spesialisasi dihitung pada tiga kelas yang sama. Perubahan domain All-Class dihitung pada 37 kelas dengan ground truth yang dapat dinilai di kedua set uji. Hard-3 menaikkan recall agregat pada semua pasangan, sementara kenaikan AP terjadi pada YOLOv8n di personal test (+8,470 pp). Bukti test tidak mendukung H1 dan H2, serta mendukung H3 sebagian. Analisis berikutnya akan menelaah pola kesalahan pada tingkat instance dan gambar. [Analisis kuantitatif](analysis/test_evaluation/quantitative_analysis.md)
+
+## W. Analisis kegagalan personal test (27 November 2026 WIB)
+
+Prediksi enam checkpoint pada 40 foto disaring menggunakan pencocokan sadar kelas pada IoU 0,50 dan 0,75 serta pemeriksaan overlap agnostik. Lima foto mendokumentasikan konflik label buku, prediksi lemari benar yang skornya berada di bawah FP, dan kasur dengan kotak cocok tetapi mask gagal. Perbandingan memakai prediksi Run02 dan ground truth beku. Eksperimen post-hoc tentang urutan confidence diajukan untuk review peneliti. [Analisis kegagalan dan bukti per instance](analysis/test_evaluation/failure_analysis/failure_analysis.md)
+
+## X. Eksperimen oracle ranking (27 November 2026 WIB)
+
+Setelah review peneliti memilih D1, prediksi lemari Mask R-CNN pada 40 foto diurutkan ulang secara global dengan TP di depan. Assignment dan recall maksimum tetap. Headroom AP50 diagnostik mencapai 45,708 pp untuk All-Class dan 94,396 pp untuk Hard-3. Hasil ini mendukung kontribusi ranking pada AP Hard-3 yang rendah di personal test. [Hasil dan batas interpretasi](analysis/test_evaluation/diagnostic_experiment/diagnostic_experiment.md)
